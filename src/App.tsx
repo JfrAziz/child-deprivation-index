@@ -16,6 +16,7 @@ import {
 } from "./sections/indoensia-overview";
 import graticule from "./data/graticule";
 import { HDIExplanation } from "./sections/hdi";
+import { ThemeButton } from "./sections/theme-button";
 
 const App = () => {
   const state = useLayerStyle((state) => state);
@@ -85,6 +86,7 @@ const App = () => {
         </div>
 
         <div className="z-10 absolute w-full">
+          <ThemeButton />
           <Hero />
           <IndonesiaOverview />
           <JavaPovertyOverview />
