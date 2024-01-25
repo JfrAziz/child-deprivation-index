@@ -15,6 +15,7 @@ import {
   JavaPovertyOverview,
 } from "./sections/indonesia-overview";
 import graticule from "./data/graticule";
+import { ThemeButton } from "./sections/theme-button";
 import { MethodExplanation, YogyakartaRegencies } from "./sections/satellite";
 
 const App = () => {
@@ -83,6 +84,7 @@ const App = () => {
         </div>
 
         <div className="z-10 absolute w-full">
+          <ThemeButton />
           <Hero />
           <IndonesiaOverview />
           <JavaPovertyOverview />

@@ -2,10 +2,7 @@ import { Config } from "tailwindcss";
 
 export default {
   darkMode: ["class"],
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   prefix: "",
   theme: {
     container: {
@@ -72,5 +69,8 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} as Config
+  daisyui: {
+    themes: ['cupcake', 'dark', 'nord', 'synthwave'],
+  },
+  plugins: [require("tailwindcss-animate"), require("daisyui")],
+} as Config;
