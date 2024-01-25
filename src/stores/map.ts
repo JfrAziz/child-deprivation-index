@@ -21,3 +21,22 @@ export const useLayerStyle = create<LayerStyle>()(() => ({
     "fill-outline-color-transition": { duration: 2000 },
   },
 }));
+
+interface NumberPopup {
+  position: "top" | "bottom";
+  lng: number;
+  lat: number;
+  title: string;
+  subtitle: string;
+  value: string | number;
+}
+
+interface PopupStore {
+  active: boolean;
+  numberPopups: NumberPopup[];
+}
+
+export const usePopupStore = create<PopupStore>()(() => ({
+  active: false,
+  numberPopups: [],
+}));
