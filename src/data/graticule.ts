@@ -3,7 +3,7 @@ const graticule: GeoJSON.FeatureCollection = {
   features: [],
 };
 
-for (let lng = -170; lng <= 180; lng += 10) {
+for (let lng = -170; lng <= 180; lng += 5) {
   graticule.features.push({
     type: "Feature",
     geometry: {
@@ -16,7 +16,7 @@ for (let lng = -170; lng <= 180; lng += 10) {
     properties: { value: lng },
   });
 }
-for (let lat = -80; lat <= 80; lat += 10) {
+for (let lat = -80; lat <= 80; lat += 5) {
   graticule.features.push({
     type: "Feature",
     geometry: {

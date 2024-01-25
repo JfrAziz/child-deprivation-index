@@ -1,33 +1,12 @@
-import { useEffect } from "react";
-import { useMap } from "react-map-gl";
-import { useIntersectionObserver } from "@uidotdev/usehooks";
+import { SectionWrapper } from "@/components/section-card";
 
 export const Hero = () => {
-  const { map } = useMap();
-
-  const [ref, entry] = useIntersectionObserver({
-    threshold: 1,
-    root: null,
-  });
-
   const url = (name: string, wrap = false) =>
     `${
       wrap ? "url(" : ""
     }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
       wrap ? ")" : ""
     }`;
-
-  useEffect(() => {
-    if (entry?.isIntersecting) {
-      map?.flyTo({
-        duration: 3000,
-        center: [96, 30],
-        zoom: 3,
-        pitch: 0.0,
-        bearing: 0.0,
-      });
-    }
-  }, [entry, map]);
 
   return (
     <section className="w-full">
@@ -114,11 +93,20 @@ export const Hero = () => {
       </div>
       <div className="h-svh bg-orange-400">hero 2</div>
       <div className="h-svh bg-sky-300">hero 3</div>
-      <div className="h-svh bg-transparent flex items-center justify-center">
-        <div ref={ref} className="bg-black text-white w-96 h-48">
-          Just example hero
-        </div>
-      </div>
+      <SectionWrapper
+        className="flex items-center justify-center"
+        onSectionEnter={(map) => {
+          map?.flyTo({
+            duration: 3000,
+            center: [96, 30],
+            zoom: 3,
+            pitch: 0.0,
+            bearing: 0.0,
+          });
+        }}
+      >
+        <div className="bg-black text-white w-96 h-48">Just example hero</div>
+      </SectionWrapper>
     </section>
   );
 };

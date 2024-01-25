@@ -1,42 +1,49 @@
 import { create } from "zustand";
-import { FillPaint } from "mapbox-gl";
+import { FillPaint, LinePaint } from "mapbox-gl";
 
 interface LayerStyle {
   "indonesia-province": FillPaint;
   "yogyakarta-regencies": FillPaint;
+  graticule: LinePaint;
 }
 
 export const useLayerStyle = create<LayerStyle>()(() => ({
   "indonesia-province": {
-    "fill-color": "#FF0",
     "fill-opacity": 0,
+    "fill-color": "#FFF",
+    "fill-outline-color": "#000",
     "fill-color-transition": { duration: 2000 },
     "fill-opacity-transition": { duration: 2000 },
     "fill-outline-color-transition": { duration: 2000 },
   },
   "yogyakarta-regencies": {
-    "fill-color": "#000",
+    "fill-color": "#FFF",
     "fill-opacity": 0,
     "fill-opacity-transition": { duration: 2000 },
     "fill-outline-color-transition": { duration: 2000 },
   },
+  graticule: {
+    "line-opacity": 0,
+    "line-color": "#777",
+    "line-opacity-transition": { duration: 1000 },
+  },
 }));
 
-interface NumberPopup {
-  position: "top" | "bottom";
+interface Popup {
   lng: number;
   lat: number;
   title: string;
   subtitle: string;
   value: string | number;
+  pinPosition: "top" | "bottom";
 }
 
 interface PopupStore {
   active: boolean;
-  numberPopups: NumberPopup[];
+  popups: Popup[];
 }
 
 export const usePopupStore = create<PopupStore>()(() => ({
   active: false,
-  numberPopups: [],
+  popups: [],
 }));

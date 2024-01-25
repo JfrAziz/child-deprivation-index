@@ -13,15 +13,15 @@ import {
   JavaHDI,
   JavaPoverty,
   JavaPovertyOverview,
-} from "./sections/indoensia-overview";
+} from "./sections/indonesia-overview";
 import graticule from "./data/graticule";
-import { HDIExplanation } from "./sections/hdi";
 import { ThemeButton } from "./sections/theme-button";
+import { MethodExplanation, YogyakartaRegencies } from "./sections/satellite";
 
 const App = () => {
   const state = useLayerStyle((state) => state);
 
-  const popups = usePopupStore((state) => state.numberPopups);
+  const popups = usePopupStore((state) => state.popups);
   const isPopupActive = usePopupStore((state) => state.active);
 
   return (
@@ -30,7 +30,9 @@ const App = () => {
         <div className="z-0 fixed inset-0 h-svh w-svw">
           <Map
             id="map"
-            mapStyle={"mapbox://styles/mapbox/streets-v12"}
+            projection={{ name: "globe" }}
+            fog={{ "star-intensity": 1 }}
+            mapStyle="mapbox://styles/mapbox/standard"
             mapboxAccessToken="pk.eyJ1IjoiamZyYXppeiIsImEiOiJjbDY3ZXBwaDcza210M2JvMXhtejFmeG9tIn0.TEidGiCBZ2ZOJyu-Aqifiw"
           >
             {isPopupActive &&
@@ -39,7 +41,7 @@ const App = () => {
                   key={index}
                   latitude={popup.lat}
                   longitude={popup.lng}
-                  anchor={popup.position}
+                  anchor={popup.pinPosition}
                   className="!opacity-60"
                 >
                   <div className="bg-foreground text-background p-2 border-border rounded-sm">
@@ -76,11 +78,7 @@ const App = () => {
               id="graticule"
               data={graticule as GeoJSON.FeatureCollection}
             >
-              <Layer
-                type="line"
-                id="graticule"
-                paint={{ "line-color": "#000" }}
-              />
+              <Layer type="line" id="graticule" paint={state["graticule"]} />
             </Source>
           </Map>
         </div>
@@ -92,7 +90,8 @@ const App = () => {
           <JavaPovertyOverview />
           <JavaHDI />
           <JavaPoverty />
-          <HDIExplanation />
+          <MethodExplanation />
+          <YogyakartaRegencies />
         </div>
       </MapProvider>
     </main>
