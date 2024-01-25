@@ -90,6 +90,8 @@ export const YogyakartaCDI = () => {
           },
         }));
 
+        // map.la
+
         map?.flyTo({
           center: [110.39413, -7.7754],
           zoom: 9.5,

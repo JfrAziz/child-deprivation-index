@@ -71,7 +71,7 @@ export const Hero = () => {
         </div>
       </div>
       <SectionWrapper
-        className="flex items-center justify-center bg-gradient-to-b from-base-100 to-transparent"
+        className="!max-w-full bg-gradient-to-b from-base-100 to-transparent"
         onSectionEnter={(map) => {
           map?.flyTo({
             duration: 3000,
