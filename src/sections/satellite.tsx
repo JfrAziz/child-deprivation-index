@@ -76,3 +76,37 @@ export const YogyakartaRegencies = () => {
     </SectionWrapper>
   );
 };
+
+export const YogyakartaCDI = () => {
+  return (
+    <SectionWrapper
+      className="flex flex-row items-center justify-end"
+      onSectionEnter={(map) => {
+        useLayerStyle.setState((state) => ({
+          graticule: { ...state["graticule"], "line-opacity": 0 },
+          "yogyakarta-regencies": {
+            ...state["yogyakarta-regencies"],
+            "fill-opacity": 0,
+          },
+        }));
+
+        map?.flyTo({
+          center: [110.39413, -7.7754],
+          zoom: 9.5,
+          bearing: 0,
+          pitch: 0,
+        });
+      }}
+    >
+      <SectionCard title="D.I Yogyakarta CDI">
+        <p>
+          The one square kilometer area displayed illustrates children who are
+          prioritized from access to education, health and economic facilities.
+          In the Sleman Regency there are 3 grids that have the lowest
+          percentage of children with the lowest supply of all provinces of D.I
+          Yogyakarta.
+        </p>
+      </SectionCard>
+    </SectionWrapper>
+  );
+};

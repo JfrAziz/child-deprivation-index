@@ -16,7 +16,7 @@ import {
 } from "./sections/indonesia-overview";
 import graticule from "./data/graticule";
 import { ThemeButton } from "./sections/theme-button";
-import { MethodExplanation, YogyakartaRegencies } from "./sections/satellite";
+import { MethodExplanation, YogyakartaCDI, YogyakartaRegencies } from "./sections/satellite";
 
 const App = () => {
   const state = useLayerStyle((state) => state);
@@ -30,9 +30,9 @@ const App = () => {
         <div className="z-0 fixed inset-0 h-svh w-svw">
           <Map
             id="map"
-            projection={{ name: "globe" }}
             fog={{ "star-intensity": 1 }}
-            mapStyle="mapbox://styles/mapbox/standard"
+            projection={{ name: "globe" }}
+            mapStyle="mapbox://styles/jfraziz/clrt2i69500kf01qy7i2n5oin"
             mapboxAccessToken="pk.eyJ1IjoiamZyYXppeiIsImEiOiJjbDY3ZXBwaDcza210M2JvMXhtejFmeG9tIn0.TEidGiCBZ2ZOJyu-Aqifiw"
           >
             {isPopupActive &&
@@ -92,6 +92,7 @@ const App = () => {
           <JavaPoverty />
           <MethodExplanation />
           <YogyakartaRegencies />
+          <YogyakartaCDI/>
         </div>
       </MapProvider>
     </main>
