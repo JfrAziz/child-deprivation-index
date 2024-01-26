@@ -86,3 +86,90 @@
 .mapboxgl-popup-tip {
   @apply !border-b-foreground !border-t-foreground !opacity-60
 }
+
+
+.swing {
+  animation: swing ease-in-out 6s infinite alternate;
+  transform-origin: center -20px;
+  float: left;
+}
+.swing:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+  top: -10px;
+  left: 50%;
+  z-index: 0;
+  border-bottom: none;
+  border-right: none;
+  transform: rotate(45deg);
+}
+/* nail */
+.swing:before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: -14px;
+  left: 54%;
+  z-index: 5;
+  border-radius: 50% 50%;
+  background: #000;
+}
+
+@keyframes swing {
+  0% {
+    transform: rotate(-3deg);
+  }
+  50% {
+    margin-left: 73%;
+  }
+  100% {
+    transform: rotate(7deg);
+  }
+}
+
+.swing-left {
+  animation: swing-left ease-in-out 7s infinite alternate;
+  transform-origin: center -20px scaleX(-1);
+  float: left;
+}
+.swing-left:after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+  top: -10px;
+  left: 50%;
+  z-index: 0;
+  border-bottom: none;
+  border-right: none;
+  transform: rotate(45deg) scaleX(-1);
+}
+/* nail */
+.swing-left:before {
+  content: '';
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  top: -14px;
+  left: 54%;
+  z-index: 5;
+  border-radius: 50% 50%;
+  background: #000;
+}
+
+@keyframes swing-left {
+  0% {
+    transform: rotate(-9deg) scaleX(-1);
+  }
+  50% {
+    margin-left: 10%;
+  }
+  100% {
+    transform: rotate(8deg) scaleX(-1);
+  }
+}
