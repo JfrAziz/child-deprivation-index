@@ -1,5 +1,3 @@
-import { SectionWrapper } from "@/components/section-card";
-
 import { useScroll, motion, useTransform } from "framer-motion";
 
 export const Hero = () => {
@@ -14,8 +12,33 @@ export const Hero = () => {
           backgroundSize: "cover",
         }}
       >
-        <motion.div style={{ y: useTransform(scrollY, [0, 900], [0, 400]), x: 0 }} className="hero min-h-screen">
-          <div className="hero-content flex flex-col gap-y-[clamp(1.4rem,3vw,3rem)]">
+        <div className="hero min-h-screen">
+          <img
+            alt="satellite"
+            src="/images/poverty/satelit.png"
+            className="swing-left justify-start"
+            style={{
+              width: "clamp(7rem,17vw,17rem)",
+              marginBottom: "clamp(14rem,35vw,37rem)",
+              marginRight: "65%",
+            }}
+          />
+          <img
+            alt="satellite"
+            src="/images/poverty/satelit.png"
+            className="swing"
+            style={{
+              width: "clamp(7rem,17vw,17rem)",
+              marginBottom: "clamp(16rem,27vw,37rem)",
+              marginLeft: "60%",
+              transform: "rotate(-15deg)",
+            }}
+          />
+
+          <motion.div
+            style={{ y: useTransform(scrollY, [0, 900], [0, 300]), x: 0 }}
+            className="hero-content flex flex-col gap-y-[clamp(1.4rem,3vw,3rem)]"
+          >
             <div className="flex justify-evenly gap-[clamp(0.2rem,2vw,1rem)]">
               <div className="px-[clamp(0.2rem,6vw,2rem)] py-[clamp(0.5rem,3vw,1rem)] bg-background flex rounded-full">
                 <span>
@@ -78,21 +101,10 @@ export const Hero = () => {
                 </h1>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+
+        </div>
       </div>
-      <SectionWrapper
-        className="!max-w-full bg-gradient-to-b from-base-100 to-transparent"
-        onSectionEnter={(map) => {
-          map?.flyTo({
-            duration: 3000,
-            center: [96, 30],
-            zoom: 3,
-            pitch: 0.0,
-            bearing: 0.0,
-          });
-        }}
-      />
     </section>
   );
 };

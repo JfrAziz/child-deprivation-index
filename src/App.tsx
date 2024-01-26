@@ -21,6 +21,7 @@ import {
   YogyakartaCDI,
   YogyakartaRegencies,
 } from "./sections/satellite";
+import { Cityscape } from "./sections/cityscape";
 
 const App = () => {
   const state = useLayerStyle((state) => state);
@@ -92,6 +93,7 @@ const App = () => {
         <div className="z-10 absolute w-full">
           <ThemeButton />
           <Hero />
+          <Cityscape />
           <IndonesiaOverview />
           <JavaPovertyOverview />
           <JavaHDI />
