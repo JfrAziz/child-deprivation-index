@@ -29,7 +29,7 @@ const App = () => {
   const isPopupActive = usePopupStore((state) => state.active);
 
   return (
-    <main className="">
+    <main className="font-urbanist">
       <MapProvider>
         <div className="z-0 fixed inset-0 h-svh w-svw">
           <Map
