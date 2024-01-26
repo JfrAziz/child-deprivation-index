@@ -16,7 +16,7 @@ export const Hero = () => {
       >
         <div className="hero min-h-screen">
           <img
-            alt="satelit"
+            alt="satellite"
             src="/images/poverty/satelit.png"
             className="swing-left justify-start"
             style={{
@@ -26,7 +26,7 @@ export const Hero = () => {
             }}
           />
           <img
-            alt="satelit"
+            alt="satellite"
             src="/images/poverty/satelit.png"
             className="swing"
             style={{
@@ -38,7 +38,7 @@ export const Hero = () => {
           />
 
           <motion.div
-            style={{ y: useTransform(scrollY, [0, 900], [0, 400]), x: 0 }}
+            style={{ y: useTransform(scrollY, [0, 900], [0, 300]), x: 0 }}
             className="hero-content flex flex-col gap-y-[clamp(1.4rem,3vw,3rem)]"
           >
             <div className="flex justify-evenly gap-[clamp(0.2rem,2vw,1rem)]">
@@ -104,9 +104,10 @@ export const Hero = () => {
               </div>
             </div>
           </motion.div>
+
         </div>
       </div>
-      <SectionWrapper
+      {/* <SectionWrapper
         className="!max-w-full bg-gradient-to-b from-base-100 to-transparent"
         onSectionEnter={(map) => {
           map?.flyTo({
@@ -117,7 +118,7 @@ export const Hero = () => {
             bearing: 0.0,
           });
         }}
-      />
+      /> */}
     </section>
   );
 };
