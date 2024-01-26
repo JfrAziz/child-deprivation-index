@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export const ThemeButton = () => {
   const [theme, setTheme] = useState("synthwave"); //default theme 'synthwave'
-  const themes = ["cupcake", "dark", "nord", "synthwave"];
+  const themes = ["dark", "synthwave"];
 
   useEffect(() => {
     const body = document.documentElement;
