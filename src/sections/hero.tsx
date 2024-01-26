@@ -1,6 +1,9 @@
 import { SectionWrapper } from "@/components/section-card";
 
+import { useScroll, motion, useTransform } from "framer-motion";
+
 export const Hero = () => {
+  const { scrollY } = useScroll();
 
   return (
     <section className="w-full">
@@ -11,7 +14,7 @@ export const Hero = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="hero min-h-screen">
+        <motion.div style={{ y: useTransform(scrollY, [0, 900], [0, 400]), x: 0 }} className="hero min-h-screen">
           <div className="hero-content flex flex-col gap-y-[clamp(1.4rem,3vw,3rem)]">
             <div className="flex justify-evenly gap-[clamp(0.2rem,2vw,1rem)]">
               <div className="px-[clamp(0.2rem,6vw,2rem)] py-[clamp(0.5rem,3vw,1rem)] bg-background flex rounded-full">
@@ -25,9 +28,8 @@ export const Hero = () => {
                 <p className="font-arial ml-[clamp(0.4rem,0.6vw,1rem)] text-[clamp(0.5rem,1vw,1rem)] font-bold uppercase italic text-blue-500">
                   Statistics Indonesia
                 </p>
-                
               </div>
-              
+
               <div className="px-[clamp(0.2rem,6vw,2rem)] py-[clamp(0.5rem,3vw,1rem)] bg-[#00AEEC] flex rounded-full">
                 <span>
                   <img
@@ -35,7 +37,7 @@ export const Hero = () => {
                     alt="unicef"
                     src="https://www.unicef.org/sites/default/files/styles/logo/public/English_9.png.webp"
                   />
-                </span>                
+                </span>
               </div>
             </div>
 
@@ -44,7 +46,7 @@ export const Hero = () => {
                 <h1 className="font-title !text-center text-[clamp(1.2rem,4vw,3rem)] font-bold leading-[1.1] mb-[2em">
                   <span className="inline-grid text-center">
                     <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937]">
-                    From the Sky to the Ground:
+                      From the Sky to the Ground:
                     </span>
                   </span>
                 </h1>
@@ -54,9 +56,11 @@ export const Hero = () => {
                       className="pointer-events-none col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text blur-xl [-webkit-text-fill-color:transparent] [transform:translate3d(0,0,0)] before:content-[attr(data-text)] [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]"
                       aria-hidden="true"
                       data-text="component library"
-                    >Mapping Child </span>
+                    >
+                      Mapping Child{" "}
+                    </span>
                     <span className="[&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text drop-shadow-[0_0.1em_0.1em_theme(colors.base-300)] [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]">
-                    Mapping Child Deprivation via Satellite
+                      Mapping Child Deprivation via Satellite
                     </span>
                   </span>
                 </h1>
@@ -75,7 +79,7 @@ export const Hero = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
       <SectionWrapper
         className="!max-w-full bg-gradient-to-b from-base-100 to-transparent"
