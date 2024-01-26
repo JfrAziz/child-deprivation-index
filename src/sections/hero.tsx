@@ -1,5 +1,3 @@
-import { SectionWrapper } from "@/components/section-card";
-
 import { useScroll, motion, useTransform } from "framer-motion";
 
 export const Hero = () => {
@@ -107,18 +105,6 @@ export const Hero = () => {
 
         </div>
       </div>
-      {/* <SectionWrapper
-        className="!max-w-full bg-gradient-to-b from-base-100 to-transparent"
-        onSectionEnter={(map) => {
-          map?.flyTo({
-            duration: 3000,
-            center: [96, 30],
-            zoom: 3,
-            pitch: 0.0,
-            bearing: 0.0,
-          });
-        }}
-      /> */}
     </section>
   );
 };
