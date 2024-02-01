@@ -19,7 +19,7 @@ export const useLayerStyle = create<LayerStyle>()(() => ({
   "yogyakarta-regencies": {
     "fill-color": "#FFF",
     "fill-opacity": 0,
-    "fill-opacity-transition": { duration: 2000 },
+    "fill-opacity-transition": { duration: 500 },
     "fill-outline-color-transition": { duration: 2000 },
   },
   graticule: {

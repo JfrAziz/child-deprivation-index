@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        'urbanist': ['Urbanist', 'sans-serif'],
+        urbanist: ["Urbanist", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -73,7 +73,11 @@ export default {
     },
   },
   daisyui: {
-    themes: ['cupcake', 'dark', 'nord', 'synthwave'],
+    themes: ["cupcake", "dark", "nord", "synthwave"],
   },
-  plugins: [require("tailwindcss-animate"), require("daisyui")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("daisyui"),
+    require("@tailwindcss/typography"),
+  ],
 } as Config;

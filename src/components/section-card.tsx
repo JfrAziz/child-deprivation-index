@@ -30,8 +30,10 @@ export const SectionWrapper: FC<SectionWrapperProps> = ({
         props.className
       )}
     >
-      <div className="z-10">{props.children}</div>
-      <div ref={ref} className="absolute left-0 h-3/5 w-full bg-transparent" />
+      <div className="absolute inset-0 w-full h-full flex items-center justify-center z-0">
+        <div ref={ref} className="h-3/5 w-full bg-transparent" />
+      </div>
+      <div className="z-50 relative">{props.children}</div>
     </section>
   );
 };

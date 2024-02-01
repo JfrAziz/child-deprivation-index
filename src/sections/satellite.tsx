@@ -4,8 +4,15 @@ import { SectionCard, SectionWrapper } from "@/components/section-card";
 export const MethodExplanation = () => {
   return (
     <SectionWrapper
-      className="flex flex-row items-center"
+      className="!max-w-full m-auto p-0 relative"
       onSectionEnter={(map) => {
+        /**
+         * reset any mapbox style layer
+         */
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+
+        map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
+
         usePopupStore.setState({ active: false });
 
         useLayerStyle.setState((state) => ({
@@ -28,14 +35,63 @@ export const MethodExplanation = () => {
         });
       }}
     >
-      <SectionCard title="Satellite Imagery">
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam
-          officiis velit reprehenderit, laborum repellat exercitationem
-          recusandae itaque tempora dolorum ipsum explicabo cumque dolorem
-          provident, blanditiis nobis quibusdam animi numquam illo?\
-        </p>
-      </SectionCard>
+      <div className="bg-gradient-to-b from-transparent to-foreground/90 h-96" />
+      <div className="bg-foreground/90 text-background py-20 min-h-svh">
+        <div className="container m-auto max-w-2xl prose">
+          <h3 className="uppercase font-mono text-xl mb-2">Satelite Imagery</h3>
+          <p>
+            The Copernicus earth observation program launched by the European
+            Space Agency (ESA) on March 22 2014 can be applied to analyze the
+            earth's surface. Earth's surface image data is collected from the
+            sensors of several Sentinel satellites. The Sentinel-2 sensor
+            collects image data of the earth's surface to analyze vegetation,
+            land use and hydrology. The approach to identifying the presence of
+            vegetation, land use, hydrology from the Sentinel-2 satellites and
+            night light intensity from the VIIRS satellite can identify economic
+            activities in an area measuring 1 km square. The results of this
+            approach were carried out to overcome the problem of data that could
+            not be produced from survey data collection with a limited sample.
+          </p>
+          <p>
+            Analysis of the presence of vegetation from sentinel-2 data is
+            produced from measuring satellite spectral waves into an index and
+            is known as the Normalized Difference Vegetation Index (NDVI). NDVI
+            can be used to monitor land uses, such as residential, industrial
+            and agricultural. This data can be used to monitor land use changes,
+            such as urban expansion and agricultural development. Based on NDVI
+            analysis, we can find out the location of children within 1 square
+            km of agricultural locations.
+          </p>
+          <p>
+            Apart from that, from sentinel-2, the NDBI (Normalized Difference
+            Build Index) index can also be obtained which can be used to map
+            urban areas and monitor changes in land use. Based on the NDBI
+            index, it can be seen from the location of 1 square km of children's
+            access to public facilities to meet their basic needs. Not only
+            that, from Sentinel-2, the NDWI index (Normalized Difference Water
+            Index) is also obtained which can be used to detect water and the
+            quality of clean water needed for children's development.
+          </p>
+          <p>
+            Good air conditions are measured by air quality which has low levels
+            of carbon monoxide and sulphur dioxide as elements that cause air
+            pollution from fossil fuels. Carbon monoxide and sulfur dioxide
+            contents were obtained from the Sentinel 5P Satellite. Geothermal
+            heat from the Modis satellite is also used to identify good
+            environmental conditions for child development. The advantage of
+            satellite image data which can produce index values up to a grid
+            size of 1 square km means that satellite data can be more targeted
+            at showing the location of deprived children. Identification of the
+            location of deprived children can be further explained by
+            integrating satellite image data with data on children's access to
+            education, health and economic facilities. This new data source
+            innovation with the support of machine learning modeling can
+            estimate the percentage of deprived children on a grid size of 1
+            square km which cannot be done with limited census or survey data.
+          </p>
+        </div>
+      </div>
+      <div className="bg-gradient-to-t from-transparent to-foreground/90 h-96" />
     </SectionWrapper>
   );
 };
@@ -45,14 +101,16 @@ export const YogyakartaRegencies = () => {
     <SectionWrapper
       className="flex flex-row items-center justify-end"
       onSectionEnter={(map) => {
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+
         usePopupStore.setState({ active: false });
 
         useLayerStyle.setState((state) => ({
           graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
-            "fill-opacity": 0.7,
-            "fill-color": "#fda772",
+            "fill-opacity": 0.6,
+            "fill-color": "#c03831",
             "fill-outline-color": "#7f0000",
           },
         }));
@@ -86,11 +144,12 @@ export const YogyakartaCDI = () => {
           graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
-            "fill-opacity": 0,
+            "fill-opacity": 0.2,
           },
         }));
 
-        // map.la
+        map?.moveLayer("cdi");
+        map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
 
         map?.flyTo({
           center: [110.39413, -7.7754],
