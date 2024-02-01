@@ -138,7 +138,7 @@ export const YogyakartaRegencies = () => {
 export const YogyakartaCDI = () => {
   return (
     <SectionWrapper
-      className="flex flex-row items-center justify-end"
+      className="flex flex-row items-center"
       onSectionEnter={(map) => {
         useLayerStyle.setState((state) => ({
           graticule: { ...state["graticule"], "line-opacity": 0 },

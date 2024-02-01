@@ -17,7 +17,7 @@ export const IndonesiaOverview = () => {
         useLayerStyle.setState((state) => ({
           "indonesia-province": {
             ...state["indonesia-province"],
-            "fill-opacity": 0.75,
+            "fill-opacity": 0.5,
             "fill-color": "#FFF",
             "fill-outline-color": "#000",
           },
@@ -67,7 +67,7 @@ export const JavaPovertyOverview = () => {
               1,
               ["==", ["get", "ADM1_PCODE"], "ID35"], // Jawa Timur
               1,
-              0.75,
+              0.2,
             ],
             "fill-color": [
               "case",
@@ -116,7 +116,14 @@ export const JavaHDI = () => {
           "indonesia-province": {
             ...state["indonesia-province"],
             "fill-color-transition": { duration: 2000 },
-            "fill-opacity": 1,
+            "fill-opacity": [
+              "case",
+              ["==", ["get", "ADM1_PCODE"], "ID31"], // DKI
+              1,
+              ["==", ["get", "ADM1_PCODE"], "ID34"], // Jogjakarta
+              1,
+              0.3,
+            ],
             "fill-outline-color": "#000",
             "fill-color": [
               "case",
@@ -179,7 +186,14 @@ export const JavaPoverty = () => {
           graticule: { ...state["graticule"], "line-opacity": 0 },
           "indonesia-province": {
             ...state["indonesia-province"],
-            "fill-opacity": 1,
+            "fill-opacity": [
+              "case",
+              ["==", ["get", "ADM1_PCODE"], "ID32"], // Jawa Barat
+              1,
+              ["==", ["get", "ADM1_PCODE"], "ID34"], // Jogjakarta
+              1,
+              0.3,
+            ],
             "fill-outline-color": "#000",
             "fill-color": [
               "case",

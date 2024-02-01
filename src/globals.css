@@ -84,7 +84,7 @@
 }
 
 .mapboxgl-popup-tip {
-  @apply !border-b-foreground !border-t-foreground !opacity-60
+  @apply !border-b-background !border-t-background
 }
 
 

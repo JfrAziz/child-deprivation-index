@@ -1,7 +1,5 @@
-import { SectionWrapper } from "@/components/section-card";
-
-import { useScroll, motion, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { useScroll, motion, useTransform } from "framer-motion";
 
 export const Cityscape = () => {
   const ref = useRef(null);
@@ -10,7 +8,7 @@ export const Cityscape = () => {
   return (
     <section className="w-full ">
       <div
-        className="h-svh z-20 bg-base-100 "
+        className="z-20 bg-base-100 "
         style={{
           backgroundImage: `url("https://awv3node-homepage.surge.sh/build/assets/stars.svg")`,
           backgroundSize: "cover",
@@ -71,18 +69,6 @@ export const Cityscape = () => {
           </motion.div>
         </div>
       </div>
-      <SectionWrapper
-        className="!max-w-full bg-gradient-to-b from-base-100 to-transparent !-z-10"
-        onSectionEnter={(map) => {
-          map?.flyTo({
-            duration: 3000,
-            center: [96, 30],
-            zoom: 3,
-            pitch: 0.0,
-            bearing: 0.0,
-          });
-        }}
-      />
     </section>
   );
 };

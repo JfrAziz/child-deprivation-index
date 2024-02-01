@@ -22,6 +22,7 @@ import {
   YogyakartaRegencies,
 } from "./sections/satellite";
 import { Cityscape } from "./sections/cityscape";
+import { Quotes } from "./sections/quotes";
 
 const App = () => {
   const state = useLayerStyle((state) => state);
@@ -48,11 +49,14 @@ const App = () => {
                   latitude={popup.lat}
                   longitude={popup.lng}
                   anchor={popup.pinPosition}
-                  className="!opacity-60"
                 >
-                  <div className="bg-foreground text-background p-2 border-border rounded-sm">
-                    <div className="text-lg font-bold">{popup.title}</div>
-                    <div className="text-muted text-sm">{popup.subtitle}</div>
+                  <div className="bg-background p-4 border-border rounded-lg min-w-40 text-foreground">
+                    <div className="text-lg font-mono uppercase">
+                      {popup.title}
+                    </div>
+                    <div className="text-muted-foreground text-sm">
+                      {popup.subtitle}
+                    </div>
                     <div className="text-3xl font-bold">{popup.value}</div>
                   </div>
                 </Popup>
@@ -94,6 +98,7 @@ const App = () => {
           <ThemeButton />
           <Hero />
           <Cityscape />
+          <Quotes />
           <IndonesiaOverview />
           <JavaPovertyOverview />
           <JavaHDI />
