@@ -3,7 +3,6 @@ import {
   useScroll,
   motion,
   useTransform,
-  AnimatePresence,
   useInView,
 } from "framer-motion";
 import { cn } from "@/lib/utils";
