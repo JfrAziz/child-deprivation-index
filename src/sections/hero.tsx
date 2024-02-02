@@ -66,7 +66,7 @@ export const Hero = () => {
 
             <div className="flex flex-col justify-center gap-y-[clamp(0.2rem,1vw,1rem)] text-center">
               <div className=" drop-shadow-[0_7px_130px_theme(colors.secondary)]">
-                <h1 className="font-title !text-center text-[clamp(1.2rem,4vw,3rem)] font-bold leading-[1.1] mb-[2em">
+                <h1 className="font-title !text-center text-[clamp(1.2rem,4vw,3rem)] font-bold leading-[1.1] ">
                   <span className="inline-grid text-center">
                     <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937]">
                       From the Sky to the Ground:

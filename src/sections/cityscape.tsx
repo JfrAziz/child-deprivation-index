@@ -26,7 +26,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
       >
         <div className="hero min-h-screen">
           <motion.div
-            style={{ y: useTransform(scrollY, [0, 2200], [0, 300]) }}
+            style={{ y: useTransform(scrollY, [0, 2200], [0, 250]) }}
             className="flex justify-center"
           >
             <img
@@ -73,7 +73,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                     opacity: 1,
                     x: isMobile ? "-15%" : "-100%",
                     y: isMobile ? "-95%" : "10%",
-                    transition: { duration: 2 },
+                    transition: { duration: 1 },
                   },
                 }}
                 className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
@@ -90,7 +90,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
           </AnimatePresence>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [100, 2000], [0, 500]) }}
+            style={{ y: useTransform(scrollY, [100, 2000], [0, 400]) }}
             className="flex justify-center"
           >
             <img
@@ -123,7 +123,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                     opacity: 1,
                     x: isMobile ? "15%" : "100%",
                     y: isMobile ? "0%" : "100%",
-                    transition: { duration: 3 },
+                    transition: { duration: 2 },
                   },
                 }}
                 className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
@@ -152,13 +152,13 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                   hidden: {
                     opacity: 1,
                     x: "-1000%",
-                    y: isMobile ? "100%" : "175%",
+                    y: isMobile ? "100%" : "160%",
                   },
                   visible: {
                     opacity: 1,
                     x: isMobile ? "-15%" : "-80%",
-                    y: isMobile ? "100%" : "175%",
-                    transition: { duration: 4 },
+                    y: isMobile ? "100%" : "160%",
+                    transition: { duration: 3 },
                   },
                 }}
                 className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
@@ -174,7 +174,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
           </AnimatePresence>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [300, 2100], [0, 750]) }}
+            style={{ y: useTransform(scrollY, [300, 2100], [0, 650]) }}
             className="flex justify-center"
           >
             <img
@@ -201,13 +201,13 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                   hidden: {
                     opacity: 1,
                     x: "1000%",
-                    y: isMobile ? "210%" : "300%",
+                    y: isMobile ? "210%" : "230%",
                   },
                   visible: {
                     opacity: 1,
                     x: isMobile ? "15%" : "80%",
-                    y: isMobile ? "210%" : "285%",
-                    transition: { duration: 5 },
+                    y: isMobile ? "210%" : "230%",
+                    transition: { duration: 4 },
                   },
                 }}
                 className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 

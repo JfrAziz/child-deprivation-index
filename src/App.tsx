@@ -24,6 +24,7 @@ import {
 import { Cityscape } from "./sections/cityscape";
 import { Quotes } from "./sections/quotes";
 import { useEffect, useState } from "react";
+import { ChildDeprivation } from "./sections/child-deprivation";
 
 const App = () => {
   
@@ -116,6 +117,7 @@ const App = () => {
           <ThemeButton />
           <Hero />
           <Cityscape isMobile={isMobile}  />
+          <ChildDeprivation />
           <Quotes />
           <IndonesiaOverview />
           <JavaPovertyOverview />
