@@ -10,7 +10,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
   const ref = useRef(null);
   const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
-
+  console.log(isMobile);
   return (
     <section className={cn("w-full ", className)}>
       <div
