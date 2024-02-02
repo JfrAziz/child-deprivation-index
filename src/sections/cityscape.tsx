@@ -26,7 +26,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
       >
         <div className="hero min-h-screen">
           <motion.div
-            style={{ y: useTransform(scrollY, [0, 2200], [0, 300]) }}
+            style={{ y: useTransform(scrollY, [0, 2200], [0, 350]) }}
             className="flex justify-center"
           >
             <img
@@ -174,7 +174,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
           </AnimatePresence>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [300, 2100], [0, 750]) }}
+            style={{ y: useTransform(scrollY, [300, 2100], [0, 650]) }}
             className="flex justify-center"
           >
             <img
