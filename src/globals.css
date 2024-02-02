@@ -67,6 +67,28 @@
 }
 
 @layer base {
+  
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #1e143b;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #1f076c;
+    border-radius: 0px;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(124, 16, 201);
+  }
+  
   * {
     @apply border-border;
   }
@@ -74,6 +96,13 @@
     @apply bg-background text-foreground;
   }
 }
+
+html,
+body {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 
 .mapboxgl-popup-close-button {
   @apply hidden;
