@@ -15,11 +15,11 @@ export const Quotes = () => {
       }}
     >
       <div className="text-center text-background">
-        <blockquote className="z-10 text-5xl leading-normal font-bold">
+        <blockquote className="z-10 text-[clamp(1.4rem,4vw,4rem)] font-extralight px-[clamp(1rem,3.5vw,4rem)] leading-tight italic">
           ”Children are our most valuable resource and the best hope for the
           future.”
         </blockquote>
-        <div className="font-medium whitespace-nowrap">
+        <div className="font-bold text-[clamp(1rem,3vw,4rem)] whitespace-nowrap mt-2">
           John F. Kennedy
         </div>
       </div>

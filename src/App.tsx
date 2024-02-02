@@ -23,12 +23,30 @@ import {
 } from "./sections/satellite";
 import { Cityscape } from "./sections/cityscape";
 import { Quotes } from "./sections/quotes";
+import { useEffect, useState } from "react";
 
 const App = () => {
+  
+  const [isMobile, setIsMobile] = useState(false);
   const state = useLayerStyle((state) => state);
 
   const popups = usePopupStore((state) => state.popups);
   const isPopupActive = usePopupStore((state) => state.active);
+  
+  useEffect(() => {
+    const mobileMediaQuery = window.matchMedia('(max-width: 767px)'); // Adjust the breakpoint as needed
+
+    const handleMobileChange = (event: { matches: boolean | ((prevState: boolean) => boolean); }) => {
+      setIsMobile(event.matches);
+    };
+
+    mobileMediaQuery.addEventListener('change', handleMobileChange);
+    setIsMobile(mobileMediaQuery.matches);
+
+    return () => {
+      mobileMediaQuery.removeEventListener('change', handleMobileChange);
+    };
+  }, []);
 
   return (
     <main className="font-urbanist">
@@ -97,7 +115,7 @@ const App = () => {
         <div className="z-10 absolute w-full">
           <ThemeButton />
           <Hero />
-          <Cityscape />
+          <Cityscape isMobile={isMobile}  />
           <Quotes />
           <IndonesiaOverview />
           <JavaPovertyOverview />
