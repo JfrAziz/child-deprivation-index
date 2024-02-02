@@ -73,7 +73,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                     opacity: 1,
                     x: isMobile ? "-15%" : "-100%",
                     y: isMobile ? "-95%" : "10%",
-                    transition: { duration: 2 },
+                    transition: { duration: 1 },
                   },
                 }}
                 className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
@@ -123,7 +123,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                     opacity: 1,
                     x: isMobile ? "15%" : "100%",
                     y: isMobile ? "0%" : "100%",
-                    transition: { duration: 3 },
+                    transition: { duration: 2 },
                   },
                 }}
                 className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
@@ -158,7 +158,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                     opacity: 1,
                     x: isMobile ? "-15%" : "-80%",
                     y: isMobile ? "100%" : "160%",
-                    transition: { duration: 4 },
+                    transition: { duration: 3 },
                   },
                 }}
                 className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
@@ -207,7 +207,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                     opacity: 1,
                     x: isMobile ? "15%" : "80%",
                     y: isMobile ? "210%" : "230%",
-                    transition: { duration: 5 },
+                    transition: { duration: 4 },
                   },
                 }}
                 className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
