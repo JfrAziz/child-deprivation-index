@@ -152,12 +152,12 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                   hidden: {
                     opacity: 1,
                     x: "-1000%",
-                    y: isMobile ? "100%" : "175%",
+                    y: isMobile ? "100%" : "160%",
                   },
                   visible: {
                     opacity: 1,
                     x: isMobile ? "-15%" : "-80%",
-                    y: isMobile ? "100%" : "175%",
+                    y: isMobile ? "100%" : "160%",
                     transition: { duration: 4 },
                   },
                 }}
@@ -201,12 +201,12 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
                   hidden: {
                     opacity: 1,
                     x: "1000%",
-                    y: isMobile ? "210%" : "300%",
+                    y: isMobile ? "210%" : "230%",
                   },
                   visible: {
                     opacity: 1,
                     x: isMobile ? "15%" : "80%",
-                    y: isMobile ? "210%" : "285%",
+                    y: isMobile ? "210%" : "230%",
                     transition: { duration: 5 },
                   },
                 }}
