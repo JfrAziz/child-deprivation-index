@@ -128,25 +128,28 @@ export const Hero = () => {
               opacity: isInView ? 1 : 0,
               transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
             }}
-            className="absolute bottom-0 flex justify-center flex-col items-center"
+            className="absolute -bottom-4 flex justify-center flex-col items-center"
           >
             <button
               onClick={() => scrollInto("cityscape")}
-              className="pt-2 pb-8 px-4 rounded-full bg-transparent border-4 border-white opacity-60 border-spacing-8 bottom-5 font-black"
+              className="pt-1 pb-5 px-3 rounded-full bg-transparent border-2 border-white opacity-60 border-spacing-8"
             >
               <span
-                className=" inline-flex h-4 w-1 rounded-full bg-white "
+                className=" inline-flex h-3 w-1 rounded-full bg-white "
                 style={{
                   animation: "animated-mouse 1s ease infinite",
                 }}
               ></span>
             </button>
 
-            <div className="arrow flex justify-center flex-col">
+            <button
+              onClick={() => scrollInto("cityscape")}
+              className="arrow mt-1"
+            >
               <span className="down-arrow-1"></span>
               <span className="down-arrow-2"></span>
               <span className="down-arrow-3"></span>
-            </div>
+            </button>
           </div>
         </div>
       </div>
