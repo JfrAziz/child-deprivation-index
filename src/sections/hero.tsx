@@ -6,6 +6,12 @@ export const Hero = () => {
   const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
 
+  const scrollInto = (id: string) => {
+    const element = document.getElementById(id);
+
+    element?.scrollIntoView({ block: "start", behavior: "smooth" });
+  };
+
   return (
     <section className="w-full">
       <div
@@ -15,7 +21,7 @@ export const Hero = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="hero min-h-screen">
+        <div className="hero max-h-screen relative">
           <img
             alt="satellite"
             src="/images/poverty/satelit.png"
@@ -114,6 +120,34 @@ export const Hero = () => {
               </div>
             </motion.div>
           </span>
+
+          <div
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(100%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+            className="absolute bottom-0 flex justify-center flex-col items-center"
+          >
+            <button
+              onClick={() => scrollInto("cityscape")}
+              className="pt-2 pb-8 px-4 rounded-full bg-transparent border-4 border-white opacity-60 border-spacing-8 bottom-5 font-black"
+            >
+              <span
+                className=" inline-flex h-4 w-1 rounded-full bg-white "
+                style={{
+                  animation: "animated-mouse 1s ease infinite",
+                }}
+              ></span>
+            </button>
+
+            <div className="arrow flex justify-center flex-col">
+              <span className="down-arrow-1"></span>
+              <span className="down-arrow-2"></span>
+              <span className="down-arrow-3"></span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

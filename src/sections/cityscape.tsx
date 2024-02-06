@@ -10,6 +10,8 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
   const ref = useRef(null);
   const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
+
+  console.log(isMobile);
   
   const cloudNarative = `z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
       bg-base-200/90 p-[clamp(1.4rem,2.5vw,2.2rem)] max-w-[clamp(17rem,30vw,32rem)] rounded-[3em]
@@ -40,6 +42,8 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
             />
           </motion.div>
 
+          <span id="cityscape" className="scroll-mt-16"></span>
+          
           <motion.div
             style={{ y: useTransform(scrollY, [100, 2500], [0, 400]) }}
             className="flex justify-center"
@@ -54,6 +58,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
             />
           </motion.div>
 
+          
           <span
             ref={ref}
             style={{
@@ -81,6 +86,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
           >
             <img
               alt="city2"
+              id="city2"
               src="/images/poverty/city_2.png"
               style={{
                 width: "90%",
@@ -135,6 +141,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
           >
             <img
               alt="poor"
+              id="poor"
               src="/images/poverty/poor_area_0.png"
               style={{
                 width: "90%",
