@@ -10,7 +10,13 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
   const ref = useRef(null);
   const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
+
   console.log(isMobile);
+  
+  const cloudNarative = `z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
+      bg-base-200/90 p-[clamp(1.4rem,2.5vw,2.2rem)] max-w-[clamp(17rem,30vw,32rem)] rounded-[3em]
+      drop-shadow-[0px_2px_15px_theme(colors.neutral-content)]`;
+
   return (
     <section className={cn("w-full ", className)}>
       <div
@@ -18,6 +24,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
         style={{
           backgroundImage: `url("https://awv3node-homepage.surge.sh/build/assets/stars.svg")`,
           backgroundSize: "cover",
+          marginTop: "-25%",
         }}
       >
         <div className="hero min-h-screen">
@@ -30,11 +37,13 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
               src="/images/poverty/base_island0.png"
               style={{
                 width: "90%",
-                marginTop: "-10%",
+                marginBottom: "-15%",
               }}
             />
           </motion.div>
 
+          <span id="cityscape" className="scroll-mt-16"></span>
+          
           <motion.div
             style={{ y: useTransform(scrollY, [100, 2500], [0, 400]) }}
             className="flex justify-center"
@@ -44,32 +53,31 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
               src="/images/poverty/city_1.png"
               style={{
                 width: "90%",
-                marginTop: "-40%",
+                marginBottom: "15%",
               }}
             />
           </motion.div>
 
+          
           <span
             ref={ref}
             style={{
-              transform: isInView ? "none" : "translateX(-200px)",
+              transform: isInView ? "none" : "translateY(100%)",
               opacity: isInView ? 1 : 0,
-              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               marginLeft: "-60%",
-              marginTop: "-10%",
+              marginBottom: "12%",
             }}
           >
-            <h1
-              className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
-                  bg-base-200/90 p-[clamp(1.4rem,2.5vw,2.2rem)] max-w-[clamp(17rem,30vw,32rem)] rounded-[3em] rounded-tl-none
-                  drop-shadow-[0px_2px_15px_theme(colors.neutral-content)]
-                  "
+            <motion.h1
+              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              className={cloudNarative + " rounded-tl-none"}
             >
               In the sprawling tapestry of a vibrant cityscape, where
               skyscrapers reached for the heavens and the streets pulsated with
               the lively rhythm of urban life, an unseen narrative wove its
               story beneath the shadows.
-            </h1>
+            </motion.h1>
           </span>
 
           <motion.div
@@ -78,10 +86,11 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
           >
             <img
               alt="city2"
+              id="city2"
               src="/images/poverty/city_2.png"
               style={{
                 width: "90%",
-                marginTop: "-30%",
+                // marginBottom: "25%"
               }}
             />
           </motion.div>
@@ -89,57 +98,54 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
           <span
             ref={ref}
             style={{
-              transform: isInView ? "none" : "translateX(100%)",
+              transform: isInView ? "none" : "translateY(200%)",
               opacity: isInView ? 1 : 0,
-              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              transition: "all 1.2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               marginRight: "-55%",
-              marginTop: "8%",
+              marginBottom: "5%",
             }}
           >
-            <h1
-              className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
-                  bg-base-200/90 p-[clamp(1.4rem,2.5vw,2.2rem)] max-w-[clamp(17rem,30vw,32rem)] rounded-[3em] rounded-tr-none
-                  drop-shadow-[0px_2px_15px_theme(colors.neutral-content)]
-                  "
+            <motion.h1
+              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              className={cloudNarative + " rounded-tr-none"}
             >
               Narrow alleyways crisscrossed through the shadows of towering
               structures, revealing a world of economic struggle and unyielding
               dreams.
-            </h1>
+            </motion.h1>
           </span>
 
           <span
             ref={ref}
             style={{
-              transform: isInView ? "none" : "translateX(-100%)",
+              transform: isInView ? "none" : "translateY(100%)",
               opacity: isInView ? 1 : 0,
-              transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginLeft: "-40%",
-              marginTop: "30%",
+              transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              marginLeft: "-45%",
+              marginBottom: "-25%",
             }}
           >
-            <h1
-              className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
-                  bg-base-200/90 p-[clamp(1.4rem,2.5vw,2.2rem)] max-w-[clamp(17rem,30vw,32rem)] rounded-[3em] rounded-tl-none
-                  drop-shadow-[0px_2px_15px_theme(colors.neutral-content)]
-                  "
+            <motion.h1
+              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              className={cloudNarative + " rounded-tl-none"}
             >
               In our exploration, we sheds light on the interconnected
               challenges that arise when children lack access to basic needs
               like education, health services, and economic support.
-            </h1>
+            </motion.h1>
           </span>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [300, 2100], [0, 650]) }}
+            style={{ y: useTransform(scrollY, [100, 2000], [0, 600]) }}
             className="flex justify-center"
           >
             <img
               alt="poor"
+              id="poor"
               src="/images/poverty/poor_area_0.png"
               style={{
                 width: "90%",
-                marginTop: "-40%",
+                marginBottom: "15%",
               }}
             />
           </motion.div>
@@ -147,23 +153,21 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
           <span
             ref={ref}
             style={{
-              transform: isInView ? "none" : "translateX(100%)",
+              transform: isInView ? "none" : "translateY(200%)",
               opacity: isInView ? 1 : 0,
-              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              transition: "all 1.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               marginRight: "-45%",
-              marginTop: "50%",
+              marginBottom: "-35%",
             }}
           >
-            <h1
-              className="z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
-                  bg-base-200/90 p-[clamp(1.4rem,2.5vw,2.2rem)] max-w-[clamp(17rem,30vw,32rem)] rounded-[3em] rounded-tr-none
-                  drop-shadow-[0px_2px_15px_theme(colors.neutral-content)]
-                  "
+            <motion.h1
+              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              className={cloudNarative + " rounded-tr-none"}
             >
               It emphasizes the pressing need to address these issues for a
               brighter, more equitable future, where the insights gained from
               satellite imagery serve as a catalyst for positive change.
-            </h1>
+            </motion.h1>
           </span>
         </div>
       </div>
