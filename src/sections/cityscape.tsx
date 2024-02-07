@@ -57,7 +57,6 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
               }}
             />
           </motion.div>
-
           
           <span
             ref={ref}
