@@ -25,6 +25,7 @@ import { Cityscape } from "./sections/cityscape";
 import { Quotes } from "./sections/quotes";
 import { useEffect, useState } from "react";
 import { ChildDeprivation } from "./sections/child-deprivation";
+import { BPSCommitment } from "./sections/bps-commitment";
 
 const App = () => {
   
@@ -118,6 +119,7 @@ const App = () => {
           <Hero />
           <Cityscape isMobile={isMobile}  />
           <ChildDeprivation />
+          <BPSCommitment />
           <Quotes />
           <IndonesiaOverview />
           <JavaPovertyOverview />
