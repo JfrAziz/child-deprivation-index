@@ -30,7 +30,7 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               marginLeft: "-40%",
-              marginTop: "10%",
+              marginTop: "15%",
             }}
           >
             <h1 className="font-title !text-left text-[clamp(1.3rem,4vw,4rem)] font-black leading-[1.1] ">
@@ -65,14 +65,14 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               alt="city1"
               src="/images/poverty/children.jpg"
               style={{
-                marginTop: "0%",
+                marginTop: "10%",
               }}
-              className="z-20 object-cover w-lvw h-[55vh]"
+              className="z-20 object-cover w-lvw h-[65vh]"
             />
           </motion.div>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [0, 400], [0, 300]) }}
+            style={{ y: useTransform(scrollY, [-1000, 2000], [100, 300]) }}
             className="flex justify-end"
           >
             <img
@@ -80,10 +80,10 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               src="/images/poverty/poor-island.png"
               style={{
                 width: "38%",
-                marginTop: "10%",
+                marginTop: "8%",
                 marginRight: "5%",
               }}
-              className="z-50"
+              className="z-10"
             />
           </motion.div>
           
