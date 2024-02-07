@@ -1,30 +1,36 @@
 import { useRef } from "react";
-import {
-  useScroll,
-  motion,
-  useTransform,
-  useInView,
-} from "framer-motion";
+import { useScroll, motion, useTransform, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-type ChildDeprivationProps = React.ComponentPropsWithRef<"div"> 
+type ChildDeprivationProps = React.ComponentPropsWithRef<"div">;
 
 export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
   const ref = useRef(null);
   const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
 
+  const cloudNarative = `z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
+      bg-base-200/90 px-[clamp(1.4rem,1.6vw,2.2rem)] py-[clamp(1rem,1vw,1.5rem)] max-w-[clamp(17rem,30vw,32rem)] rounded-[3em]
+      drop-shadow-[0px_2px_10px_theme(colors.neutral-content)]`;
+
   return (
     <section className={cn("w-full ", className)}>
-      <div className="z-20 bg-base-100 ">
+      <div
+        className="z-20 bg-base-100 "
+        style={{
+          backgroundImage: `url("https://awv3node-homepage.surge.sh/build/assets/stars.svg")`,
+          backgroundSize: "cover",
+        }}
+      >
         <div className="hero min-h-screen">
-          <span ref={ref} 
+          <span
+            ref={ref}
             style={{
               transform: isInView ? "none" : "translateX(-200px)",
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               marginLeft: "-40%",
-              marginTop: "7%"
+              marginTop: "10%",
             }}
           >
             <h1 className="font-title !text-left text-[clamp(1.3rem,4vw,4rem)] font-black leading-[1.1] ">
@@ -40,7 +46,7 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               </span>
             </h1>
 
-            <h1 className="font-title !text-left text-[clamp(1.2rem,1.6vw,2rem)] font-bold leading-[1.1] mt-[0.8em]">
+            <h1 className="ml-1 font-title !text-left text-[clamp(1.2rem,1.6vw,2rem)] font-bold leading-[1.1] mt-[0.8em]">
               <span className="inline-grid text-left">
                 <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,50vw,42rem)]">
                   Child deprivation is closely related to poverty. Poverty can
@@ -73,13 +79,184 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               alt="poor_island"
               src="/images/poverty/poor-island.png"
               style={{
-                width: "42%",
+                width: "38%",
                 marginTop: "10%",
-                marginRight: "-3%",
+                marginRight: "5%",
               }}
               className="z-50"
             />
           </motion.div>
+          
+          <span
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(10%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+          >
+            <img
+              alt="curve-arrow"
+              src="/images/poverty/curve-arrow.png"
+              style={{
+                width: "23%",
+                marginTop: "102%",
+                marginLeft: "120%",
+              }}
+              className="z-50 invert"
+            />
+          </span>
+
+          <span
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(10%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+          >
+            <img
+              alt="curve-arrow"
+              src="/images/poverty/curve-arrow.png"
+              style={{
+                width: "23%",
+                marginTop: "102%",
+                marginLeft: "85%",
+              }}
+              className="z-50 invert scale-x-[-1]"
+            />
+          </span>
+
+          <span
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(100%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              marginRight: "-48%",
+              marginTop: "27%",
+            }}
+          >
+            <motion.h1
+              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              className={" text-2xl font-semibold "}
+            >
+              LACKING IN <br />
+              ACCESS TO
+            </motion.h1>
+          </span>
+          
+          <span
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(5%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+          >
+            <img
+              alt="curve-arrow"
+              src="/images/poverty/curve-arrow.png"
+              style={{
+                width: "23%",
+                marginTop: "165%", 
+                marginLeft: "120%",
+              }}
+              className="z-50 invert rotate-180 scale-x-[-1]"
+            />
+          </span>
+
+          <span
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(5%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+            }}
+          >
+            <img
+              alt="curve-arrow"
+              src="/images/poverty/curve-arrow.png"
+              style={{
+                width: "23%",
+                marginTop: "165%",
+                marginLeft: "85%",
+              }}
+              className="z-50 invert rotate-180"
+            />
+          </span>
+
+          <span
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(100%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              marginRight: "-17%",
+              marginBottom: "-10%",
+            }}
+          >
+            <motion.h1
+              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              className={cloudNarative + " rounded-tl-none"}
+            >
+              Economy
+            </motion.h1>
+          </span>
+
+          <span
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(200%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1.2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              marginRight: "-80%",
+              marginBottom: "-10%",
+            }}
+          >
+            <motion.h1
+              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              className={cloudNarative + " rounded-tr-none"}
+            >
+              Education
+            </motion.h1>
+          </span>
+
+          <span
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(100%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              marginRight: "-18%",
+              marginBottom: "-43%",
+            }}
+          >
+            <motion.h1
+              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              className={cloudNarative + " rounded-bl-none"}
+            >
+              Health
+            </motion.h1>
+          </span>
+
+          <span
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateY(200%)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              marginRight: "-82%",
+              marginBottom: "-43%",
+            }}
+          >
+            <motion.h1
+              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              className={cloudNarative + " rounded-br-none"}
+            >
+              Social Services
+            </motion.h1>
+          </span>
         </div>
       </div>
     </section>
