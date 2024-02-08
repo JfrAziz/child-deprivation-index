@@ -1,52 +1,57 @@
 import "mapbox-gl";
-import "./globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, { Layer, MapProvider, Popup, Source } from "react-map-gl";
+import "./globals.css";
 
 import { useLayerStyle, usePopupStore } from "./stores/map";
 
+import { useEffect, useState } from "react";
+import graticule from "./data/graticule"; 
+import { ThemeButton } from "./sections/theme-button";
 import { Hero } from "./sections/hero";
-import indonesiaProvince from "./data/indonesia.json";
-import yogyakartaRegencies from "./data/yogyakarta_regencies.json";
+import { Cityscape } from "./sections/cityscape";
+import { Quotes } from "./sections/quotes";
 import {
   IndonesiaOverview,
   JavaHDI,
   JavaPoverty,
   JavaPovertyOverview,
 } from "./sections/indonesia-overview";
-import graticule from "./data/graticule";
-import { ThemeButton } from "./sections/theme-button";
+import { ChildDeprivation } from "./sections/child-deprivation";
+import { BPSCommitment } from "./sections/bps-commitment";
 import {
+  KlasterSd,
   MethodExplanation,
   YogyakartaCDI,
   YogyakartaRegencies,
 } from "./sections/satellite";
-import { Cityscape } from "./sections/cityscape";
-import { Quotes } from "./sections/quotes";
-import { useEffect, useState } from "react";
-import { ChildDeprivation } from "./sections/child-deprivation";
-import { BPSCommitment } from "./sections/bps-commitment";
+import indonesiaProvince from "./data/indonesia.json";
+import klasterSd from "./data/klaster/sd.json";
+import klasterSmp from "./data/klaster/smp.json";
+import yogyakartaRegencies from "./data/yogyakarta_regencies.json";
+
 
 const App = () => {
-  
   const [isMobile, setIsMobile] = useState(false);
   const state = useLayerStyle((state) => state);
 
   const popups = usePopupStore((state) => state.popups);
   const isPopupActive = usePopupStore((state) => state.active);
-  
-  useEffect(() => {
-    const mobileMediaQuery = window.matchMedia('(max-width: 767px)'); // Adjust the breakpoint as needed
 
-    const handleMobileChange = (event: { matches: boolean | ((prevState: boolean) => boolean); }) => {
+  useEffect(() => {
+    const mobileMediaQuery = window.matchMedia("(max-width: 767px)"); // Adjust the breakpoint as needed
+
+    const handleMobileChange = (event: {
+      matches: boolean | ((prevState: boolean) => boolean);
+    }) => {
       setIsMobile(event.matches);
     };
 
-    mobileMediaQuery.addEventListener('change', handleMobileChange);
+    mobileMediaQuery.addEventListener("change", handleMobileChange);
     setIsMobile(mobileMediaQuery.matches);
 
     return () => {
-      mobileMediaQuery.removeEventListener('change', handleMobileChange);
+      mobileMediaQuery.removeEventListener("change", handleMobileChange);
     };
   }, []);
 
@@ -111,13 +116,45 @@ const App = () => {
             >
               <Layer type="line" id="graticule" paint={state["graticule"]} />
             </Source>
+            <Source
+              type="geojson"
+              id="klaster-sd"
+              data={klasterSd as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer type="line" id="klaster-sd" paint={state["klaster-sd"]} />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-klaster-sd"
+              data={klasterSd as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-klaster-sd"
+                paint={state["route-klaster-sd"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="klaster-smp"
+              data={klasterSmp as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="klaster-smp"
+                paint={state["klaster-smp"]}
+              />
+            </Source>
           </Map>
         </div>
 
         <div className="z-10 absolute w-full">
           <ThemeButton />
           <Hero />
-          <Cityscape isMobile={isMobile}  />
+          <Cityscape isMobile={isMobile} />
           <ChildDeprivation />
           <BPSCommitment />
           <Quotes />
@@ -128,6 +165,7 @@ const App = () => {
           <MethodExplanation />
           <YogyakartaRegencies />
           <YogyakartaCDI />
+          <KlasterSd klasterSd={klasterSd.features[0] as GeoJSON.Feature} />
         </div>
       </MapProvider>
     </main>

@@ -14,12 +14,12 @@ export const Quotes = () => {
         });
       }}
     >
-      <div className="text-center text-background">
-        <blockquote className="z-10 text-[clamp(1.4rem,4vw,4rem)] font-extralight px-[clamp(1rem,3.5vw,4rem)] leading-tight italic">
+      <div className="text-center text-background mt-52">
+        <blockquote className="z-10 text-[clamp(1.4rem,4vw,4rem)] font-extralight px-[clamp(1rem,10vw,8rem)] leading-[1] italic">
           ”Children are our most valuable resource and the best hope for the
           future.”
         </blockquote>
-        <div className="font-bold text-[clamp(1rem,3vw,4rem)] whitespace-nowrap mt-2">
+        <div className="font-bold text-[clamp(1rem,3.6vw,4rem)] whitespace-nowrap mt-2">
           John F. Kennedy
         </div>
       </div>
