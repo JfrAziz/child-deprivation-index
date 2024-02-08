@@ -6,7 +6,7 @@ import "./globals.css";
 import { useLayerStyle, usePopupStore } from "./stores/map";
 
 import { useEffect, useState } from "react";
-import graticule from "./data/graticule";
+import graticule from "./data/graticule"; 
 import indonesiaProvince from "./data/indonesia.json";
 import klasterSd from "./data/klaster/sd.json";
 import klasterSmp from "./data/klaster/smp.json";

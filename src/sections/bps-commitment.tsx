@@ -97,7 +97,7 @@ export const BPSCommitment = ({ className }: BPSCommitmentProps) => {
               marginTop: "22%",
             }}
           >
-            <motion.h1
+            <motion.h1 
               style={{ y: useTransform(scrollY, [100, 2000], [100, 200]) }}
               className={
                 " text-lg font-bold py-2 px-7 bg-[#ec0043] text-white rounded-lg drop-shadow-[0px_2px_10px_theme(colors.neutral-content)]"
