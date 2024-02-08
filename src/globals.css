@@ -67,7 +67,6 @@
 }
 
 @layer base {
-  
   /* width */
   ::-webkit-scrollbar {
     width: 10px;
@@ -88,7 +87,6 @@
   ::-webkit-scrollbar-thumb:hover {
     background: rgb(124, 16, 201);
   }
-  
 }
 
 html,
@@ -96,7 +94,6 @@ body {
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
-
 
 .mapboxgl-popup-close-button {
   @apply hidden;
@@ -107,9 +104,8 @@ body {
 }
 
 .mapboxgl-popup-tip {
-  @apply !border-b-background !border-t-background
+  @apply !border-b-background !border-t-background;
 }
-
 
 .swing {
   animation: swing ease-in-out 6s infinite alternate;
@@ -117,7 +113,7 @@ body {
   float: left;
 }
 .swing:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 20px;
   height: 20px;
@@ -131,7 +127,7 @@ body {
 }
 /* nail */
 .swing:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 5px;
   height: 5px;
@@ -160,7 +156,7 @@ body {
   float: left;
 }
 .swing-left:after {
-  content: '';
+  content: "";
   position: absolute;
   width: 20px;
   height: 20px;
@@ -174,7 +170,7 @@ body {
 }
 /* nail */
 .swing-left:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 5px;
   height: 5px;
@@ -213,44 +209,46 @@ body {
   }
 }
 
-.arrow span{
+.arrow span {
   display: block;
-  width: 12px; 
+  width: 12px;
   height: 12px;
   -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-       transform: rotate(45deg);
-       transform: rotate(45deg);
-  border-right: 2px solid #fff; 
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  transform: rotate(45deg);
+  border-right: 2px solid #fff;
   border-bottom: 2px solid #fff;
   /* margin: 0 0 3px 5px; */
 }
 
-.down-arrow-1,.down-arrow-2, .down-arrow-3 {
-  animation: mouse-scroll 1s infinite; 
-  -webkit-animation: mouse-scroll 1s infinite; 
-    -moz-animation: mouse-scroll 1s infinite;
+.down-arrow-1,
+.down-arrow-2,
+.down-arrow-3 {
+  animation: mouse-scroll 1s infinite;
+  -webkit-animation: mouse-scroll 1s infinite;
+  -moz-animation: mouse-scroll 1s infinite;
 }
 .down-arrow-1 {
-  animation-delay: .1s; 
-   -webkit-animation-delay: .1s; 
-   -moz-animation-delay: .1s;
-   animation-direction: alternate;
-   -webkit-animation-direction: alternate;
+  animation-delay: 0.1s;
+  -webkit-animation-delay: 0.1s;
+  -moz-animation-delay: 0.1s;
+  animation-direction: alternate;
+  -webkit-animation-direction: alternate;
 }
 .down-arrow-2 {
-  animation-delay: .2s; 
-  -webkit-animation-delay: .2s; 
-  -moz-animation-delay: .2s;
+  animation-delay: 0.2s;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
   animation-direction: alternate;
   -webkit-animation-direction: alternate;
 }
 .down-arrow-3 {
-  animation-delay: .3s; 
-   -webkit-animation-delay: .3s;
-   -moz-animation-dekay: .3s;
-   animation-direction: alternate;
-   -webkit-animation-direction: alternate;
+  animation-delay: 0.3s;
+  -webkit-animation-delay: 0.3s;
+  -moz-animation-dekay: 0.3s;
+  animation-direction: alternate;
+  -webkit-animation-direction: alternate;
 }
 
 @-webkit-keyframes mouse-scroll {
@@ -258,11 +256,11 @@ body {
     opacity: 1;
   }
   50% {
-    opacity: .5;
+    opacity: 0.5;
   }
   100% {
     opacity: 1;
-  } 
+  }
 }
 @keyframes mouse-scroll {
   0% {
@@ -274,4 +272,12 @@ body {
   100% {
     opacity: 1;
   }
+}
+.marker {
+  background-image: url("/images/person-walking.png");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
 }

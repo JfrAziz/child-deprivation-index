@@ -1,11 +1,19 @@
-import { useLayerStyle, usePopupStore } from "@/stores/map";
 import { SectionCard, SectionWrapper } from "@/components/section-card";
+import { markersStore, useLayerStyle, usePopupStore } from "@/stores/map";
+import * as turf from "@turf/turf";
+import mapboxgl from "mapbox-gl";
+
+// const markers: Marker[] = [];
+const el = document.createElement("div");
+el.className = "marker";
 
 export const MethodExplanation = () => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
   return (
     <SectionWrapper
       className="!max-w-full m-auto p-0 relative"
       onSectionEnter={(map) => {
+        clearMarkers();
         /**
          * reset any mapbox style layer
          */
@@ -25,6 +33,7 @@ export const MethodExplanation = () => {
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0,
           },
+          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
         }));
 
         map?.flyTo({
@@ -97,10 +106,12 @@ export const MethodExplanation = () => {
 };
 
 export const YogyakartaRegencies = () => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
   return (
     <SectionWrapper
       className="flex flex-row items-center justify-end"
       onSectionEnter={(map) => {
+        clearMarkers();
         map?.getMap().setLayoutProperty("cdi", "visibility", "none");
 
         usePopupStore.setState({ active: false });
@@ -113,6 +124,7 @@ export const YogyakartaRegencies = () => {
             "fill-color": "#c03831",
             "fill-outline-color": "#7f0000",
           },
+          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
         }));
 
         map?.flyTo({
@@ -136,16 +148,19 @@ export const YogyakartaRegencies = () => {
 };
 
 export const YogyakartaCDI = () => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
   return (
     <SectionWrapper
       className="flex flex-row items-center"
       onSectionEnter={(map) => {
+        clearMarkers();
         useLayerStyle.setState((state) => ({
           graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.2,
           },
+          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
         }));
 
         map?.moveLayer("cdi");
@@ -160,6 +175,95 @@ export const YogyakartaCDI = () => {
       }}
     >
       <SectionCard title="D.I Yogyakarta CDI">
+        <p>
+          The one square kilometer area displayed illustrates children who are
+          prioritized from access to education, health and economic facilities.
+          In the Sleman Regency there are 3 grids that have the lowest
+          percentage of children with the lowest supply of all provinces of D.I
+          Yogyakarta.
+        </p>
+      </SectionCard>
+    </SectionWrapper>
+  );
+};
+export const KlasterSd = ({ klasterSd }: { klasterSd: GeoJSON.Feature }) => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
+  return (
+    <SectionWrapper
+      className="flex flex-row items-center"
+      onSectionEnter={async (map) => {
+        clearMarkers();
+        useLayerStyle.setState((state) => ({
+          graticule: { ...state["graticule"], "line-opacity": 0 },
+          "yogyakarta-regencies": {
+            ...state["yogyakarta-regencies"],
+            "fill-opacity": 0.2,
+          },
+          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 1 },
+          "route-klaster-sd": {
+            ...state["route-klaster-sd"],
+            "line-opacity": 1,
+          },
+        }));
+
+        if (map?.getMap().getSource("route-klaster-sd")) {
+          map?.getMap().removeLayer("route-klaster-sd");
+          map?.getMap().removeSource("route-klaster-sd");
+        }
+        map?.flyTo({
+          center: [110.45173, -7.70078],
+          zoom: 14,
+          bearing: 0,
+          pitch: 0,
+        });
+        const pinRoute = klasterSd.geometry.coordinates;
+        const pathDistance = turf.lineDistance(klasterSd);
+
+        let start = 0;
+        const animationDuration = 5000;
+        const marker = new mapboxgl.Marker({
+          color: "red",
+          scale: 0.8,
+          draggable: false,
+          pitchAlignment: "auto",
+          rotationAlignment: "auto",
+          element: el,
+        })
+          .setLngLat(pinRoute[0])
+          .addTo(map?.getMap());
+        markersStore.setState({ markers: [marker] });
+
+        function frame(time: number) {
+          if (!start) start = time;
+          const animationPhase = (time - start) / animationDuration;
+          if (animationPhase > 1) {
+            return;
+          }
+          const alongPath = turf.along(klasterSd, pathDistance * animationPhase)
+            .geometry.coordinates;
+          const lngLat = {
+            lng: alongPath[0],
+            lat: alongPath[1],
+          };
+          marker.setLngLat(lngLat);
+          map
+            ?.getMap()
+            .setPaintProperty("route-klaster-sd", "line-gradient", [
+              "step",
+              ["line-progress"],
+              "red",
+              animationPhase,
+              "rgba(255, 0, 0, 0)",
+            ]);
+          map?.getMap().setCenter(lngLat).setZoom(14);
+          window.requestAnimationFrame(frame);
+        }
+        window.requestAnimationFrame(frame);
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+        map?.getMap().setLayoutProperty("klaster-sd", "visibility", "visible");
+      }}
+    >
+      <SectionCard title="Klaster - Sd">
         <p>
           The one square kilometer area displayed illustrates children who are
           prioritized from access to education, health and economic facilities.
