@@ -11,6 +11,7 @@ import indonesiaProvince from "./data/indonesia.json";
 import klasterSd from "./data/klaster/sd.json";
 import klasterSmp from "./data/klaster/smp.json";
 import yogyakartaRegencies from "./data/yogyakarta_regencies.json";
+import { BPSCommitment } from "./sections/bps-commitment";
 import { ChildDeprivation } from "./sections/child-deprivation";
 import { Cityscape } from "./sections/cityscape";
 import { Hero } from "./sections/hero";
@@ -154,6 +155,7 @@ const App = () => {
           <Hero />
           <Cityscape isMobile={isMobile} />
           <ChildDeprivation />
+          <BPSCommitment />
           <Quotes />
           <IndonesiaOverview />
           <JavaPovertyOverview />
