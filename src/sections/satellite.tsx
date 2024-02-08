@@ -46,7 +46,7 @@ export const MethodExplanation = () => {
     >
       <div className="bg-gradient-to-b from-transparent to-foreground/90 h-96" />
       <div className="bg-foreground/90 text-background py-20 min-h-svh">
-        <div className="container m-auto max-w-2xl prose">
+        <div className="container m-auto max-w-full px-[clamp(1.4rem,16vw,15rem)] prose text-justify">
           <h3 className="uppercase font-mono text-xl mb-2">Satelite Imagery</h3>
           <p>
             The Copernicus earth observation program launched by the European
