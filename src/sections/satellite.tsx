@@ -216,7 +216,9 @@ export const KlasterSd = ({ klasterSd }: { klasterSd: GeoJSON.Feature }) => {
           bearing: 0,
           pitch: 0,
         });
+        // @ts-expect-error ignore klasterSd types
         const pinRoute = klasterSd.geometry.coordinates;
+        // @ts-expect-error ignore klasterSd types
         const pathDistance = turf.lineDistance(klasterSd);
 
         let start = 0;
@@ -230,6 +232,7 @@ export const KlasterSd = ({ klasterSd }: { klasterSd: GeoJSON.Feature }) => {
           element: el,
         })
           .setLngLat(pinRoute[0])
+          // @ts-expect-error ignore map | undefined types
           .addTo(map?.getMap());
         markersStore.setState({ markers: [marker] });
 
@@ -239,6 +242,7 @@ export const KlasterSd = ({ klasterSd }: { klasterSd: GeoJSON.Feature }) => {
           if (animationPhase > 1) {
             return;
           }
+          // @ts-expect-error ignore klasterSd types
           const alongPath = turf.along(klasterSd, pathDistance * animationPhase)
             .geometry.coordinates;
           const lngLat = {
