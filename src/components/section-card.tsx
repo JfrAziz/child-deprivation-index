@@ -46,7 +46,7 @@ type SectionCardProps = PropsWithChildren<HTMLProps<HTMLDivElement>> & {
 const cloudNarative = `z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)]             
     bg-base-200/90 px-[clamp(1.4rem,6vw,2rem)] py-[clamp(1rem,5vw,1.8rem)] 
     max-w-[clamp(17rem,32vw,32rem)] rounded-[2em]
-    drop-shadow-[0px_2px_10px_theme(colors.neutral-content)] `;
+    drop-shadow-[0px_1px_20px_theme(colors.neutral-content)] `;
 
 export const SectionCard = forwardRef<HTMLDivElement, SectionCardProps>(
   (props, ref) => (
