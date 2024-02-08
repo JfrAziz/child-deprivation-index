@@ -7,33 +7,29 @@ import { useLayerStyle, usePopupStore } from "./stores/map";
 
 import { useEffect, useState } from "react";
 import graticule from "./data/graticule"; 
-import indonesiaProvince from "./data/indonesia.json";
-import klasterSd from "./data/klaster/sd.json";
-import klasterSmp from "./data/klaster/smp.json";
-import yogyakartaRegencies from "./data/yogyakarta_regencies.json";
-import { BPSCommitment } from "./sections/bps-commitment";
-import { ChildDeprivation } from "./sections/child-deprivation";
-import { Cityscape } from "./sections/cityscape";
+import { ThemeButton } from "./sections/theme-button";
 import { Hero } from "./sections/hero";
+import { Cityscape } from "./sections/cityscape";
+import { Quotes } from "./sections/quotes";
 import {
   IndonesiaOverview,
   JavaHDI,
   JavaPoverty,
   JavaPovertyOverview,
 } from "./sections/indonesia-overview";
-import { Quotes } from "./sections/quotes";
+import { ChildDeprivation } from "./sections/child-deprivation";
+import { BPSCommitment } from "./sections/bps-commitment";
 import {
   KlasterSd,
   MethodExplanation,
   YogyakartaCDI,
   YogyakartaRegencies,
 } from "./sections/satellite";
-import { ThemeButton } from "./sections/theme-button";
-import { Cityscape } from "./sections/cityscape";
-import { Quotes } from "./sections/quotes";
-import { useEffect, useState } from "react";
-import { ChildDeprivation } from "./sections/child-deprivation";
-import { BPSCommitment } from "./sections/bps-commitment";
+import indonesiaProvince from "./data/indonesia.json";
+import klasterSd from "./data/klaster/sd.json";
+import klasterSmp from "./data/klaster/smp.json";
+import yogyakartaRegencies from "./data/yogyakarta_regencies.json";
+
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
