@@ -24,7 +24,7 @@ export const BPSCommitment = ({ className }: BPSCommitmentProps) => {
             style={{
               transform: isInView ? "none" : "translateY(100%)",
               opacity: isInView ? 1 : 0,
-              transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
             }}
             className="flex justify-center flex-col items-center"
           >
@@ -67,7 +67,6 @@ export const BPSCommitment = ({ className }: BPSCommitmentProps) => {
               className="z-50"
             />
           </motion.div>
-
           <span
             ref={ref}
             style={{
@@ -106,7 +105,6 @@ export const BPSCommitment = ({ className }: BPSCommitmentProps) => {
               SDG 1
             </motion.h1>
           </span>
-
         </div>
       </div>
     </section>

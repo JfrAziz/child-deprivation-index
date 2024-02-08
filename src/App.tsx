@@ -29,6 +29,11 @@ import {
   YogyakartaRegencies,
 } from "./sections/satellite";
 import { ThemeButton } from "./sections/theme-button";
+import { Cityscape } from "./sections/cityscape";
+import { Quotes } from "./sections/quotes";
+import { useEffect, useState } from "react";
+import { ChildDeprivation } from "./sections/child-deprivation";
+import { BPSCommitment } from "./sections/bps-commitment";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
