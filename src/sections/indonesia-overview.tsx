@@ -48,7 +48,7 @@ export const JavaPovertyOverview = () => {
         usePopupStore.setState({ active: false });
 
         map?.flyTo({
-          duration: 1500,
+          duration: 2000,
           center: [110, -6],
           zoom: 6,
           pitch: 0.0,
@@ -116,10 +116,10 @@ export const JavaHDI = () => {
       className="flex items-center flex-row"
       onSectionEnter={(map) => {
         map?.flyTo({
-          duration: 500,
-          center: [108.7713, -7.04617],
-          zoom: 6.99,
-          pitch: 45.53,
+          duration: 4000,
+          center: [108.30713, -7.44617],
+          zoom: 7.29,
+          pitch: 47.53,
           bearing: 35.98,
         });
         map?.getMap().setLayoutProperty("cdi", "visibility", "none");
@@ -143,7 +143,7 @@ export const JavaHDI = () => {
               "#de3f2b",
               ["==", ["get", "ADM1_PCODE"], "ID34"], // Jogjakarta
               "#fda772",
-              "#FFF",
+              "#d9f99d",
             ],
           },
         }));
@@ -154,17 +154,19 @@ export const JavaHDI = () => {
             {
               pinPosition: "bottom",
               lng: 106.80903,
-              lat: -6.21004,
-              title: "DKI Jakarta",
+              lat: -6.17804,
+              title: "HDI",
               subtitle: "Human Development Index",
+              location: "Jakarta",
               value: 83.55,
             },
             {
               pinPosition: "top",
               lng: 110.3861,
-              lat: -7.88402,
-              title: "DI Yogyakarta",
+              lat: -7.99402,
+              title: "HDI",
               subtitle: "Human Development Index",
+              location: "Yogyakarta",
               value: 88.61,
             },
           ],
@@ -187,10 +189,10 @@ export const JavaPoverty = () => {
       className="flex items-center justify-end flex-row"
       onSectionEnter={(map) => {
         map?.flyTo({
-          duration: 500,
-          center: [108.87454, -6.8634],
-          zoom: 7.13,
-          pitch: 42.03,
+          duration: 4000,
+          center: [109.87454, -6.8634],
+          zoom: 7.213,
+          pitch: 40.03,
           bearing: -19.22,
         });
 
@@ -225,16 +227,18 @@ export const JavaPoverty = () => {
               pinPosition: "bottom",
               lng: 107.5539,
               lat: -6.92971,
-              title: "West Java",
-              subtitle: "Poverty Rate",
+              title: "Poverty Rate",
+              // subtitle: "The percentage of people living below the poverty line",
+              location: "Jawa Barat",
               value: "7.26 %",
             },
             {
               pinPosition: "bottom",
               lng: 110.3861,
               lat: -7.88402,
-              title: "DI Yogyakarta",
-              subtitle: "Poverty Rate",
+              title: "Poverty Rate",
+              // subtitle: "The percentage of people living below the poverty line",
+              location: "Yogyakarta",
               value: "11.23 %",
             },
           ],

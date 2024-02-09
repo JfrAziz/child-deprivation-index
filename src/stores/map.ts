@@ -169,9 +169,11 @@ export const markersStore = create<MarkerStore>((set, get) => ({
 interface Popup {
   lng: number;
   lat: number;
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
+  location?: string;
   value: string | number;
+  paragraph?: string; 
   pinPosition: "top" | "bottom";
 }
 

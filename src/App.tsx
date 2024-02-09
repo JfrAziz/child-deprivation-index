@@ -85,15 +85,30 @@ const App = () => {
                   latitude={popup.lat}
                   longitude={popup.lng}
                   anchor={popup.pinPosition}
+                  className="font-urbanist"
                 >
-                  <div className="bg-background p-4 border-border rounded-lg min-w-40 text-foreground">
-                    <div className="text-lg font-mono uppercase">
-                      {popup.title}
+                  <div className="bg-background p-4 min-w-64 text-card-foreground">
+                    <div className="text-2xl text-pink-600 font-black">
+                      <h1>{popup.title}</h1>
                     </div>
-                    <div className="text-muted-foreground text-sm">
+                    {popup.subtitle ? (<div className="text-sm -mt-1 font-semibold text-purple-950  ">
                       {popup.subtitle}
-                    </div>
-                    <div className="text-3xl font-bold">{popup.value}</div>
+                    </div>) : (<div className="py-1"></div>)}
+                    {popup.value && (<div className="text-5xl font-bold text-neutral-500">{popup.value}</div>)}
+                    {popup.location && (
+                      <div className="mt-2 flex items-start justify-end gap-x-[0.2em] text-right ">
+                        <span>
+                          <img
+                            alt="tag"
+                            className="h-[clamp(1rem,1.4vw,1.2rem)]"
+                            src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
+                          />
+                        </span>
+                        <h1 className="text-base text-base-300 font-black">
+                          {popup.location}
+                        </h1>
+                      </div>
+                    )}
                   </div>
                 </Popup>
               ))}
