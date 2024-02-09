@@ -10,6 +10,7 @@ export const IndonesiaOverview = () => {
           duration: 3000,
           center: [118, 0],
           zoom: 4,
+          curve: 3,
           pitch: 0.0,
           bearing: 0.0,
         });
@@ -17,9 +18,13 @@ export const IndonesiaOverview = () => {
         useLayerStyle.setState((state) => ({
           "indonesia-province": {
             ...state["indonesia-province"],
-            "fill-opacity": 0.5,
-            "fill-color": "#FFF",
-            "fill-outline-color": "#000",
+            "fill-opacity": 0.6,
+            "fill-color": "#a3e635",
+            "fill-outline-color": "#facc15",
+            "fill-outline-color-transition" : {
+              "duration": 6000000000,
+              "delay": 60000000000
+            }
           },
         }));
       }}
