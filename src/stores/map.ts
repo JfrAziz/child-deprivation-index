@@ -8,9 +8,24 @@ interface LayerStyle {
   "klaster-sd": LinePaint;
   "route-klaster-sd": LinePaint;
   "klaster-smp": LinePaint;
+  "route-klaster-smp": LinePaint;
+  "klaster-sma": LinePaint;
+  "route-klaster-sma": LinePaint;
+  "klaster-apotek": LinePaint;
+  "route-klaster-apotek": LinePaint;
+  "klaster-puskesmas": LinePaint;
+  "route-klaster-puskesmas": LinePaint;
+  "klaster-rumah-sakit": LinePaint;
+  "route-klaster-rumah-sakit": LinePaint;
+  "klaster-bank": LinePaint;
+  "route-klaster-bank": LinePaint;
+  "klaster-tourism": LinePaint;
+  "route-klaster-tourism": LinePaint;
+  "klaster-pasar": LinePaint;
+  "route-klaster-pasar": LinePaint;
 }
 
-export const useLayerStyle = create<LayerStyle>()(() => ({
+export const useLayerStyle = create<LayerStyle>(() => ({
   "indonesia-province": {
     "fill-opacity": 0,
     "fill-color": "#FFF",
@@ -33,19 +48,109 @@ export const useLayerStyle = create<LayerStyle>()(() => ({
   "klaster-sd": {
     "line-opacity": 0,
     "line-color": "#ece0db",
-    "line-width": 2,
+    "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
   "route-klaster-sd": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
-    "line-width": 2,
+    "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
   "klaster-smp": {
     "line-opacity": 0,
     "line-color": "#ece0db",
-    "line-width": 2,
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-klaster-smp": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "klaster-sma": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-klaster-sma": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "klaster-apotek": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-klaster-apotek": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "klaster-puskesmas": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-klaster-puskesmas": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "klaster-rumah-sakit": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-klaster-rumah-sakit": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "klaster-bank": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-klaster-bank": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "klaster-tourism": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-klaster-tourism": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "klaster-pasar": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-klaster-pasar": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
 }));
