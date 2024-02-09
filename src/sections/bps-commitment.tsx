@@ -10,7 +10,7 @@ export const BPSCommitment = ({ className }: BPSCommitmentProps) => {
   const isInView = useInView(ref);
 
   return (
-    <section className={cn("w-full mt-24 ", className)}>
+    <section className={cn("w-full ", className)}>
       <div
         className="z-50 bg-base-100 "
         style={{

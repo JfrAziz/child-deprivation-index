@@ -29,7 +29,7 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               transform: isInView ? "none" : "translateX(-200px)",
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginLeft: "-40%",
+              marginLeft: "-45%",
               marginTop: "15%",
             }}
           >
@@ -48,7 +48,7 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
 
             <h1 className="ml-1 font-title !text-left text-[clamp(1.2rem,1.6vw,2rem)] font-bold leading-[1.1] mt-[0.8em]">
               <span className="inline-grid text-left">
-                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,50vw,42rem)]">
+                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,45vw,42rem)]">
                   Child deprivation is closely related to poverty. Poverty can
                   cause children to not have access to various basic needs, such
                   as education, health, economic and social services.
@@ -65,9 +65,9 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               alt="city1"
               src="/images/poverty/children.jpg"
               style={{
-                marginTop: "10%",
+                // marginTop: "5%",
               }}
-              className="z-20 object-cover w-lvw h-[65vh]"
+              className="z-20 object-cover w-lvw h-[45vh]"
             />
           </motion.div>
 
@@ -77,10 +77,10 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
           >
             <img
               alt="poor_island"
-              src="/images/poverty/poor-island.png"
+              src="/images/poverty/poor-island_2.png"
               style={{
                 width: "38%",
-                marginTop: "8%",
+                // marginBottom: "1%",
                 marginRight: "5%",
               }}
               className="z-10"
