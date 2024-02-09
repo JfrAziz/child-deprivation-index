@@ -34,6 +34,7 @@ import {
   KlasterKesehatan,
   KlasterSekolah,
   MethodExplanation,
+  PondokJayaPermai,
   YogyakartaCDI,
   YogyakartaCDIHighlight,
   YogyakartaRegencies,
@@ -355,7 +356,7 @@ const App = () => {
           <YogyakartaRegencies />
           <YogyakartaCDI />
           <YogyakartaCDIHighlight />
-          {/* TODO add penjelasan cluster */}
+          <PondokJayaPermai />
           <KlasterSekolah
             klasterSd={klasterSd.features[0] as GeoJSON.Feature}
             klasterSmp={klasterSmp.features[0] as GeoJSON.Feature}
