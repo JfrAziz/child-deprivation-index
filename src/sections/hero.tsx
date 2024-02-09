@@ -108,8 +108,8 @@ export const Hero = () => {
                 <div className="flex flex-auto justify-center gap-x-1 rounded-full drop-shadow-[0_7px_10px_theme(colors.secondary)]">
                   <span>
                     <img
-                      alt="bps"
-                      className="h-[clamp(1rem,3vw,2rem)]"
+                      alt="tag"
+                      className="h-[clamp(1rem,3vw,3rem)]"
                       src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                     />
                   </span>
