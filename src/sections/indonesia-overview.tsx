@@ -21,18 +21,19 @@ export const IndonesiaOverview = () => {
             "fill-opacity": 0.6,
             "fill-color": "#a3e635",
             "fill-outline-color": "#facc15",
-            "fill-outline-color-transition" : {
-              "duration": 6000000000,
-              "delay": 60000000000
-            }
+            "fill-outline-color-transition": {
+              duration: 6000000000,
+              delay: 60000000000,
+            },
           },
         }));
       }}
     >
       <SectionCard>
         <p>
-          Poverty data are generally presented at the district/city level and
-          are not sensitive to the diversity of regions in 34 provinces.
+          Poverty data is commonly presented at the district or city level,
+          lacking sensitivity to the diverse conditions across the various
+          regions within the 34 provinces.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -61,43 +62,48 @@ export const JavaPovertyOverview = () => {
             "fill-opacity": [
               "case",
               ["==", ["get", "ADM1_PCODE"], "ID36"], // banten
-              1,
+              0.8,
               ["==", ["get", "ADM1_PCODE"], "ID32"], // Jawa barat
-              1,
+              0.8,
               ["==", ["get", "ADM1_PCODE"], "ID31"], // DKI
-              1,
+              0.8,
               ["==", ["get", "ADM1_PCODE"], "ID33"], // Jawa Tengah
-              1,
+              0.8,
               ["==", ["get", "ADM1_PCODE"], "ID34"], // Jogjakarta
-              1,
+              0.8,
               ["==", ["get", "ADM1_PCODE"], "ID35"], // Jawa Timur
-              1,
-              0.2,
+              0.8,
+              0.4,
             ],
             "fill-color": [
               "case",
               ["==", ["get", "ADM1_PCODE"], "ID36"], // banten
-              "#7f0000",
+              "#3300DD",
               ["==", ["get", "ADM1_PCODE"], "ID31"], // DKI
-              "#de3f2b",
+              "#9A3046",
               ["==", ["get", "ADM1_PCODE"], "ID32"], // Jawa barat
-              "#de3f2b",
+              "#DD5C00",
               ["==", ["get", "ADM1_PCODE"], "ID33"], // Jawa Tengah
-              "#f5764f",
+              "#DD0061",
               ["==", ["get", "ADM1_PCODE"], "ID34"], // Jogjakarta
-              "#fda772",
+              "#FE0020",
               ["==", ["get", "ADM1_PCODE"], "ID35"], // Jogjakarta
-              "#fee5c2",
-              "#FFF",
+              "#67009C",
+              "#d9f99d",
             ],
           },
         }));
       }}
     >
-      <SectionCard title="Java Island">
+      <SectionCard>
+        <h1 className="mb-2 text-5xl font-bold text-amber-300 ">
+          56.1
+          <span className="text-3xl">&nbsp;%</span>
+        </h1>
         <p>
-          Java Island as a place for 56.1 % of Indonesia's population has six
-          provinces, one of which is D.I Yogyakarta Province.
+          Java Island, home to 56.1 % of Indonesia's population, comprises six
+          provinces, <br />
+          including D.I Yogyakarta.
         </p>
       </SectionCard>
     </SectionWrapper>
