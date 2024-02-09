@@ -12,7 +12,7 @@ export const IndonesiaOverview = () => {
           zoom: 4,
           curve: 3,
           pitch: 0.0,
-          bearing: 0.0,
+          bearing: 5,
         });
 
         useLayerStyle.setState((state) => ({
