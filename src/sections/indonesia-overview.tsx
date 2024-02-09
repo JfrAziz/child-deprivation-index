@@ -140,9 +140,9 @@ export const JavaHDI = () => {
             "fill-color": [
               "case",
               ["==", ["get", "ADM1_PCODE"], "ID31"], // DKI
-              "#de3f2b",
+              "#d97706",
               ["==", ["get", "ADM1_PCODE"], "ID34"], // Jogjakarta
-              "#fda772",
+              "#f59e0b",
               "#d9f99d",
             ],
           },
@@ -212,10 +212,10 @@ export const JavaPoverty = () => {
             "fill-color": [
               "case",
               ["==", ["get", "ADM1_PCODE"], "ID32"], // Jawa Barat
-              "#de3f2b",
+              "#d97706",
               ["==", ["get", "ADM1_PCODE"], "ID34"], // Jogjakarta
-              "#fda772",
-              "#FFF",
+              "#f59e0b",
+              "#d9f99d",
             ],
           },
         }));
@@ -230,16 +230,16 @@ export const JavaPoverty = () => {
               title: "Poverty Rate",
               // subtitle: "The percentage of people living below the poverty line",
               location: "Jawa Barat",
-              value: "7.26 %",
+              value: "7.26%",
             },
             {
               pinPosition: "bottom",
               lng: 110.3861,
-              lat: -7.88402,
+              lat: -7.60402,
               title: "Poverty Rate",
               // subtitle: "The percentage of people living below the poverty line",
               location: "Yogyakarta",
-              value: "11.23 %",
+              value: "11.23%",
             },
           ],
         });

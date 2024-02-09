@@ -91,10 +91,25 @@ const App = () => {
                     <div className="text-2xl text-pink-600 font-black">
                       <h1>{popup.title}</h1>
                     </div>
-                    {popup.subtitle ? (<div className="text-sm -mt-1 font-semibold text-purple-950  ">
-                      {popup.subtitle}
-                    </div>) : (<div className="py-1"></div>)}
-                    {popup.value && (<div className="text-5xl font-bold text-neutral-500">{popup.value}</div>)}
+                    {popup.subtitle ? (
+                      <div className="text-sm -mt-1 font-semibold text-purple-950  ">
+                        {popup.subtitle}
+                      </div>
+                    ) : (
+                      <div className="py-1"></div>
+                    )}
+                    {popup.value && (
+                      <div
+                        className={`text-5xl font-bold text-neutral-500 ${
+                          String(popup.value).includes("%") && "relative"
+                        }`}
+                      >
+                        {String(popup.value).replace("%", "")}
+                        {String(popup.value).includes("%") && (
+                          <span className="text-3xl absolute">%</span>
+                        )}
+                      </div>
+                    )}
                     {popup.location && (
                       <div className="mt-2 flex items-start justify-end gap-x-[0.2em] text-right ">
                         <span>
