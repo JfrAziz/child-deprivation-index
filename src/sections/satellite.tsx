@@ -233,11 +233,11 @@ export const YogyakartaRegencies = () => {
         }));
 
         map?.flyTo({
-          center: [110.39413, -7.7754],
-          zoom: 9.5,
+          center: [110.61413, -7.7754],
+          zoom: 9.2,
           bearing: 0,
           pitch: 0,
-        });
+        });7
       }}
     >
       <SectionCard title="D.I Yogyakarta">
@@ -325,8 +325,8 @@ export const YogyakartaCDI = () => {
         map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
 
         map?.flyTo({
-          center: [110.39413, -7.7754],
-          zoom: 9.5,
+          center: [110.22413, -7.7754],
+          zoom: 9.2,
           bearing: 0,
           pitch: 0,
         });
@@ -419,7 +419,7 @@ export const YogyakartaCDIHighlight = () => {
         const center = turf.center(lowestCdiType);
         map?.flyTo({
           center: [
-            center.geometry.coordinates[0],
+            center.geometry.coordinates[0] - 0.02,
             center.geometry.coordinates[1],
           ],
           zoom: 12.5,
