@@ -40,6 +40,7 @@ import {
   YogyakartaRegencies,
 } from "./sections/satellite";
 import { ThemeButton } from "./sections/theme-button";
+import { Footer } from "./sections/footer";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -372,6 +373,7 @@ const App = () => {
             klasterPasar={klasterPasar.features[0] as GeoJSON.Feature}
             klasterTourism={klasterTourism.features[0] as GeoJSON.Feature}
           />
+          <Footer />
         </div>
       </MapProvider>
     </main>

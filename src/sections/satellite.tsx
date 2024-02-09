@@ -805,7 +805,7 @@ export const KlasterKesehatan = ({
       className="flex flex-row items-center justify-end"
       onSectionEnter={async (map) => {
         clearMarkers();
-        // map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
         map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
         usePopupStore.setState({
           active: true,
@@ -1022,7 +1022,7 @@ export const KlasterEkonomi = ({
       className="flex flex-row items-center justify-end"
       onSectionEnter={async (map) => {
         clearMarkers();
-        // map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
         map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
         usePopupStore.setState({
           active: true,
