@@ -472,6 +472,108 @@ export const YogyakartaCDIHighlight = () => {
     </SectionWrapper>
   );
 };
+export const PondokJayaPermai = () => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
+  return (
+    <SectionWrapper
+      className="flex flex-row items-center"
+      onSectionEnter={(map) => {
+        clearMarkers();
+        useLayerStyle.setState((state) => ({
+          graticule: { ...state["graticule"], "line-opacity": 0 },
+          "yogyakarta-regencies": {
+            ...state["yogyakarta-regencies"],
+            "fill-opacity": 0.1,
+          },
+          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
+          "route-klaster-sd": {
+            ...state["route-klaster-sd"],
+            "line-opacity": 0,
+          },
+          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
+          "route-klaster-smp": {
+            ...state["route-klaster-smp"],
+            "line-opacity": 0,
+          },
+          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
+          "route-klaster-sma": {
+            ...state["route-klaster-sma"],
+            "line-opacity": 0,
+          },
+          "klaster-apotek": {
+            ...state["klaster-apotek"],
+            "line-opacity": 0,
+          },
+          "route-klaster-apotek": {
+            ...state["route-klaster-apotek"],
+            "line-opacity": 0,
+          },
+          "klaster-puskesmas": {
+            ...state["klaster-puskesmas"],
+            "line-opacity": 0,
+          },
+          "route-klaster-puskesmas": {
+            ...state["route-klaster-puskesmas"],
+            "line-opacity": 0,
+          },
+          "klaster-rumah-sakit": {
+            ...state["klaster-rumah-sakit"],
+            "line-opacity": 0,
+          },
+          "route-klaster-rumah-sakit": {
+            ...state["route-klaster-rumah-sakit"],
+            "line-opacity": 0,
+          },
+          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
+          "route-klaster-bank": {
+            ...state["route-klaster-bank"],
+            "line-opacity": 0,
+          },
+          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
+          "route-klaster-tourism": {
+            ...state["route-klaster-tourism"],
+            "line-opacity": 0,
+          },
+          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
+          "route-klaster-pasar": {
+            ...state["route-klaster-pasar"],
+            "line-opacity": 0,
+          },
+        }));
+        usePopupStore.setState({
+          active: true,
+          popups: [
+            {
+              pinPosition: "bottom",
+              lng: 110.45347,
+              lat: -7.69632,
+              title: "Pondok Jaya Permai Cluster",
+              subtitle: "",
+              value: "",
+            },
+          ],
+        });
+        map?.moveLayer("cdi");
+        map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
+        map?.flyTo({
+          center: [110.4523693, -7.6965357],
+          zoom: 16,
+          bearing: -60,
+          pitch: 0,
+        });
+      }}
+    >
+      <SectionCard title="Pondok Jaya Permai Cluster">
+        <p>
+          Pondok Jaya Permai Cluster is the grid with the lowest percentage of
+          deprived children in D.I Yogyakarta Province at 9.8 percent. As many
+          as 9 to 10 out of 100 children aged 0-17 years in the grid experience
+          deprivation of access to education, health and economic facilities.
+        </p>
+      </SectionCard>
+    </SectionWrapper>
+  );
+};
 export const KlasterSekolah = ({
   klasterSd,
   klasterSmp,
