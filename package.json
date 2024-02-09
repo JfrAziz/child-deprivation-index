@@ -23,7 +23,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-map-gl": "^7.1.7",
-    "react-rellax-wrapper": "^1.0.6",
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "zustand": "^4.5.0"
