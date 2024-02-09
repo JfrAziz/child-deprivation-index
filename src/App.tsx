@@ -6,30 +6,40 @@ import "./globals.css";
 import { useLayerStyle, usePopupStore } from "./stores/map";
 
 import { useEffect, useState } from "react";
-import graticule from "./data/graticule"; 
-import { ThemeButton } from "./sections/theme-button";
-import { Hero } from "./sections/hero";
+import graticule from "./data/graticule";
+import indonesiaProvince from "./data/indonesia.json";
+import klasterSd from "./data/klaster/sd.json";
+import klasterSmp from "./data/klaster/smp.json";
+import klasterSma from "./data/klaster/sma.json";
+import klasterApotek from "./data/klaster/apotek.json";
+import klasterPuskesmas from "./data/klaster/puskesmas.json";
+import klasterRumahSakit from "./data/klaster/rumah_sakit.json";
+import klasterPasar from "./data/klaster/market.json";
+import klasterBank from "./data/klaster/bank.json";
+import klasterTourism from "./data/klaster/tourism.json";
+import yogyakartaRegencies from "./data/yogyakarta_regencies.json";
+import { BPSCommitment } from "./sections/bps-commitment";
+import { ChildDeprivation } from "./sections/child-deprivation";
 import { Cityscape } from "./sections/cityscape";
-import { Quotes } from "./sections/quotes";
+import { Hero } from "./sections/hero";
 import {
   IndonesiaOverview,
   JavaHDI,
   JavaPoverty,
   JavaPovertyOverview,
 } from "./sections/indonesia-overview";
-import { ChildDeprivation } from "./sections/child-deprivation";
-import { BPSCommitment } from "./sections/bps-commitment";
+import { Quotes } from "./sections/quotes";
 import {
-  KlasterSd,
+  KlasterEkonomi,
+  KlasterKesehatan,
+  KlasterSekolah,
   MethodExplanation,
+  PondokJayaPermai,
   YogyakartaCDI,
+  YogyakartaCDIHighlight,
   YogyakartaRegencies,
 } from "./sections/satellite";
-import indonesiaProvince from "./data/indonesia.json";
-import klasterSd from "./data/klaster/sd.json";
-import klasterSmp from "./data/klaster/smp.json";
-import yogyakartaRegencies from "./data/yogyakarta_regencies.json";
-
+import { ThemeButton } from "./sections/theme-button";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -148,6 +158,186 @@ const App = () => {
                 paint={state["klaster-smp"]}
               />
             </Source>
+            <Source
+              type="geojson"
+              id="route-klaster-smp"
+              data={klasterSmp as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-klaster-smp"
+                paint={state["route-klaster-smp"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="klaster-sma"
+              data={klasterSma as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="klaster-sma"
+                paint={state["klaster-sma"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-klaster-sma"
+              data={klasterSma as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-klaster-sma"
+                paint={state["route-klaster-sma"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="klaster-apotek"
+              data={klasterApotek as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="klaster-apotek"
+                paint={state["klaster-apotek"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-klaster-apotek"
+              data={klasterApotek as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-klaster-apotek"
+                paint={state["route-klaster-apotek"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="klaster-puskesmas"
+              data={klasterPuskesmas as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="klaster-puskesmas"
+                paint={state["klaster-puskesmas"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-klaster-puskesmas"
+              data={klasterPuskesmas as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-klaster-puskesmas"
+                paint={state["route-klaster-puskesmas"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="klaster-rumah-sakit"
+              data={klasterRumahSakit as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="klaster-rumah-sakit"
+                paint={state["klaster-rumah-sakit"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-klaster-rumah-sakit"
+              data={klasterRumahSakit as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-klaster-rumah-sakit"
+                paint={state["route-klaster-rumah-sakit"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="klaster-tourism"
+              data={klasterTourism as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="klaster-tourism"
+                paint={state["klaster-tourism"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-klaster-tourism"
+              data={klasterTourism as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-klaster-tourism"
+                paint={state["route-klaster-tourism"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="klaster-bank"
+              data={klasterBank as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="klaster-bank"
+                paint={state["klaster-bank"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-klaster-bank"
+              data={klasterBank as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-klaster-bank"
+                paint={state["route-klaster-bank"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="klaster-pasar"
+              data={klasterPasar as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="klaster-pasar"
+                paint={state["klaster-pasar"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-klaster-pasar"
+              data={klasterPasar as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-klaster-pasar"
+                paint={state["route-klaster-pasar"]}
+              />
+            </Source>
           </Map>
         </div>
 
@@ -165,7 +355,23 @@ const App = () => {
           <MethodExplanation />
           <YogyakartaRegencies />
           <YogyakartaCDI />
-          <KlasterSd klasterSd={klasterSd.features[0] as GeoJSON.Feature} />
+          <YogyakartaCDIHighlight />
+          <PondokJayaPermai />
+          <KlasterSekolah
+            klasterSd={klasterSd.features[0] as GeoJSON.Feature}
+            klasterSmp={klasterSmp.features[0] as GeoJSON.Feature}
+            klasterSma={klasterSma.features[0] as GeoJSON.Feature}
+          />
+          <KlasterKesehatan
+            klasterApotek={klasterApotek.features[0] as GeoJSON.Feature}
+            klasterPuskesmas={klasterPuskesmas.features[0] as GeoJSON.Feature}
+            klasterRumahSakit={klasterRumahSakit.features[0] as GeoJSON.Feature}
+          />
+          <KlasterEkonomi
+            klasterBank={klasterBank.features[0] as GeoJSON.Feature}
+            klasterPasar={klasterPasar.features[0] as GeoJSON.Feature}
+            klasterTourism={klasterTourism.features[0] as GeoJSON.Feature}
+          />
         </div>
       </MapProvider>
     </main>

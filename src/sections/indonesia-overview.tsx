@@ -111,7 +111,8 @@ export const JavaHDI = () => {
           pitch: 45.53,
           bearing: 35.98,
         });
-
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+        map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
         useLayerStyle.setState((state) => ({
           "indonesia-province": {
             ...state["indonesia-province"],
