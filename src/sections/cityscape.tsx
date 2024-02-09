@@ -135,7 +135,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
           </span>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [100, 2000], [0, 600]) }}
+            style={{ y: useTransform(scrollY, [100, 2000], [100, 500]) }}
             className="flex justify-center"
           >
             <img

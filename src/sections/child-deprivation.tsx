@@ -72,7 +72,7 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
           </motion.div>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [-1000, 2000], [100, 300]) }}
+            style={{ y: useTransform(scrollY, [0, 2200], [-500, 300]) }}
             className="flex justify-end"
           >
             <img

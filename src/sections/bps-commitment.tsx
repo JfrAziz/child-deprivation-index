@@ -54,7 +54,7 @@ export const BPSCommitment = ({ className }: BPSCommitmentProps) => {
           </span>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [0, 400], [0, 300]) }}
+            style={{ y: useTransform(scrollY, [0, 3200], [-200, 350]) }}
             className="flex justify-center"
           >
             <img

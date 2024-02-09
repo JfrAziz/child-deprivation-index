@@ -128,7 +128,7 @@ export const Hero = () => {
               opacity: isInView ? 1 : 0,
               transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
             }}
-            className="absolute -bottom-4 flex justify-center flex-col items-center"
+            className="absolute -bottom-4 flex justify-center flex-col items-center z-50"
           >
             <button
               onClick={() => scrollInto("cityscape")}
