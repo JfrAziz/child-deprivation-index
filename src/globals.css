@@ -101,9 +101,7 @@ body {
 }
 
 .mapboxgl-popup-content {
-  @apply !p-0 !bg-none !rounded-full;
-  background: transparent !important;
-  /* border-radius: 999px !important; */
+  @apply !p-0 !bg-transparent;
   box-shadow: 0 0px 0px rgba(0, 0, 0, .1) !important;
 }
 
