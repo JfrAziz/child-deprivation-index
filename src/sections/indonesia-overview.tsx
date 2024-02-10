@@ -8,11 +8,11 @@ export const IndonesiaOverview = () => {
       onSectionEnter={(map) => {
         map?.flyTo({
           duration: 3000,
-          center: [118, 0],
+          center: [118, -2],
           zoom: 4,
           curve: 3,
           pitch: 0.0,
-          bearing: 5,
+          bearing: 4,
         });
 
         useLayerStyle.setState((state) => ({
@@ -156,18 +156,30 @@ export const JavaHDI = () => {
               lng: 106.80903,
               lat: -6.17804,
               title: "HDI",
-              subtitle: "Human Development Index",
+              subtitle: (
+                <>
+                  Human Development Index
+                  <br />
+                  <span className="text-xl font-black">2023</span>
+                </>
+              ) as unknown as JSX.Element,
               location: "Jakarta",
-              value: 83.55,
+              value: 82.46,
             },
             {
               pinPosition: "top",
               lng: 110.3861,
               lat: -7.99402,
               title: "HDI",
-              subtitle: "Human Development Index",
+              subtitle: (
+                <>
+                  Human Development Index
+                  <br />
+                  <span className="text-xl font-black">2023</span>
+                </>
+              ) as unknown as JSX.Element,
               location: "Yogyakarta",
-              value: 88.61,
+              value: 81.07,
             },
           ],
         });
@@ -228,6 +240,11 @@ export const JavaPoverty = () => {
               lng: 107.5539,
               lat: -6.92971,
               title: "Poverty Rate",
+              subtitle: (
+                <>
+                  <span className="text-xl font-black">2023</span>
+                </>
+              ) as unknown as JSX.Element,
               // subtitle: "The percentage of people living below the poverty line",
               location: "Jawa Barat",
               value: "7.26%",
@@ -237,6 +254,11 @@ export const JavaPoverty = () => {
               lng: 110.3861,
               lat: -7.60402,
               title: "Poverty Rate",
+              subtitle: (
+                <>
+                  <span className="text-xl font-black">2023</span>
+                </>
+              ) as unknown as JSX.Element,
               // subtitle: "The percentage of people living below the poverty line",
               location: "Yogyakarta",
               value: "11.23%",

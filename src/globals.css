@@ -67,6 +67,7 @@
 }
 
 @layer base {
+
   /* width */
   ::-webkit-scrollbar {
     width: 10px;
@@ -100,7 +101,10 @@ body {
 }
 
 .mapboxgl-popup-content {
-  @apply !p-0  !bg-none;
+  @apply !p-0 !bg-none !rounded-full;
+  background: transparent !important;
+  /* border-radius: 999px !important; */
+  box-shadow: 0 0px 0px rgba(0, 0, 0, .1) !important;
 }
 
 .mapboxgl-popup-tip {
@@ -112,6 +116,7 @@ body {
   transform-origin: center -20px;
   float: left;
 }
+
 .swing:after {
   content: "";
   position: absolute;
@@ -125,6 +130,7 @@ body {
   border-right: none;
   transform: rotate(45deg);
 }
+
 /* nail */
 .swing:before {
   content: "";
@@ -142,9 +148,11 @@ body {
   0% {
     transform: rotate(-3deg);
   }
+
   50% {
     margin-left: 73%;
   }
+
   100% {
     transform: rotate(7deg);
   }
@@ -155,6 +163,7 @@ body {
   transform-origin: center -20px scaleX(-1);
   float: left;
 }
+
 .swing-left:after {
   content: "";
   position: absolute;
@@ -168,6 +177,7 @@ body {
   border-right: none;
   transform: rotate(45deg) scaleX(-1);
 }
+
 /* nail */
 .swing-left:before {
   content: "";
@@ -185,9 +195,11 @@ body {
   0% {
     transform: rotate(-9deg) scaleX(-1);
   }
+
   50% {
     margin-left: 10%;
   }
+
   100% {
     transform: rotate(8deg) scaleX(-1);
   }
@@ -229,6 +241,7 @@ body {
   -webkit-animation: mouse-scroll 1s infinite;
   -moz-animation: mouse-scroll 1s infinite;
 }
+
 .down-arrow-1 {
   animation-delay: 0.1s;
   -webkit-animation-delay: 0.1s;
@@ -236,6 +249,7 @@ body {
   animation-direction: alternate;
   -webkit-animation-direction: alternate;
 }
+
 .down-arrow-2 {
   animation-delay: 0.2s;
   -webkit-animation-delay: 0.2s;
@@ -243,6 +257,7 @@ body {
   animation-direction: alternate;
   -webkit-animation-direction: alternate;
 }
+
 .down-arrow-3 {
   animation-delay: 0.3s;
   -webkit-animation-delay: 0.3s;
@@ -255,24 +270,30 @@ body {
   0% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 @keyframes mouse-scroll {
   0% {
     opacity: 0;
   }
+
   50% {
     opacity: 0.5;
   }
+
   100% {
     opacity: 1;
   }
 }
+
 .marker {
   background-image: url("/images/person-walking.png");
   background-size: cover;

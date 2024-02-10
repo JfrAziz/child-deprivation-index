@@ -87,12 +87,12 @@ const App = () => {
                   anchor={popup.pinPosition}
                   className="font-urbanist"
                 >
-                  <div className="bg-background p-4 min-w-64 text-card-foreground">
-                    <div className="text-2xl text-pink-600 font-black">
+                  <div className="bg-background rounded-2xl p-4 min-w-64 text-card-foreground">
+                    <div className="text-2xl text-pink-600 font-black text-left">
                       <h1>{popup.title}</h1>
                     </div>
                     {popup.subtitle ? (
-                      <div className="text-sm -mt-1 font-semibold text-purple-950  ">
+                      <div className="text-sm text-left -mt-1 font-semibold text-purple-950  ">
                         {popup.subtitle}
                       </div>
                     ) : (
@@ -100,13 +100,13 @@ const App = () => {
                     )}
                     {popup.value && (
                       <div
-                        className={`text-5xl font-bold text-neutral-500 ${
+                        className={`text-5xl font-bold text-neutral-500 text-right -mt-2  ${
                           String(popup.value).includes("%") && "relative"
                         }`}
                       >
                         {String(popup.value).replace("%", "")}
                         {String(popup.value).includes("%") && (
-                          <span className="text-3xl absolute">%</span>
+                          <span className="text-3xl ">%</span>
                         )}
                       </div>
                     )}
