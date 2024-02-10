@@ -242,12 +242,12 @@ export const JavaPoverty = () => {
               title: "Poverty Rate",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">2023</span>
+                  <span className="text-xl font-black">March 2023</span>
                 </>
               ) as unknown as JSX.Element,
               // subtitle: "The percentage of people living below the poverty line",
               location: "Jawa Barat",
-              value: "7.26%",
+              value: "7.62%",
             },
             {
               pinPosition: "bottom",
@@ -256,12 +256,12 @@ export const JavaPoverty = () => {
               title: "Poverty Rate",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">2023</span>
+                  <span className="text-xl font-black">March 2023</span>
                 </>
               ) as unknown as JSX.Element,
               // subtitle: "The percentage of people living below the poverty line",
               location: "Yogyakarta",
-              value: "11.23%",
+              value: "11.04%",
             },
           ],
         });

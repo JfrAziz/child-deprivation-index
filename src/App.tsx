@@ -100,7 +100,7 @@ const App = () => {
                     )}
                     {popup.value && (
                       <div
-                        className={`text-5xl font-bold text-neutral-500 text-right -mt-4  ${
+                        className={`text-5xl font-bold text-neutral-500 text-right  ${
                           String(popup.value).includes("%") && "relative"
                         }`}
                       >
