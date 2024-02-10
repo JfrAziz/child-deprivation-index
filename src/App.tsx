@@ -35,6 +35,7 @@ import {
   KlasterSekolah,
   MethodExplanation,
   PondokJayaPermai,
+  RemoteSensingLayers,
   YogyakartaCDI,
   YogyakartaCDIHighlight,
   YogyakartaRegencies,
@@ -383,7 +384,8 @@ const App = () => {
           <JavaPovertyOverview />
           <JavaHDI />
           <JavaPoverty />
-          <MethodExplanation />
+          {/* <MethodExplanation /> */}
+          <RemoteSensingLayers />
           <YogyakartaRegencies />
           <YogyakartaCDI />
           <YogyakartaCDIHighlight />

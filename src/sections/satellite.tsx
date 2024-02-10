@@ -2,7 +2,9 @@ import { SectionCard, SectionWrapper } from "@/components/section-card";
 import lowestCdi from "@/data/three_lowerst_cdi.json";
 import { markersStore, useLayerStyle, usePopupStore } from "@/stores/map";
 import * as turf from "@turf/turf";
+import { motion, useInView, useScroll } from "framer-motion";
 import { Marker } from "mapbox-gl";
+import { useRef } from "react";
 
 // const markers: Marker[] = [];
 
@@ -157,6 +159,301 @@ export const MethodExplanation = () => {
   );
 };
 
+export const RemoteSensingLayers = () => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
+  const ref = useRef(null);
+  // const { scrollY } = useScroll({ target: ref });
+  const isInView = useInView(ref);
+
+  return (
+    <SectionWrapper
+      className="!max-w-full m-auto p-0 relative"
+      onSectionEnter={(map) => {
+        clearMarkers();
+        /**
+         * reset any mapbox style layer
+         */
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+
+        map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
+
+        usePopupStore.setState({ active: false });
+
+        useLayerStyle.setState((state) => ({
+          graticule: { ...state["graticule"], "line-opacity": 0 },
+          "indonesia-province": {
+            ...state["indonesia-province"],
+            "fill-opacity": 0,
+          },
+          "yogyakarta-regencies": {
+            ...state["yogyakarta-regencies"],
+            "fill-opacity": 0,
+          },
+          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
+          "route-klaster-sd": {
+            ...state["route-klaster-sd"],
+            "line-opacity": 0,
+          },
+          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
+          "route-klaster-smp": {
+            ...state["route-klaster-smp"],
+            "line-opacity": 0,
+          },
+          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
+          "route-klaster-sma": {
+            ...state["route-klaster-sma"],
+            "line-opacity": 0,
+          },
+          "klaster-apotek": {
+            ...state["klaster-apotek"],
+            "line-opacity": 0,
+          },
+          "route-klaster-apotek": {
+            ...state["route-klaster-apotek"],
+            "line-opacity": 0,
+          },
+          "klaster-puskesmas": {
+            ...state["klaster-puskesmas"],
+            "line-opacity": 0,
+          },
+          "route-klaster-puskesmas": {
+            ...state["route-klaster-puskesmas"],
+            "line-opacity": 0,
+          },
+          "klaster-rumah-sakit": {
+            ...state["klaster-rumah-sakit"],
+            "line-opacity": 0,
+          },
+          "route-klaster-rumah-sakit": {
+            ...state["route-klaster-rumah-sakit"],
+            "line-opacity": 0,
+          },
+          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
+          "route-klaster-bank": {
+            ...state["route-klaster-bank"],
+            "line-opacity": 0,
+          },
+          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
+          "route-klaster-tourism": {
+            ...state["route-klaster-tourism"],
+            "line-opacity": 0,
+          },
+          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
+          "route-klaster-pasar": {
+            ...state["route-klaster-pasar"],
+            "line-opacity": 0,
+          },
+        }));
+
+        map?.flyTo({
+          center: [114.61831, -5.84445],
+          zoom: 1,
+          bearing: 0,
+          pitch: 0,
+        });
+      }}
+    >
+      <div className="bg-gradient-to-b from-transparent to-foreground/60 h-96" />
+      <div className="bg-foreground/60 text-background py-20 min-h-svh flex flex-row w-full">
+        
+      <div className="container max-w-3xl pr-[clamp(1.4rem,5vw,10rem)] prose w-3/5">
+          <h3 className="uppercase font-mono text-xl mb-2">Satelite Imagery</h3>
+          <p>
+            The Copernicus earth observation program launched by the European
+            Space Agency (ESA) on March 22 2014 can be applied to analyze the
+            earth's surface. Earth's surface image data is collected from the
+            sensors of several Sentinel satellites. The Sentinel-2 sensor
+            collects image data of the earth's surface to analyze vegetation,
+            land use and hydrology. The approach to identifying the presence of
+            vegetation, land use, hydrology from the Sentinel-2 satellites and
+            night light intensity from the VIIRS satellite can identify economic
+            activities in an area measuring 1 km square. The results of this
+            approach were carried out to overcome the problem of data that could
+            not be produced from survey data collection with a limited sample.
+          </p>
+          <p>
+            Analysis of the presence of vegetation from sentinel-2 data is
+            produced from measuring satellite spectral waves into an index and
+            is known as the Normalized Difference Vegetation Index (NDVI). NDVI
+            can be used to monitor land uses, such as residential, industrial
+            and agricultural. This data can be used to monitor land use changes,
+            such as urban expansion and agricultural development. Based on NDVI
+            analysis, we can find out the location of children within 1 square
+            km of agricultural locations.
+          </p>
+          <p>
+            Apart from that, from sentinel-2, the NDBI (Normalized Difference
+            Build Index) index can also be obtained which can be used to map
+            urban areas and monitor changes in land use. Based on the NDBI
+            index, it can be seen from the location of 1 square km of children's
+            access to public facilities to meet their basic needs. Not only
+            that, from Sentinel-2, the NDWI index (Normalized Difference Water
+            Index) is also obtained which can be used to detect water and the
+            quality of clean water needed for children's development.
+          </p>
+          <p>
+            Good air conditions are measured by air quality which has low levels
+            of carbon monoxide and sulphur dioxide as elements that cause air
+            pollution from fossil fuels. Carbon monoxide and sulfur dioxide
+            contents were obtained from the Sentinel 5P Satellite. Geothermal
+            heat from the Modis satellite is also used to identify good
+            environmental conditions for child development. The advantage of
+            satellite image data which can produce index values up to a grid
+            size of 1 square km means that satellite data can be more targeted
+            at showing the location of deprived children. Identification of the
+            location of deprived children can be further explained by
+            integrating satellite image data with data on children's access to
+            education, health and economic facilities. This new data source
+            innovation with the support of machine learning modeling can
+            estimate the percentage of deprived children on a grid size of 1
+            square km which cannot be done with limited census or survey data.
+          </p>
+        </div>
+        <div className="w-2/5 ">
+          <div
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateX(-500px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
+              marginRight: "-35%",
+              marginTop: "40%",
+              marginBottom: "-100%"
+            }}
+          >
+            <img
+              alt="base_layer"
+              src="/images/poverty/base-layer.png"
+              className="z-20 "
+            />
+          </div>
+          <div
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateX(-500px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
+              marginRight: "-35%",
+              marginTop: "32%",
+              marginBottom: "-100%"
+            }}
+          >
+            <img
+              alt="NDVI"
+              src="/images/poverty/NDVI.png"
+              style={{
+                marginLeft: "2%"
+              }}
+              className="z-20 "
+            />
+          </div>
+          <div
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateX(-500px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
+              marginRight: "-35%",
+              marginTop: "5%",
+              marginBottom: "-100%"
+            }}
+          >
+            <img
+              alt="NDBI"
+              src="/images/poverty/NDBI.png"
+              style={{
+                marginLeft: "4%"
+              }}
+              className="z-20 "
+            />
+          </div>
+          <div
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateX(-500px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 2s",
+              marginRight: "-35%",
+              marginTop: "2%",
+              marginBottom: "-100%"
+            }}
+          >
+            <img
+              alt="NDWI"
+              src="/images/poverty/NDWI.png"
+              style={{
+                marginLeft: "6%"
+              }}
+              className="z-20 "
+            />
+          </div>
+          <div
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateX(-500px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 2.5s cubic-bezier(0.17, 0.55, 0.55, 1) 2.5s",
+              marginRight: "-35%",
+              marginTop: "6%",
+              marginBottom: "-100%"
+            }}
+          >
+            <img
+              alt="LST"
+              src="/images/poverty/LST.png"
+              style={{
+                marginLeft: "8%"
+              }}
+              className="z-20 "
+            />
+          </div>
+          <div
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateX(-500px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 3s cubic-bezier(0.17, 0.55, 0.55, 1) 3s",
+              marginRight: "-35%",
+              marginTop: "3%",
+              marginBottom: "-100%"
+            }}
+          >
+            <img
+              alt="CO"
+              src="/images/poverty/CO.png"
+              style={{
+                marginLeft: "10%"
+              }}
+              className="z-20 "
+            />
+          </div>
+          <div
+            ref={ref}
+            style={{
+              transform: isInView ? "none" : "translateX(-500px)",
+              opacity: isInView ? 1 : 0,
+              transition: "all 3.5s cubic-bezier(0.17, 0.55, 0.55, 1) 3.5s",
+              marginRight: "-35%",
+              marginTop: "3%",
+              marginBottom: "-100%"
+            }}
+          >
+            <img
+              alt="SO2"
+              src="/images/poverty/SO2.png"
+              style={{
+                marginLeft: "12%"
+              }}
+              className="z-20 "
+            />
+          </div>
+        </div>
+      </div>
+      <div className="bg-gradient-to-t from-transparent to-foreground/60 h-96" />
+    </SectionWrapper>
+  );
+};
+
 export const YogyakartaRegencies = () => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   return (
@@ -237,7 +534,8 @@ export const YogyakartaRegencies = () => {
           zoom: 9.2,
           bearing: 0,
           pitch: 0,
-        });7
+        });
+        7;
       }}
     >
       <SectionCard title="D.I Yogyakarta">
@@ -344,6 +642,7 @@ export const YogyakartaCDI = () => {
     </SectionWrapper>
   );
 };
+
 export const YogyakartaCDIHighlight = () => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   return (
@@ -472,6 +771,7 @@ export const YogyakartaCDIHighlight = () => {
     </SectionWrapper>
   );
 };
+
 export const PondokJayaPermai = () => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   return (
@@ -574,6 +874,7 @@ export const PondokJayaPermai = () => {
     </SectionWrapper>
   );
 };
+
 export const KlasterSekolah = ({
   klasterSd,
   klasterSmp,
@@ -790,6 +1091,7 @@ export const KlasterSekolah = ({
     </SectionWrapper>
   );
 };
+
 export const KlasterKesehatan = ({
   klasterApotek,
   klasterPuskesmas,
@@ -1007,6 +1309,7 @@ export const KlasterKesehatan = ({
     </SectionWrapper>
   );
 };
+
 export const KlasterEkonomi = ({
   klasterPasar,
   klasterBank,
