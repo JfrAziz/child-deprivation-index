@@ -1,5 +1,5 @@
-import { create } from "zustand";
 import { FillPaint, LinePaint, Marker } from "mapbox-gl";
+import { create } from "zustand";
 
 interface LayerStyle {
   "indonesia-province": FillPaint;
@@ -23,9 +23,28 @@ interface LayerStyle {
   "route-klaster-tourism": LinePaint;
   "klaster-pasar": LinePaint;
   "route-klaster-pasar": LinePaint;
+  "dusun-sd": LinePaint;
+  "route-dusun-sd": LinePaint;
+  "dusun-smp": LinePaint;
+  "route-dusun-smp": LinePaint;
+  "dusun-sma": LinePaint;
+  "route-dusun-sma": LinePaint;
+  "dusun-apotek": LinePaint;
+  "route-dusun-apotek": LinePaint;
+  "dusun-puskesmas": LinePaint;
+  "route-dusun-puskesmas": LinePaint;
+  "dusun-rumah-sakit": LinePaint;
+  "route-dusun-rumah-sakit": LinePaint;
+  "dusun-bank": LinePaint;
+  "route-dusun-bank": LinePaint;
+  "dusun-tourism": LinePaint;
+  "route-dusun-tourism": LinePaint;
+  "dusun-pasar": LinePaint;
+  "route-dusun-pasar": LinePaint;
+  resetRouteStyles: () => void;
 }
 
-export const useLayerStyle = create<LayerStyle>(() => ({
+export const useLayerStyle = create<LayerStyle>((set) => ({
   "indonesia-province": {
     "fill-opacity": 0,
     "fill-color": "#FFF",
@@ -153,6 +172,234 @@ export const useLayerStyle = create<LayerStyle>(() => ({
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
+  "dusun-sd": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-dusun-sd": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "dusun-smp": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-dusun-smp": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "dusun-sma": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-dusun-sma": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "dusun-apotek": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-dusun-apotek": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "dusun-puskesmas": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-dusun-puskesmas": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "dusun-rumah-sakit": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-dusun-rumah-sakit": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "dusun-bank": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-dusun-bank": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "dusun-tourism": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-dusun-tourism": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "dusun-pasar": {
+    "line-opacity": 0,
+    "line-color": "#ece0db",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  "route-dusun-pasar": {
+    "line-opacity": 0,
+    "line-color": "rgb(0,0,0)",
+    "line-width": 4,
+    "line-opacity-transition": { duration: 1000 },
+  },
+  resetRouteStyles: () =>
+    set((state) => ({
+      graticule: { ...state["graticule"], "line-opacity": 0 },
+      "indonesia-province": {
+        ...state["indonesia-province"],
+        "fill-opacity": 0,
+      },
+      "yogyakarta-regencies": {
+        ...state["yogyakarta-regencies"],
+        "fill-opacity": 0,
+      },
+      "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
+      "route-klaster-sd": {
+        ...state["route-klaster-sd"],
+        "line-opacity": 0,
+      },
+      "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
+      "route-klaster-smp": {
+        ...state["route-klaster-smp"],
+        "line-opacity": 0,
+      },
+      "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
+      "route-klaster-sma": {
+        ...state["route-klaster-sma"],
+        "line-opacity": 0,
+      },
+      "klaster-apotek": {
+        ...state["klaster-apotek"],
+        "line-opacity": 0,
+      },
+      "route-klaster-apotek": {
+        ...state["route-klaster-apotek"],
+        "line-opacity": 0,
+      },
+      "klaster-puskesmas": {
+        ...state["klaster-puskesmas"],
+        "line-opacity": 0,
+      },
+      "route-klaster-puskesmas": {
+        ...state["route-klaster-puskesmas"],
+        "line-opacity": 0,
+      },
+      "klaster-rumah-sakit": {
+        ...state["klaster-rumah-sakit"],
+        "line-opacity": 0,
+      },
+      "route-klaster-rumah-sakit": {
+        ...state["route-klaster-rumah-sakit"],
+        "line-opacity": 0,
+      },
+      "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
+      "route-klaster-bank": {
+        ...state["route-klaster-bank"],
+        "line-opacity": 0,
+      },
+      "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
+      "route-klaster-tourism": {
+        ...state["route-klaster-tourism"],
+        "line-opacity": 0,
+      },
+      "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
+      "route-klaster-pasar": {
+        ...state["route-klaster-pasar"],
+        "line-opacity": 0,
+      },
+      "dusun-sd": { ...state["dusun-sd"], "line-opacity": 0 },
+      "route-dusun-sd": {
+        ...state["route-dusun-sd"],
+        "line-opacity": 0,
+      },
+      "dusun-smp": { ...state["dusun-smp"], "line-opacity": 0 },
+      "route-dusun-smp": {
+        ...state["route-dusun-smp"],
+        "line-opacity": 0,
+      },
+      "dusun-sma": { ...state["dusun-sma"], "line-opacity": 0 },
+      "route-dusun-sma": {
+        ...state["route-dusun-sma"],
+        "line-opacity": 0,
+      },
+      "dusun-apotek": {
+        ...state["dusun-apotek"],
+        "line-opacity": 0,
+      },
+      "route-dusun-apotek": {
+        ...state["route-dusun-apotek"],
+        "line-opacity": 0,
+      },
+      "dusun-puskesmas": {
+        ...state["dusun-puskesmas"],
+        "line-opacity": 0,
+      },
+      "route-dusun-puskesmas": {
+        ...state["route-dusun-puskesmas"],
+        "line-opacity": 0,
+      },
+      "dusun-rumah-sakit": {
+        ...state["dusun-rumah-sakit"],
+        "line-opacity": 0,
+      },
+      "route-dusun-rumah-sakit": {
+        ...state["route-dusun-rumah-sakit"],
+        "line-opacity": 0,
+      },
+      "dusun-bank": { ...state["dusun-bank"], "line-opacity": 0 },
+      "route-dusun-bank": {
+        ...state["route-dusun-bank"],
+        "line-opacity": 0,
+      },
+      "dusun-tourism": { ...state["dusun-tourism"], "line-opacity": 0 },
+      "route-dusun-tourism": {
+        ...state["route-dusun-tourism"],
+        "line-opacity": 0,
+      },
+      "dusun-pasar": { ...state["dusun-pasar"], "line-opacity": 0 },
+      "route-dusun-pasar": {
+        ...state["route-dusun-pasar"],
+        "line-opacity": 0,
+      },
+    })),
 }));
 
 export const markersStore = create<MarkerStore>((set, get) => ({
@@ -173,7 +420,7 @@ interface Popup {
   subtitle?: string | JSX.Element;
   location?: string | JSX.Element;
   value: string | number | JSX.Element;
-  paragraph?: string | JSX.Element; 
+  paragraph?: string | JSX.Element;
   pinPosition: "top" | "bottom";
 }
 

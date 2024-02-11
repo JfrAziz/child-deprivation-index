@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "three_highest_cdi",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "provinsi": "Daerah Istimewa Yogyakarta", "kabupaten": "Gunung Kidul", "kecamatan": "Sapto Sari", "kode_kecam": "ID3403030", "child_pov": 20.36704148 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 110.509937459700723, -8.078246265069573 ], [ 110.518971396927057, -8.078124111169432 ], [ 110.519094135121009, -8.08712742456656 ], [ 110.510059999471537, -8.087249716363463 ], [ 110.509937459700723, -8.078246265069573 ] ] ] ] } },
+{ "type": "Feature", "properties": { "provinsi": "Daerah Istimewa Yogyakarta", "kabupaten": "Gunung Kidul", "kecamatan": "Tepus", "kode_kecam": "ID3403040", "child_pov": 20.16616246 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 110.655346405835189, -8.139276494167197 ], [ 110.664379447780561, -8.139150189025294 ], [ 110.664506373343087, -8.148151224277774 ], [ 110.655473131626536, -8.148277670925335 ], [ 110.655346405835189, -8.139276494167197 ] ] ] ] } },
+{ "type": "Feature", "properties": { "provinsi": "Daerah Istimewa Yogyakarta", "kabupaten": "Gunung Kidul", "kecamatan": "Tepus", "kode_kecam": "ID3403040", "child_pov": 20.3272539 }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 110.655473131626536, -8.148277670925335 ], [ 110.664506373343087, -8.148151224277774 ], [ 110.664633443925396, -8.157152253579429 ], [ 110.65560000220961, -8.15727884173868 ], [ 110.655473131626536, -8.148277670925335 ] ] ] ] } }
+]
+}

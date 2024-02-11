@@ -4,78 +4,20 @@ import { markersStore, useLayerStyle, usePopupStore } from "@/stores/map";
 
 export const Footer = () => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="!max-w-full m-auto p-0 relative"
       onSectionEnter={(map) => {
         clearMarkers();
+        resetRouteStyles();
         map?.getMap().setLayoutProperty("cdi", "visibility", "none");
         map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
         usePopupStore.setState({ active: false });
-        useLayerStyle.setState((state) => ({
-          graticule: { ...state["graticule"], "line-opacity": 0 },
-          "yogyakarta-regencies": {
-            ...state["yogyakarta-regencies"],
-            "fill-opacity": 0,
-          },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
-            "line-opacity": 0,
-          },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
-            "line-opacity": 0,
-          },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
-            "line-opacity": 0,
-          },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
-            "line-opacity": 0,
-          },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
-            "line-opacity": 0,
-          },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
-            "line-opacity": 0,
-          },
-        }));
+        
         map?.moveLayer("cdi");
-        map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
-        1;
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+        map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
         map?.flyTo({
           duration: 3000,
           center: [96, 30],

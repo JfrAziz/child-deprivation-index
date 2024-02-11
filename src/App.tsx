@@ -6,21 +6,28 @@ import "./globals.css";
 import { useLayerStyle, usePopupStore } from "./stores/map";
 
 import { useEffect, useState } from "react";
+import dusunApotek from "./data/dusun/apotek.json";
+import dusunPasar from "./data/dusun/pasar.json";
+import dusunPuskesmas from "./data/dusun/puskesmas.json";
+import dusunSd from "./data/dusun/sdn.json";
+import dusunSma from "./data/dusun/smk.json";
+import dusunSmp from "./data/dusun/smp.json";
 import graticule from "./data/graticule";
 import indonesiaProvince from "./data/indonesia.json";
-import klasterSd from "./data/klaster/sd.json";
-import klasterSmp from "./data/klaster/smp.json";
-import klasterSma from "./data/klaster/sma.json";
 import klasterApotek from "./data/klaster/apotek.json";
+import klasterBank from "./data/klaster/bank.json";
+import klasterPasar from "./data/klaster/market.json";
 import klasterPuskesmas from "./data/klaster/puskesmas.json";
 import klasterRumahSakit from "./data/klaster/rumah_sakit.json";
-import klasterPasar from "./data/klaster/market.json";
-import klasterBank from "./data/klaster/bank.json";
+import klasterSd from "./data/klaster/sd.json";
+import klasterSma from "./data/klaster/sma.json";
+import klasterSmp from "./data/klaster/smp.json";
 import klasterTourism from "./data/klaster/tourism.json";
 import yogyakartaRegencies from "./data/yogyakarta_regencies.json";
 import { BPSCommitment } from "./sections/bps-commitment";
 import { ChildDeprivation } from "./sections/child-deprivation";
 import { Cityscape } from "./sections/cityscape";
+import { Footer } from "./sections/footer";
 import { Hero } from "./sections/hero";
 import {
   IndonesiaOverview,
@@ -30,18 +37,21 @@ import {
 } from "./sections/indonesia-overview";
 import { Quotes } from "./sections/quotes";
 import {
+  DusunEkonomi,
+  DusunKesehatan,
+  DusunSekolah,
+  DusunSureng,
   KlasterEkonomi,
   KlasterKesehatan,
   KlasterSekolah,
-  MethodExplanation,
   PondokJayaPermai,
   RemoteSensingLayers,
   YogyakartaCDI,
   YogyakartaCDIHighlight,
+  YogyakartaCDIHighlightHighest,
   YogyakartaRegencies,
 } from "./sections/satellite";
 import { ThemeButton } from "./sections/theme-button";
-import { Footer } from "./sections/footer";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -370,6 +380,138 @@ const App = () => {
                 paint={state["route-klaster-pasar"]}
               />
             </Source>
+            <Source
+              type="geojson"
+              id="dusun-sd"
+              data={dusunSd as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer type="line" id="dusun-sd" paint={state["dusun-sd"]} />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-dusun-sd"
+              data={dusunSd as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-dusun-sd"
+                paint={state["route-dusun-sd"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="dusun-smp"
+              data={dusunSmp as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer type="line" id="dusun-smp" paint={state["dusun-smp"]} />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-dusun-smp"
+              data={dusunSmp as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-dusun-smp"
+                paint={state["route-dusun-smp"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="dusun-sma"
+              data={dusunSma as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer type="line" id="dusun-sma" paint={state["dusun-sma"]} />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-dusun-sma"
+              data={dusunSma as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-dusun-sma"
+                paint={state["route-dusun-sma"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="dusun-apotek"
+              data={dusunApotek as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="dusun-apotek"
+                paint={state["dusun-apotek"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-dusun-apotek"
+              data={dusunApotek as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-dusun-apotek"
+                paint={state["route-dusun-apotek"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="dusun-puskesmas"
+              data={dusunPuskesmas as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="dusun-puskesmas"
+                paint={state["dusun-puskesmas"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-dusun-puskesmas"
+              data={dusunPuskesmas as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-dusun-puskesmas"
+                paint={state["route-dusun-puskesmas"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="dusun-pasar"
+              data={dusunPasar as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="dusun-pasar"
+                paint={state["dusun-pasar"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="route-dusun-pasar"
+              data={dusunPasar as GeoJSON.FeatureCollection}
+              lineMetrics
+            >
+              <Layer
+                type="line"
+                id="route-dusun-pasar"
+                paint={state["route-dusun-pasar"]}
+              />
+            </Source>
           </Map>
         </div>
 
@@ -404,6 +546,20 @@ const App = () => {
             klasterBank={klasterBank.features[0] as GeoJSON.Feature}
             klasterPasar={klasterPasar.features[0] as GeoJSON.Feature}
             klasterTourism={klasterTourism.features[0] as GeoJSON.Feature}
+          />
+          <YogyakartaCDIHighlightHighest />
+          <DusunSureng />
+          <DusunSekolah
+            dusunSd={dusunSd.features[0] as GeoJSON.Feature}
+            dusunSmp={dusunSmp.features[0] as GeoJSON.Feature}
+            dusunSma={dusunSma.features[0] as GeoJSON.Feature}
+          />
+          <DusunKesehatan
+            dusunApotek={dusunApotek.features[0] as GeoJSON.Feature}
+            dusunPuskesmas={dusunPuskesmas.features[0] as GeoJSON.Feature}
+          />
+          <DusunEkonomi
+            dusunPasar={dusunPasar.features[0] as GeoJSON.Feature}
           />
           <Footer />
         </div>

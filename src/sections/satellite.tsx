@@ -1,8 +1,9 @@
 import { SectionCard, SectionWrapper } from "@/components/section-card";
+import highestCdi from "@/data/three_highest_cdi.json";
 import lowestCdi from "@/data/three_lowerst_cdi.json";
 import { markersStore, useLayerStyle, usePopupStore } from "@/stores/map";
 import * as turf from "@turf/turf";
-import { motion, useInView, useScroll } from "framer-motion";
+import { useInView } from "framer-motion";
 import { Marker } from "mapbox-gl";
 import { useRef } from "react";
 
@@ -10,6 +11,7 @@ import { useRef } from "react";
 
 export const MethodExplanation = () => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="!max-w-full m-auto p-0 relative"
@@ -23,72 +25,7 @@ export const MethodExplanation = () => {
         map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
 
         usePopupStore.setState({ active: false });
-
-        useLayerStyle.setState((state) => ({
-          graticule: { ...state["graticule"], "line-opacity": 0 },
-          "indonesia-province": {
-            ...state["indonesia-province"],
-            "fill-opacity": 0,
-          },
-          "yogyakarta-regencies": {
-            ...state["yogyakarta-regencies"],
-            "fill-opacity": 0,
-          },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
-            "line-opacity": 0,
-          },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
-            "line-opacity": 0,
-          },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
-            "line-opacity": 0,
-          },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
-            "line-opacity": 0,
-          },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
-            "line-opacity": 0,
-          },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
-            "line-opacity": 0,
-          },
-        }));
+        resetRouteStyles();
 
         map?.flyTo({
           center: [114.61831, -5.84445],
@@ -164,7 +101,7 @@ export const RemoteSensingLayers = () => {
   const ref = useRef(null);
   // const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
-
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="!max-w-full m-auto p-0 relative"
@@ -179,71 +116,7 @@ export const RemoteSensingLayers = () => {
 
         usePopupStore.setState({ active: false });
 
-        useLayerStyle.setState((state) => ({
-          graticule: { ...state["graticule"], "line-opacity": 0 },
-          "indonesia-province": {
-            ...state["indonesia-province"],
-            "fill-opacity": 0,
-          },
-          "yogyakarta-regencies": {
-            ...state["yogyakarta-regencies"],
-            "fill-opacity": 0,
-          },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
-            "line-opacity": 0,
-          },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
-            "line-opacity": 0,
-          },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
-            "line-opacity": 0,
-          },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
-            "line-opacity": 0,
-          },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
-            "line-opacity": 0,
-          },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
-            "line-opacity": 0,
-          },
-        }));
+        resetRouteStyles();
 
         map?.flyTo({
           center: [114.61831, -5.84445],
@@ -255,8 +128,7 @@ export const RemoteSensingLayers = () => {
     >
       <div className="bg-gradient-to-b from-transparent to-foreground/60 h-96" />
       <div className="bg-foreground/60 text-background py-20 min-h-svh flex flex-row w-full">
-        
-      <div className="container max-w-3xl pr-[clamp(1.4rem,5vw,10rem)] prose w-3/5">
+        <div className="container max-w-3xl pr-[clamp(1.4rem,5vw,10rem)] prose w-3/5">
           <h3 className="uppercase font-mono text-xl mb-2">Satelite Imagery</h3>
           <p>
             The Copernicus earth observation program launched by the European
@@ -318,7 +190,7 @@ export const RemoteSensingLayers = () => {
               transition: "all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               marginRight: "-35%",
               marginTop: "40%",
-              marginBottom: "-100%"
+              marginBottom: "-100%",
             }}
           >
             <img
@@ -335,14 +207,14 @@ export const RemoteSensingLayers = () => {
               transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 1s",
               marginRight: "-35%",
               marginTop: "32%",
-              marginBottom: "-100%"
+              marginBottom: "-100%",
             }}
           >
             <img
               alt="NDVI"
               src="/images/poverty/NDVI.png"
               style={{
-                marginLeft: "2%"
+                marginLeft: "2%",
               }}
               className="z-20 "
             />
@@ -355,14 +227,14 @@ export const RemoteSensingLayers = () => {
               transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 1.5s",
               marginRight: "-35%",
               marginTop: "5%",
-              marginBottom: "-100%"
+              marginBottom: "-100%",
             }}
           >
             <img
               alt="NDBI"
               src="/images/poverty/NDBI.png"
               style={{
-                marginLeft: "4%"
+                marginLeft: "4%",
               }}
               className="z-20 "
             />
@@ -375,14 +247,14 @@ export const RemoteSensingLayers = () => {
               transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 2s",
               marginRight: "-35%",
               marginTop: "2%",
-              marginBottom: "-100%"
+              marginBottom: "-100%",
             }}
           >
             <img
               alt="NDWI"
               src="/images/poverty/NDWI.png"
               style={{
-                marginLeft: "6%"
+                marginLeft: "6%",
               }}
               className="z-20 "
             />
@@ -395,14 +267,14 @@ export const RemoteSensingLayers = () => {
               transition: "all 2.5s cubic-bezier(0.17, 0.55, 0.55, 1) 2.5s",
               marginRight: "-35%",
               marginTop: "6%",
-              marginBottom: "-100%"
+              marginBottom: "-100%",
             }}
           >
             <img
               alt="LST"
               src="/images/poverty/LST.png"
               style={{
-                marginLeft: "8%"
+                marginLeft: "8%",
               }}
               className="z-20 "
             />
@@ -415,14 +287,14 @@ export const RemoteSensingLayers = () => {
               transition: "all 3s cubic-bezier(0.17, 0.55, 0.55, 1) 3s",
               marginRight: "-35%",
               marginTop: "3%",
-              marginBottom: "-100%"
+              marginBottom: "-100%",
             }}
           >
             <img
               alt="CO"
               src="/images/poverty/CO.png"
               style={{
-                marginLeft: "10%"
+                marginLeft: "10%",
               }}
               className="z-20 "
             />
@@ -435,14 +307,14 @@ export const RemoteSensingLayers = () => {
               transition: "all 3.5s cubic-bezier(0.17, 0.55, 0.55, 1) 3.5s",
               marginRight: "-35%",
               marginTop: "3%",
-              marginBottom: "-100%"
+              marginBottom: "-100%",
             }}
           >
             <img
               alt="SO2"
               src="/images/poverty/SO2.png"
               style={{
-                marginLeft: "12%"
+                marginLeft: "12%",
               }}
               className="z-20 "
             />
@@ -456,6 +328,7 @@ export const RemoteSensingLayers = () => {
 
 export const YogyakartaRegencies = () => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="flex flex-row items-center justify-end"
@@ -465,67 +338,13 @@ export const YogyakartaRegencies = () => {
 
         usePopupStore.setState({ active: false });
 
+        resetRouteStyles();
         useLayerStyle.setState((state) => ({
-          graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.6,
             "fill-color": "#c03831",
             "fill-outline-color": "#7f0000",
-          },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
-            "line-opacity": 0,
-          },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
-            "line-opacity": 0,
-          },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
-            "line-opacity": 0,
-          },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
-            "line-opacity": 0,
-          },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
-            "line-opacity": 0,
-          },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
-            "line-opacity": 0,
           },
         }));
 
@@ -552,71 +371,18 @@ export const YogyakartaRegencies = () => {
 
 export const YogyakartaCDI = () => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="flex flex-row items-center"
       onSectionEnter={(map) => {
         clearMarkers();
         usePopupStore.setState({ active: false });
+        resetRouteStyles();
         useLayerStyle.setState((state) => ({
-          graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.2,
-          },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
-            "line-opacity": 0,
-          },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
-            "line-opacity": 0,
-          },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
-            "line-opacity": 0,
-          },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
-            "line-opacity": 0,
-          },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
-            "line-opacity": 0,
-          },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
-            "line-opacity": 0,
           },
         }));
         map?.moveLayer("cdi");
@@ -645,70 +411,17 @@ export const YogyakartaCDI = () => {
 
 export const YogyakartaCDIHighlight = () => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="flex flex-row items-center"
       onSectionEnter={(map) => {
         clearMarkers();
+        resetRouteStyles();
         useLayerStyle.setState((state) => ({
-          graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.1,
-          },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
-            "line-opacity": 0,
-          },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
-            "line-opacity": 0,
-          },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
-            "line-opacity": 0,
-          },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
-            "line-opacity": 0,
-          },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
-            "line-opacity": 0,
-          },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
-            "line-opacity": 0,
           },
         }));
 
@@ -739,7 +452,7 @@ export const YogyakartaCDIHighlight = () => {
               lat: centers[0].geometry.coordinates[1],
               title: "Third Lowest CDI",
               subtitle: "",
-              value: lowestCdi.features[0].properties.child_pov,
+              value: lowestCdi.features[0].properties.child_pov.toFixed(2),
             },
             {
               pinPosition: "bottom",
@@ -747,7 +460,7 @@ export const YogyakartaCDIHighlight = () => {
               lat: centers[1].geometry.coordinates[1],
               title: "Second Lowest CDI",
               subtitle: "",
-              value: lowestCdi.features[1].properties.child_pov,
+              value: lowestCdi.features[1].properties.child_pov.toFixed(2),
             },
             {
               pinPosition: "bottom",
@@ -755,7 +468,7 @@ export const YogyakartaCDIHighlight = () => {
               lat: centers[2].geometry.coordinates[1],
               title: "First Lowest CDI",
               subtitle: "",
-              value: lowestCdi.features[2].properties.child_pov,
+              value: lowestCdi.features[2].properties.child_pov.toFixed(2),
             },
           ],
         });
@@ -774,70 +487,17 @@ export const YogyakartaCDIHighlight = () => {
 
 export const PondokJayaPermai = () => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="flex flex-row items-center"
       onSectionEnter={(map) => {
         clearMarkers();
+        resetRouteStyles();
         useLayerStyle.setState((state) => ({
-          graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.1,
-          },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
-            "line-opacity": 0,
-          },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
-            "line-opacity": 0,
-          },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
-            "line-opacity": 0,
-          },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
-            "line-opacity": 0,
-          },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
-            "line-opacity": 0,
-          },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
-            "line-opacity": 0,
           },
         }));
         usePopupStore.setState({
@@ -885,6 +545,7 @@ export const KlasterSekolah = ({
   klasterSma: GeoJSON.Feature;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="flex flex-row items-center justify-end"
@@ -905,6 +566,7 @@ export const KlasterSekolah = ({
             },
           ],
         });
+        resetRouteStyles();
         useLayerStyle.setState((state) => ({
           graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
@@ -925,45 +587,6 @@ export const KlasterSekolah = ({
           "route-klaster-sma": {
             ...state["route-klaster-sma"],
             "line-opacity": 1,
-          },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
-            "line-opacity": 0,
-          },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
-            "line-opacity": 0,
-          },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
-            "line-opacity": 0,
           },
         }));
         map?.flyTo({
@@ -1102,6 +725,7 @@ export const KlasterKesehatan = ({
   klasterRumahSakit: GeoJSON.Feature;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="flex flex-row items-center justify-end"
@@ -1122,26 +746,11 @@ export const KlasterKesehatan = ({
             },
           ],
         });
+        resetRouteStyles();
         useLayerStyle.setState((state) => ({
-          graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.2,
-          },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
-            "line-opacity": 0,
-          },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
-            "line-opacity": 0,
-          },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
-            "line-opacity": 0,
           },
           "klaster-apotek": {
             ...state["klaster-apotek"],
@@ -1166,21 +775,6 @@ export const KlasterKesehatan = ({
           "route-klaster-rumah-sakit": {
             ...state["route-klaster-rumah-sakit"],
             "line-opacity": 1,
-          },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
-            "line-opacity": 0,
-          },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
-            "line-opacity": 0,
-          },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
-            "line-opacity": 0,
           },
         }));
         map?.flyTo({
@@ -1320,6 +914,7 @@ export const KlasterEkonomi = ({
   klasterTourism: GeoJSON.Feature;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
       className="flex flex-row items-center justify-end"
@@ -1340,50 +935,11 @@ export const KlasterEkonomi = ({
             },
           ],
         });
+        resetRouteStyles();
         useLayerStyle.setState((state) => ({
-          graticule: { ...state["graticule"], "line-opacity": 0 },
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.2,
-          },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
-            "line-opacity": 0,
-          },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
-            "line-opacity": 0,
-          },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
-            "line-opacity": 0,
-          },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
-            "line-opacity": 0,
-          },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
-            "line-opacity": 0,
-          },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
-            "line-opacity": 0,
-          },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
-            "line-opacity": 0,
           },
           "klaster-bank": { ...state["klaster-bank"], "line-opacity": 1 },
           "route-klaster-bank": {
@@ -1523,6 +1079,637 @@ export const KlasterEkonomi = ({
           counter (mandiri bank partner (Rpk Arum Sari) ), 3 minutes to
           entertainment facilities (Pondok Wonolelo Tourism Village) on foot or
           1 minute by car with a distance of 280-550 m.
+        </p>
+      </SectionCard>
+    </SectionWrapper>
+  );
+};
+
+export const YogyakartaCDIHighlightHighest = () => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
+  return (
+    <SectionWrapper
+      className="flex flex-row items-center"
+      onSectionEnter={(map) => {
+        clearMarkers();
+        resetRouteStyles();
+        useLayerStyle.setState((state) => ({
+          "yogyakarta-regencies": {
+            ...state["yogyakarta-regencies"],
+            "fill-opacity": 0.1,
+          },
+        }));
+
+        map?.moveLayer("cdi");
+        map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
+        const highestCdiType = highestCdi as GeoJSON.FeatureCollection;
+        const center = turf.center(highestCdiType);
+        map?.flyTo({
+          center: [
+            center.geometry.coordinates[0] - 0.09,
+            center.geometry.coordinates[1],
+          ],
+          zoom: 11,
+          bearing: 0,
+          pitch: 0,
+        });
+        // @ts-expect-error ignore dusunSd types
+        const centers = highestCdi.features.map((feature: GeoJSON.Feature) => {
+          // @ts-expect-error ignore dusunSd types
+          return turf.center(feature);
+        });
+        usePopupStore.setState({
+          active: true,
+          popups: [
+            {
+              pinPosition: "top",
+              lng: centers[0].geometry.coordinates[0],
+              lat: centers[0].geometry.coordinates[1],
+              title: "Third Highest CDI",
+              subtitle: "",
+              value: highestCdi.features[0].properties.child_pov.toFixed(2),
+            },
+            {
+              pinPosition: "bottom",
+              lng: centers[1].geometry.coordinates[0],
+              lat: centers[1].geometry.coordinates[1],
+              title: "Second Highest CDI",
+              subtitle: "",
+              value: highestCdi.features[1].properties.child_pov.toFixed(2),
+            },
+            {
+              pinPosition: "top",
+              lng: centers[2].geometry.coordinates[0],
+              lat: centers[2].geometry.coordinates[1],
+              title: "First Highest CDI",
+              subtitle: "",
+              value: highestCdi.features[2].properties.child_pov.toFixed(2),
+            },
+          ],
+        });
+      }}
+    >
+      <SectionCard title="D.I Yogyakarta CDI Highlight">
+        <p>
+          Three grids with the highest percentage of children with the highest
+          leadership at 20.1 - 20.3 percent in the Province of D.I Yogyakarta
+          are in Gunungkidul Regency with a percentage of monetary poverty of
+          17.07 percent in 2020.
+        </p>
+      </SectionCard>
+    </SectionWrapper>
+  );
+};
+
+export const DusunSureng = () => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
+  return (
+    <SectionWrapper
+      className="flex flex-row items-center"
+      onSectionEnter={(map) => {
+        clearMarkers();
+        resetRouteStyles();
+        useLayerStyle.setState((state) => ({
+          "yogyakarta-regencies": {
+            ...state["yogyakarta-regencies"],
+            "fill-opacity": 0.1,
+          },
+        }));
+        usePopupStore.setState({
+          active: true,
+          popups: [
+            {
+              pinPosition: "bottom",
+              lng: 110.66206,
+              lat: -8.15249,
+              title: "Dusun Sureng 2",
+              subtitle: "",
+              value: "",
+            },
+          ],
+        });
+        map?.moveLayer("cdi");
+        map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
+        map?.flyTo({
+          center: [110.66206, -8.15249],
+          zoom: 16,
+          bearing: -60,
+          pitch: 0,
+        });
+      }}
+    >
+      <SectionCard title="Dusun Sureng 2">
+        <p>
+          Dusun Sureng 2 is the grid with the highest percentage of deprived
+          children in D.I Yogyakarta Province at 20.3 percent. As many as 20 out
+          of 100 children aged 0-17 years experience deprivation of access to
+          educational, health and economic facilities.
+        </p>
+      </SectionCard>
+    </SectionWrapper>
+  );
+};
+
+export const DusunSekolah = ({
+  dusunSd,
+  dusunSmp,
+  dusunSma,
+}: {
+  dusunSd: GeoJSON.Feature;
+  dusunSmp: GeoJSON.Feature;
+  dusunSma: GeoJSON.Feature;
+}) => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
+  return (
+    <SectionWrapper
+      className="flex flex-row items-center justify-start"
+      onSectionEnter={async (map) => {
+        clearMarkers();
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+        map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
+        usePopupStore.setState({
+          active: true,
+          popups: [
+            {
+              pinPosition: "bottom",
+              lng: 110.66206,
+              lat: -8.15249,
+              title: "Dusun Sureng 2",
+              subtitle: "",
+              value: "",
+            },
+          ],
+        });
+        resetRouteStyles();
+        useLayerStyle.setState((state) => ({
+          graticule: { ...state["graticule"], "line-opacity": 0 },
+          "yogyakarta-regencies": {
+            ...state["yogyakarta-regencies"],
+            "fill-opacity": 0.2,
+          },
+          "dusun-sd": { ...state["dusun-sd"], "line-opacity": 1 },
+          "route-dusun-sd": {
+            ...state["route-dusun-sd"],
+            "line-opacity": 1,
+          },
+          "dusun-smp": { ...state["dusun-smp"], "line-opacity": 1 },
+          "route-dusun-smp": {
+            ...state["route-dusun-smp"],
+            "line-opacity": 1,
+          },
+          "dusun-sma": { ...state["dusun-sma"], "line-opacity": 1 },
+          "route-dusun-sma": {
+            ...state["route-dusun-sma"],
+            "line-opacity": 1,
+          },
+        }));
+        map?.flyTo({
+          center: [110.64806, -8.14049],
+          zoom: 14,
+          bearing: -30,
+          pitch: 60,
+          duration: 1000,
+        });
+
+        let start = 0,
+          index = 0;
+        const animationDuration = 5000;
+        const markers: Marker[] = [];
+        const pathDistances: number[] = [];
+        for (const dusunSekolah of [dusunSd, dusunSmp, dusunSma]) {
+          // @ts-expect-error ignore dusunSd types
+          const pinRoute = dusunSekolah.geometry.coordinates;
+          // @ts-expect-error ignore dusunSd types
+          pathDistances.push(turf.lineDistance(dusunSekolah));
+          const markerIconElement = document.createElement("div");
+          markerIconElement.style.backgroundImage =
+            'url("/images/person-walking.png")';
+          markerIconElement.style.backgroundSize = "cover";
+          markerIconElement.style.width = "50px";
+          markerIconElement.style.height = "50px";
+          markerIconElement.style.borderRadius = "50%";
+          markerIconElement.style.cursor = "pointer";
+          const markerIcon = new Marker({
+            color: "red",
+            scale: 0.8,
+            draggable: false,
+            pitchAlignment: "auto",
+            rotationAlignment: "auto",
+            element: markerIconElement,
+          })
+            .setLngLat(pinRoute[0])
+            // @ts-expect-error ignore map | undefined types
+            .addTo(map?.getMap());
+          markers.push(markerIcon);
+
+          const markerTargetElement = document.createElement("div");
+          markerTargetElement.style.backgroundSize = "cover";
+          markerTargetElement.style.width = "50px";
+          markerTargetElement.style.height = "50px";
+          markerTargetElement.style.borderRadius = "50%";
+          markerTargetElement.style.cursor = "pointer";
+          markerTargetElement.style.backgroundImage =
+            index == 0
+              ? 'url("/images/topi-sd.png")'
+              : index == 1
+              ? 'url("/images/topi-smp.png")'
+              : 'url("/images/topi-sma.png")';
+          const markerTarget = new Marker({
+            color: "red",
+            scale: 0.8,
+            draggable: false,
+            pitchAlignment: "auto",
+            rotationAlignment: "auto",
+            element: markerTargetElement,
+          })
+            .setLngLat(pinRoute[pinRoute.length - 1])
+            // @ts-expect-error ignore map | undefined types
+            .addTo(map?.getMap());
+          markers.push(markerTarget);
+          index++;
+        }
+        markersStore.setState({ markers });
+
+        function frame(time: number) {
+          if (!start) start = time;
+          const animationPhase = (time - start) / animationDuration;
+          if (animationPhase > 1) {
+            return;
+          }
+
+          [dusunSd, dusunSmp, dusunSma].forEach(async (dusun, index) => {
+            const alongPath = turf.along(
+              // @ts-expect-error ignore dusun types
+              dusun,
+              pathDistances[index] * animationPhase
+            ).geometry.coordinates;
+            const lngLat = {
+              lng: alongPath[0],
+              lat: alongPath[1],
+            };
+            markers[index + 1 * index].setLngLat(lngLat);
+            let paintProperty: string;
+            switch (index) {
+              case 1:
+                paintProperty = "route-dusun-smp";
+                break;
+              case 2:
+                paintProperty = "route-dusun-sma";
+                break;
+              default:
+                paintProperty = "route-dusun-sd";
+                break;
+            }
+            map
+              ?.getMap()
+              .setPaintProperty(paintProperty, "line-gradient", [
+                "step",
+                ["line-progress"],
+                "red",
+                animationPhase,
+                "rgba(255, 0, 0, 0)",
+              ]);
+          });
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      }}
+    >
+      <SectionCard title="Dusun - Educational Facilities">
+        <p>
+          As many as 20 out of 100 children aged 0-17 years in the grid can get
+          28-34 minutes to elementary school (sdn tepus - Sd muhammadiyah), 53
+          minutes to junior high school (SMP Sanjaya Tepus) and 176 minutes to
+          high school (SMK Muhammadiyah) on foot or 8-25minutes by car with a
+          distance of 1.8 - 13.1 km.
+        </p>
+      </SectionCard>
+    </SectionWrapper>
+  );
+};
+
+export const DusunKesehatan = ({
+  dusunApotek,
+  dusunPuskesmas,
+}: {
+  dusunApotek: GeoJSON.Feature;
+  dusunPuskesmas: GeoJSON.Feature;
+}) => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
+  return (
+    <SectionWrapper
+      className="flex flex-row items-center justify-start"
+      onSectionEnter={async (map) => {
+        clearMarkers();
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+        map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
+        usePopupStore.setState({
+          active: true,
+          popups: [
+            {
+              pinPosition: "top",
+              lng: 110.45347,
+              lat: -7.69632,
+              title: "Pondok Jaya Permai Dusun",
+              subtitle: "",
+              value: "",
+            },
+          ],
+        });
+        resetRouteStyles();
+        useLayerStyle.setState((state) => ({
+          "yogyakarta-regencies": {
+            ...state["yogyakarta-regencies"],
+            "fill-opacity": 0.2,
+          },
+          "dusun-apotek": {
+            ...state["dusun-apotek"],
+            "line-opacity": 1,
+          },
+          "route-dusun-apotek": {
+            ...state["route-dusun-apotek"],
+            "line-opacity": 1,
+          },
+          "dusun-puskesmas": {
+            ...state["dusun-puskesmas"],
+            "line-opacity": 1,
+          },
+          "route-dusun-puskesmas": {
+            ...state["route-dusun-puskesmas"],
+            "line-opacity": 1,
+          },
+        }));
+        map?.flyTo({
+          center: [110.64806, -8.14049],
+          zoom: 13.7,
+          bearing: -60,
+          pitch: 45,
+          duration: 1000,
+        });
+
+        let start = 0,
+          index = 0;
+        const animationDuration = 5000;
+        const markers: Marker[] = [];
+        const pathDistances: number[] = [];
+        for (const dusunKesehatan of [dusunApotek, dusunPuskesmas]) {
+          // @ts-expect-error ignore dusunSd types
+          const pinRoute = dusunKesehatan.geometry.coordinates;
+          // @ts-expect-error ignore dusunSd types
+          pathDistances.push(turf.lineDistance(dusunKesehatan));
+          const markerIconElement = document.createElement("div");
+          markerIconElement.style.backgroundImage =
+            'url("/images/person-walking.png")';
+          markerIconElement.style.backgroundSize = "cover";
+          markerIconElement.style.width = "50px";
+          markerIconElement.style.height = "50px";
+          markerIconElement.style.borderRadius = "50%";
+          markerIconElement.style.cursor = "pointer";
+          const markerIcon = new Marker({
+            color: "red",
+            scale: 0.8,
+            draggable: false,
+            pitchAlignment: "auto",
+            rotationAlignment: "auto",
+            element: markerIconElement,
+          })
+            .setLngLat(pinRoute[0])
+            // @ts-expect-error ignore map | undefined types
+            .addTo(map?.getMap());
+          markers.push(markerIcon);
+
+          const markerTargetElement = document.createElement("div");
+          markerTargetElement.style.backgroundSize = "cover";
+          markerTargetElement.style.width = "50px";
+          markerTargetElement.style.height = "50px";
+          markerTargetElement.style.borderRadius = "50%";
+          markerTargetElement.style.cursor = "pointer";
+          markerTargetElement.style.backgroundImage =
+            index == 0
+              ? 'url("/images/apotek.png")'
+              : 'url("/images/puskesmas.png")';
+          const markerTarget = new Marker({
+            color: "red",
+            scale: 0.8,
+            draggable: false,
+            pitchAlignment: "auto",
+            rotationAlignment: "auto",
+            element: markerTargetElement,
+          })
+            .setLngLat(pinRoute[pinRoute.length - 1])
+            // @ts-expect-error ignore map | undefined types
+            .addTo(map?.getMap());
+          markers.push(markerTarget);
+          index++;
+        }
+        markersStore.setState({ markers });
+
+        function frame(time: number) {
+          if (!start) start = time;
+          const animationPhase = (time - start) / animationDuration;
+          if (animationPhase > 1) {
+            return;
+          }
+
+          [dusunApotek, dusunPuskesmas].forEach((dusun, index) => {
+            const alongPath = turf.along(
+              // @ts-expect-error ignore dusun types
+              dusun,
+              pathDistances[index] * animationPhase
+            ).geometry.coordinates;
+            const lngLat = {
+              lng: alongPath[0],
+              lat: alongPath[1],
+            };
+            markers[index + 1 * index].setLngLat(lngLat);
+            map
+              ?.getMap()
+              .setPaintProperty(
+                index == 0 ? "route-dusun-apotek" : "route-dusun-puskesmas",
+                "line-gradient",
+                [
+                  "step",
+                  ["line-progress"],
+                  "red",
+                  animationPhase,
+                  "rgba(255, 0, 0, 0)",
+                ]
+              );
+          });
+          window.requestAnimationFrame(frame);
+        }
+        window.requestAnimationFrame(frame);
+      }}
+    >
+      <SectionCard title="Dusun - Health Facilities">
+        <p>
+          As many as 20 out of 100 children aged 0-17 years in the grid can get
+          150 minutes to the pharmacy (Apotik Bintaos) and 95-151 minutes to the
+          health center (Puskesmas Pembantu Tepus-Puskesmas Pembantu
+          Sumberwungu) on foot or 14 - 27 minutes by car with a distance of 6.8
+          - 11.3 km.
+        </p>
+      </SectionCard>
+    </SectionWrapper>
+  );
+};
+
+export const DusunEkonomi = ({
+  dusunPasar,
+}: {
+  dusunPasar: GeoJSON.Feature;
+}) => {
+  const clearMarkers = markersStore((state) => state.clearMarkers);
+  const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
+  return (
+    <SectionWrapper
+      className="flex flex-row items-center justify-start"
+      onSectionEnter={async (map) => {
+        clearMarkers();
+        map?.getMap().setLayoutProperty("cdi", "visibility", "none");
+        map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
+        usePopupStore.setState({
+          active: true,
+          popups: [
+            {
+              pinPosition: "bottom",
+              lng: 110.66206,
+              lat: -8.15249,
+              title: "Dusun Sureng 2",
+              subtitle: "",
+              value: "",
+            },
+          ],
+        });
+        resetRouteStyles();
+        useLayerStyle.setState((state) => ({
+          "yogyakarta-regencies": {
+            ...state["yogyakarta-regencies"],
+            "fill-opacity": 0.2,
+          },
+          "dusun-pasar": { ...state["dusun-pasar"], "line-opacity": 1 },
+          "route-dusun-pasar": {
+            ...state["route-dusun-pasar"],
+            "line-opacity": 1,
+          },
+        }));
+        map?.flyTo({
+          center: [110.65306, -8.14949],
+          zoom: 14.5,
+          bearing: -60,
+          pitch: 60,
+          duration: 1000,
+        });
+
+        let start = 0,
+          index = 0;
+        const animationDuration = 5000;
+        const markers: Marker[] = [];
+        const pathDistances: number[] = [];
+        for (const dusunEkonomi of [dusunPasar]) {
+          // @ts-expect-error ignore dusunSd types
+          const pinRoute = dusunEkonomi.geometry.coordinates;
+          // @ts-expect-error ignore dusunSd types
+          pathDistances.push(turf.lineDistance(dusunEkonomi));
+          const markerIconElement = document.createElement("div");
+          markerIconElement.style.backgroundImage =
+            'url("/images/person-walking.png")';
+          markerIconElement.style.backgroundSize = "cover";
+          markerIconElement.style.width = "50px";
+          markerIconElement.style.height = "50px";
+          markerIconElement.style.borderRadius = "50%";
+          markerIconElement.style.cursor = "pointer";
+          const markerIcon = new Marker({
+            color: "red",
+            scale: 0.8,
+            draggable: false,
+            pitchAlignment: "auto",
+            rotationAlignment: "auto",
+            element: markerIconElement,
+          })
+            .setLngLat(pinRoute[0])
+            // @ts-expect-error ignore map | undefined types
+            .addTo(map?.getMap());
+          markers.push(markerIcon);
+
+          const markerTargetElement = document.createElement("div");
+          markerTargetElement.style.backgroundSize = "cover";
+          markerTargetElement.style.width = "50px";
+          markerTargetElement.style.height = "50px";
+          markerTargetElement.style.borderRadius = "50%";
+          markerTargetElement.style.cursor = "pointer";
+          markerTargetElement.style.backgroundImage =
+            index == 0
+              ? 'url("/images/market.png")'
+              : index == 1
+              ? 'url("/images/bank.png")'
+              : 'url("/images/tourism.png")';
+          const markerTarget = new Marker({
+            color: "red",
+            scale: 0.8,
+            draggable: false,
+            pitchAlignment: "auto",
+            rotationAlignment: "auto",
+            element: markerTargetElement,
+          })
+            .setLngLat(pinRoute[pinRoute.length - 1])
+            // @ts-expect-error ignore map | undefined types
+            .addTo(map?.getMap());
+          markers.push(markerTarget);
+          index++;
+        }
+        markersStore.setState({ markers });
+
+        function frame(time: number) {
+          if (!start) start = time;
+          const animationPhase = (time - start) / animationDuration;
+          if (animationPhase > 1) {
+            return;
+          }
+
+          [dusunPasar].forEach((dusun, index) => {
+            const alongPath = turf.along(
+              // @ts-expect-error ignore dusun types
+              dusun,
+              pathDistances[index] * animationPhase
+            ).geometry.coordinates;
+            const lngLat = {
+              lng: alongPath[0],
+              lat: alongPath[1],
+            };
+            markers[index + 1 * index].setLngLat(lngLat);
+            map
+              ?.getMap()
+              .setPaintProperty(
+                index == 0
+                  ? "route-dusun-pasar"
+                  : index == 1
+                  ? "route-dusun-bank"
+                  : "route-dusun-tourism",
+                "line-gradient",
+                [
+                  "step",
+                  ["line-progress"],
+                  "red",
+                  animationPhase,
+                  "rgba(255, 0, 0, 0)",
+                ]
+              );
+          });
+          window.requestAnimationFrame(frame);
+        }
+        window.requestAnimationFrame(frame);
+      }}
+    >
+      <SectionCard title="Dusun - Economic Facilities">
+        <p>
+          As many as 20 out of 100 children aged 0-17 years in the grid can get
+          81 minutes to the market (Pasar Tepus and Indomaret Tepus) on foot or
+          12 minutes by car with a distance of 5.6 km.
         </p>
       </SectionCard>
     </SectionWrapper>
