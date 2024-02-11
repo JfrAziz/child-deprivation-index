@@ -434,7 +434,7 @@ export const YogyakartaCDIHighlight = () => {
             center.geometry.coordinates[0] - 0.02,
             center.geometry.coordinates[1],
           ],
-          zoom: 12.5,
+          zoom: 13.3,
           bearing: 0,
           pitch: 0,
         });
