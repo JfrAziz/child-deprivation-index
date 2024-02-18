@@ -40,7 +40,7 @@ export const BPSCommitment = ({ className }: BPSCommitmentProps) => {
               </p>
             </span>
 
-            <h1 className="font-title !text-center text-[clamp(1.2rem,1.6vw,2rem)] font-medium leading-[1.1] mt-[0.8em]">
+            <h1 className="font-title !text-center text-[clamp(1.2rem,1.6vw,1.4rem)] font-medium leading-[1.1] mt-[0.8em]">
               <span className="inline-grid text-center">
                 <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,70vw,52rem)]">
                   As a commitment to sustainable development, BPS - Statistics

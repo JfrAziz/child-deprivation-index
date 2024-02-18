@@ -26,6 +26,7 @@ import klasterTourism from "./data/klaster/tourism.json";
 import yogyakartaRegencies from "./data/yogyakarta_regencies.json";
 import { BPSCommitment } from "./sections/bps-commitment";
 import { ChildDeprivation } from "./sections/child-deprivation";
+import { RemoteSensingLayers } from "./sections/remote-sensing-layers";
 import { Cityscape } from "./sections/cityscape";
 import { Footer } from "./sections/footer";
 import { Hero } from "./sections/hero";
@@ -45,7 +46,6 @@ import {
   KlasterKesehatan,
   KlasterSekolah,
   PondokJayaPermai,
-  RemoteSensingLayers,
   YogyakartaCDI,
   YogyakartaCDIHighlight,
   YogyakartaCDIHighlightHighest,
@@ -526,7 +526,6 @@ const App = () => {
           <JavaPovertyOverview />
           <JavaHDI />
           <JavaPoverty />
-          {/* <MethodExplanation /> */}
           <RemoteSensingLayers />
           <YogyakartaRegencies />
           <YogyakartaCDI />
