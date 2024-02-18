@@ -7,7 +7,7 @@ import { SectionWrapper } from "@/components/section-card";
 type ChildDeprivationProps = React.ComponentPropsWithRef<"div">;
 
 export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
-  const pNarative = ` ml-1 mt-[0.8em] !text-left text-[clamp(1.2rem,1vw,1rem)] font-light`;
+  const pNarative = ` ml-1 mt-[0.8em] !text-left text-[clamp(1.1rem,0.6vw,0.5rem)] font-light`;
 
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const ref = useRef(null);
@@ -51,9 +51,9 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
               marginLeft: "10%",
               // marginTop: "15%",
             }}
-            className="w-full pt-20"
+            className="w-full "
           >
-            <h1 className="font-title !text-left text-[clamp(1.3rem,4vw,4rem)] font-black ">
+            <h1 className="font-title !text-left text-[clamp(1.3rem,3vw,3rem)] font-black ">
               <span className="inline-grid text-left">
                 <span
                   className="pointer-events-none col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text blur-xl [-webkit-text-fill-color:transparent] [transform:translate3d(0,0,0)] before:content-[attr(data-text)] [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]"
@@ -68,7 +68,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
 
             <p className={` ` + pNarative}>
               <span className="inline-grid text-left">
-                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,55vw,52rem)]">
+                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,52vw,52rem)]">
                   The Copernicus Earth Observation Program, initiated by the
                   European Space Agency on March 22, 2014, allows for detailed
                   study of the Earth's surface. Using sensors on the Sentinel
@@ -99,7 +99,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
             </p>
             <p className={` ` + pNarative}>
               <span className="inline-grid text-left">
-                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,56vw,60rem)]">
+                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,61vw,67rem)]">
                   Air quality is monitored using the Sentinel-5P Satellite,
                   which measures pollutants like carbon monoxide and sulfur
                   dioxide. The MODIS satellite's geothermal heat data also helps
