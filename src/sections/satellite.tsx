@@ -32,16 +32,17 @@ export const YogyakartaRegencies = () => {
           zoom: 9.2,
           bearing: 0,
           pitch: 0,
+          duration: 2000,
         });
         7;
       }}
     >
-      <SectionCard title="D.I Yogyakarta">
+      <SectionCard>
         <p>
           The development of Machine Learning and Utilization of Satellite Image
           Data Makes it possible to find child deprivation in the Province of
           D.I Yogyakarta and other regions in Java at the level of estimating
-          the one-kilometer square.
+          the 1 km².
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -72,16 +73,26 @@ export const YogyakartaCDI = () => {
           zoom: 9.2,
           bearing: 0,
           pitch: 0,
+          duration: 2000,
         });
       }}
     >
-      <SectionCard title="D.I Yogyakarta CDI">
+      <SectionCard
+        title={
+          (
+            <>
+              Yogyakarta Province
+              <br />
+              Child Deprivation Index (CDI)
+            </>
+          ) as unknown as JSX.Element
+        }
+      >
         <p>
-          The one square kilometer area displayed illustrates children who are
-          prioritized from access to education, health and economic facilities.
-          In the Sleman Regency there are 3 grids that have the lowest
-          percentage of children with the lowest supply of all provinces of D.I
-          Yogyakarta.
+          The 1 km² area displayed illustrates children who are prioritized from
+          access to education, health and economic facilities. In the Sleman
+          Regency there are 3 grids that have the lowest percentage of children
+          with the lowest supply of all provinces of Yogyakarta.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -97,6 +108,7 @@ export const YogyakartaCDIHighlight = () => {
       onSectionEnter={(map) => {
         clearMarkers();
         resetRouteStyles();
+
         useLayerStyle.setState((state) => ({
           "yogyakarta-regencies": {
             ...state["yogyakarta-regencies"],
@@ -113,9 +125,10 @@ export const YogyakartaCDIHighlight = () => {
             center.geometry.coordinates[0] - 0.02,
             center.geometry.coordinates[1],
           ],
-          zoom: 13.3,
+          zoom: 12.9,
           bearing: 0,
           pitch: 0,
+          duration: 2000,
         });
         // @ts-expect-error ignore klasterSd types
         const centers = lowestCdi.features.map((feature: GeoJSON.Feature) => {
@@ -129,35 +142,50 @@ export const YogyakartaCDIHighlight = () => {
               pinPosition: "top",
               lng: centers[0].geometry.coordinates[0],
               lat: centers[0].geometry.coordinates[1],
-              title: "Third Lowest CDI",
-              subtitle: "",
-              value: lowestCdi.features[0].properties.child_pov.toFixed(2),
+              title: "3rd",
+              subtitle: (
+                <>
+                  <span className="text-xl font-black">Lowest CDI</span>
+                </>
+              ) as unknown as JSX.Element,
+              value:
+                lowestCdi.features[0].properties.child_pov.toFixed(2) + "%",
             },
             {
               pinPosition: "bottom",
               lng: centers[1].geometry.coordinates[0],
               lat: centers[1].geometry.coordinates[1],
-              title: "Second Lowest CDI",
-              subtitle: "",
-              value: lowestCdi.features[1].properties.child_pov.toFixed(2),
+              title: "2nd",
+              subtitle: (
+                <>
+                  <span className="text-xl font-black">Lowest CDI</span>
+                </>
+              ) as unknown as JSX.Element,
+              value:
+                lowestCdi.features[1].properties.child_pov.toFixed(2) + "%",
             },
             {
-              pinPosition: "bottom",
+              pinPosition: "top",
               lng: centers[2].geometry.coordinates[0],
               lat: centers[2].geometry.coordinates[1],
-              title: "First Lowest CDI",
-              subtitle: "",
-              value: lowestCdi.features[2].properties.child_pov.toFixed(2),
+              title: "1st",
+              subtitle: (
+                <>
+                  <span className="text-xl font-black">Lowest CDI</span>
+                </>
+              ) as unknown as JSX.Element,
+              value:
+                lowestCdi.features[2].properties.child_pov.toFixed(2) + "%",
             },
           ],
         });
       }}
     >
-      <SectionCard title="D.I Yogyakarta CDI Highlight">
+      <SectionCard title="Three Lowest CDI Percentage">
         <p>
           Three grids with the lowest percentage of children listed are at a
-          value of 9.57-9.58 percent in D.I Yogyakarta Province in Sleman
-          Regency with a percentage of monetary poverty of 8.12 percent in 2020.
+          value of 9.57% - 9.58% in Yogyakarta Province in Sleman Regency with a
+          percentage of monetary poverty of 8.12% in 2020.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -186,8 +214,20 @@ export const PondokJayaPermai = () => {
               pinPosition: "bottom",
               lng: 110.45347,
               lat: -7.69632,
-              title: "Pondok Jaya Permai Cluster",
-              subtitle: "",
+              subtitle: (
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                  <span>
+                    <img
+                      alt="tag"
+                      className="h-[clamp(1rem,3vw,2rem)]"
+                      src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
+                    />
+                  </span>
+                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                    Pondok Jaya <br /> Permai Cluster
+                  </h1>
+                </div>
+              ) as unknown as JSX.Element,
               value: "",
             },
           ],
@@ -199,6 +239,7 @@ export const PondokJayaPermai = () => {
           zoom: 16,
           bearing: -60,
           pitch: 0,
+          duration: 2000,
         });
       }}
     >
@@ -239,8 +280,20 @@ export const KlasterSekolah = ({
               pinPosition: "bottom",
               lng: 110.45347,
               lat: -7.69632,
-              title: "Pondok Jaya Permai Cluster",
-              subtitle: "",
+              subtitle: (
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                  <span>
+                    <img
+                      alt="tag"
+                      className="h-[clamp(1rem,3vw,2rem)]"
+                      src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
+                    />
+                  </span>
+                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                    Pondok Jaya <br /> Permai Cluster
+                  </h1>
+                </div>
+              ) as unknown as JSX.Element,
               value: "",
             },
           ],
@@ -419,8 +472,20 @@ export const KlasterKesehatan = ({
               pinPosition: "top",
               lng: 110.45347,
               lat: -7.69632,
-              title: "Pondok Jaya Permai Cluster",
-              subtitle: "",
+              subtitle: (
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                  <span>
+                    <img
+                      alt="tag"
+                      className="h-[clamp(1rem,3vw,2rem)]"
+                      src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
+                    />
+                  </span>
+                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                    Pondok Jaya <br /> Permai Cluster
+                  </h1>
+                </div>
+              ) as unknown as JSX.Element,
               value: "",
             },
           ],
@@ -608,8 +673,20 @@ export const KlasterEkonomi = ({
               pinPosition: "top",
               lng: 110.45347,
               lat: -7.69632,
-              title: "Pondok Jaya Permai Cluster",
-              subtitle: "",
+              subtitle: (
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                  <span>
+                    <img
+                      alt="tag"
+                      className="h-[clamp(1rem,3vw,2rem)]"
+                      src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
+                    />
+                  </span>
+                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                    Pondok Jaya <br /> Permai Cluster
+                  </h1>
+                </div>
+              ) as unknown as JSX.Element,
               value: "",
             },
           ],

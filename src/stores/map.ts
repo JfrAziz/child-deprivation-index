@@ -4,6 +4,7 @@ import { create } from "zustand";
 interface LayerStyle {
   "indonesia-province": FillPaint;
   "yogyakarta-regencies": FillPaint;
+  "lowest-cdi": FillPaint;
   graticule: LinePaint;
   "klaster-sd": LinePaint;
   "route-klaster-sd": LinePaint;
@@ -56,6 +57,12 @@ export const useLayerStyle = create<LayerStyle>((set) => ({
   "yogyakarta-regencies": {
     "fill-color": "#FFF",
     "fill-opacity": 0,
+    "fill-opacity-transition": { duration: 500 },
+    "fill-outline-color-transition": { duration: 2000 },
+  },
+  "lowest-cdi": {
+    'fill-outline-color': '#000', 
+    'fill-outline-opacity': 1,
     "fill-opacity-transition": { duration: 500 },
     "fill-outline-color-transition": { duration: 2000 },
   },

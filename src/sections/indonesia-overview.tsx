@@ -103,7 +103,7 @@ export const JavaPovertyOverview = () => {
         <p>
           Java Island, home to 56.1 % of Indonesia's population, comprises six
           provinces, <br />
-          including D.I Yogyakarta.
+          including Yogyakarta.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -187,7 +187,7 @@ export const JavaHDI = () => {
     >
       <SectionCard title="Human Development Index">
         <p>
-          Province D.I Yogyakarta has the second highest human development index
+          Yogyakarta Province has the second highest human development index
           after the capital city of DKI Jakarta
         </p>
       </SectionCard>

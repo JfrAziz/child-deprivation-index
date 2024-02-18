@@ -11,7 +11,6 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
 
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const ref = useRef(null);
-  const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
 

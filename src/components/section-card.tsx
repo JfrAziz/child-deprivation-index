@@ -39,9 +39,8 @@ export const SectionWrapper: FC<SectionWrapperProps> = ({
 };
 
 type SectionCardProps = PropsWithChildren<HTMLProps<HTMLDivElement>> & {
-  title?: string;
+  title?: string | JSX.Element | any;
 };
-
 
 const cloudNarative = `z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)]             
     bg-base-200/90 px-[clamp(1.4rem,6vw,2rem)] py-[clamp(1rem,5vw,1.8rem)] 
@@ -61,9 +60,13 @@ export const SectionCard = forwardRef<HTMLDivElement, SectionCardProps>(
       )}
     >
       {props.title && (
-        <div className="uppercase font-mono text-xl mb-2">{props.title}</div>
+        <div className="!text-left text-[clamp(1.3rem,1.5vw,1.5rem)] font-black leading-[1.15]">
+          <span className="[&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text drop-shadow-[0_0.1em_0.1em_theme(colors.base-300)] [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]">
+            {props.title}
+          </span>
+        </div>
       )}
-      <div className="text-lg">{props.children}</div>
+      <div className="mt-[0.5em] !text-left text-[clamp(1.1rem,0.6vw,0.5rem)] font-light">{props.children}</div>
     </div>
   )
 );
