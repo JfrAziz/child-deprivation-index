@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { useScroll, motion, useTransform, useInView } from "framer-motion";
+import { useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { markersStore, useLayerStyle, usePopupStore } from "@/stores/map";
 import { SectionWrapper } from "@/components/section-card";
