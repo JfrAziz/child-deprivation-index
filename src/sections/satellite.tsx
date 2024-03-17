@@ -322,11 +322,11 @@ export const KlasterSekolah = ({
           },
         }));
         map?.flyTo({
-          center: [110.4518634, -7.6951721],
-          zoom: 15,
-          bearing: -90,
+          center: [110.4548634, -7.6981721],
+          zoom: 15.6,
+          bearing: -20,
           pitch: 60,
-          duration: 1000,
+          duration: 3000,
         });
 
         let start = 0,
@@ -341,11 +341,14 @@ export const KlasterSekolah = ({
           pathDistances.push(turf.lineDistance(klasterSekolah));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
-            'url("/images/person-walking.png")';
+            index == 0
+              ? 'url("/images/poverty/student-elementary.png")'
+              : index == 1
+              ? 'url("/images/poverty/student-junior-high.png")'
+              : 'url("/images/poverty/student-senior-high.png")';
           markerIconElement.style.backgroundSize = "cover";
-          markerIconElement.style.width = "50px";
-          markerIconElement.style.height = "50px";
-          markerIconElement.style.borderRadius = "50%";
+          markerIconElement.style.width = "70px";
+          markerIconElement.style.height = "70px";
           markerIconElement.style.cursor = "pointer";
           const markerIcon = new Marker({
             color: "red",
@@ -362,16 +365,16 @@ export const KlasterSekolah = ({
 
           const markerTargetElement = document.createElement("div");
           markerTargetElement.style.backgroundSize = "cover";
-          markerTargetElement.style.width = "50px";
-          markerTargetElement.style.height = "50px";
+          markerTargetElement.style.width = "70px";
+          markerTargetElement.style.height = "70px";
           markerTargetElement.style.borderRadius = "50%";
           markerTargetElement.style.cursor = "pointer";
           markerTargetElement.style.backgroundImage =
             index == 0
-              ? 'url("/images/topi-sd.png")'
+              ? 'url("/images/poverty/elementary-school.png")'
               : index == 1
-              ? 'url("/images/topi-smp.png")'
-              : 'url("/images/topi-sma.png")';
+              ? 'url("/images/poverty/junior-high-school.png")'
+              : 'url("/images/poverty/senior-high-school.png")';
           const markerTarget = new Marker({
             color: "red",
             scale: 0.8,
@@ -424,9 +427,9 @@ export const KlasterSekolah = ({
                 .setPaintProperty(paintProperty, "line-gradient", [
                   "step",
                   ["line-progress"],
-                  "red",
+                  "#fbbf24",
                   animationPhase,
-                  "rgba(255, 0, 0, 0)",
+                  "#fffbeb",
                 ]);
             }
           );
@@ -522,11 +525,11 @@ export const KlasterKesehatan = ({
           },
         }));
         map?.flyTo({
-          center: [110.4472711, -7.6967777],
+          center: [110.4472711, -7.6997777],
           zoom: 15,
-          bearing: -120,
+          bearing: -40,
           pitch: 60,
-          duration: 1000,
+          duration: 3000,
         });
 
         let start = 0,
@@ -545,7 +548,11 @@ export const KlasterKesehatan = ({
           pathDistances.push(turf.lineDistance(klasterKesehatan));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
-            'url("/images/person-walking.png")';
+            index == 0
+              ? 'url("/images/poverty/person-1.png")'
+              : index == 1
+              ? 'url("/images/poverty/person-2.png")'
+              : 'url("/images/poverty/person-3.png")';
           markerIconElement.style.backgroundSize = "cover";
           markerIconElement.style.width = "50px";
           markerIconElement.style.height = "50px";
@@ -566,16 +573,16 @@ export const KlasterKesehatan = ({
 
           const markerTargetElement = document.createElement("div");
           markerTargetElement.style.backgroundSize = "cover";
-          markerTargetElement.style.width = "50px";
-          markerTargetElement.style.height = "50px";
+          markerTargetElement.style.width = "100px";
+          markerTargetElement.style.height = "100px";
           markerTargetElement.style.borderRadius = "50%";
           markerTargetElement.style.cursor = "pointer";
           markerTargetElement.style.backgroundImage =
             index == 0
-              ? 'url("/images/apotek.png")'
+              ? 'url("/images/poverty/pharmacy.png")'
               : index == 1
-              ? 'url("/images/puskesmas.png")'
-              : 'url("/images/rumah-sakit.png")';
+              ? 'url("/images/poverty/health-center.png")'
+              : 'url("/images/poverty/hospital.png")';
           const markerTarget = new Marker({
             color: "red",
             scale: 0.8,
@@ -623,9 +630,9 @@ export const KlasterKesehatan = ({
                   [
                     "step",
                     ["line-progress"],
-                    "red",
+                    "#fbbf24",
                     animationPhase,
-                    "rgba(255, 0, 0, 0)",
+                    "#fffbeb",
                   ]
                 );
             }
@@ -713,11 +720,11 @@ export const KlasterEkonomi = ({
           },
         }));
         map?.flyTo({
-          center: [110.4514748, -7.6947745],
-          zoom: 16.5,
-          bearing: -90,
+          center: [110.4533748, -7.6958745],
+          zoom: 16.9,
+          bearing: -30,
           pitch: 30,
-          duration: 1000,
+          duration: 2000,
         });
 
         let start = 0,
@@ -736,7 +743,11 @@ export const KlasterEkonomi = ({
           pathDistances.push(turf.lineDistance(klasterEkonomi));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
-            'url("/images/person-walking.png")';
+            index == 0
+              ? 'url("/images/poverty/person-1.png")'
+              : index == 1
+              ? 'url("/images/poverty/person-2.png")'
+              : 'url("/images/poverty/person-3.png")';
           markerIconElement.style.backgroundSize = "cover";
           markerIconElement.style.width = "50px";
           markerIconElement.style.height = "50px";
@@ -757,16 +768,16 @@ export const KlasterEkonomi = ({
 
           const markerTargetElement = document.createElement("div");
           markerTargetElement.style.backgroundSize = "cover";
-          markerTargetElement.style.width = "50px";
-          markerTargetElement.style.height = "50px";
-          markerTargetElement.style.borderRadius = "50%";
+          markerTargetElement.style.width = "100px";
+          markerTargetElement.style.height = "100px";
+          // markerTargetElement.style.borderRadius = "50%";
           markerTargetElement.style.cursor = "pointer";
           markerTargetElement.style.backgroundImage =
             index == 0
-              ? 'url("/images/market.png")'
+              ? 'url("/images/poverty/market.png")'
               : index == 1
-              ? 'url("/images/bank.png")'
-              : 'url("/images/tourism.png")';
+              ? 'url("/images/poverty/bank.png")'
+              : 'url("/images/poverty/tourism-site-2.png")';
           const markerTarget = new Marker({
             color: "red",
             scale: 0.8,
@@ -814,9 +825,9 @@ export const KlasterEkonomi = ({
                   [
                     "step",
                     ["line-progress"],
-                    "red",
+                    "#fbbf24",
                     animationPhase,
-                    "rgba(255, 0, 0, 0)",
+                    "#fffbeb",
                   ]
                 );
             }
