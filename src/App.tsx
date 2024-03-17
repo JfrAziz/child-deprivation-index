@@ -52,6 +52,7 @@ import {
   YogyakartaRegencies,
 } from "./sections/satellite";
 import { ThemeButton } from "./sections/theme-button";
+import { Remarks } from "./sections/remarks";
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -560,6 +561,7 @@ const App = () => {
           <DusunEkonomi
             dusunPasar={dusunPasar.features[0] as GeoJSON.Feature}
           />
+          <Remarks />
           <Footer />
         </div>
       </MapProvider>

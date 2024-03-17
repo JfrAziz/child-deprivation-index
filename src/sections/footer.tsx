@@ -20,15 +20,14 @@ export const Footer = () => {
         map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
         map?.flyTo({
           duration: 3000,
-          center: [96, 30],
+          center: [120, 6],
           zoom: 3,
           pitch: 0.0,
           bearing: 0.0,
         });
       }}
     >
-      <div className="bg-gradient-to-b from-transparent to-foreground/90 h-96 " />
-      <div className="bg-foreground/90 p-60 min-h-svh text-center text-background mt-13">
+      <div className="bg-gradient-to-t from-base-100/40 to-base-100/80  p-60 min-h-svh text-center text-background mt-13">
         <div className="font-bold text-[clamp(1rem,3.6vw,4rem)] whitespace-nowrap mt-2 ">
           Special thanks to...
         </div>
