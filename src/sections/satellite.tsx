@@ -961,11 +961,23 @@ export const DusunSureng = () => {
           active: true,
           popups: [
             {
-              pinPosition: "bottom",
+              pinPosition: "top",
               lng: 110.66206,
               lat: -8.15249,
-              title: "Dusun Sureng 2",
-              subtitle: "",
+              subtitle: (
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                  <span>
+                    <img
+                      alt="tag"
+                      className="h-[clamp(1rem,3vw,2rem)]"
+                      src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
+                    />
+                  </span>
+                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                    Dusun Sureng 2
+                  </h1>
+                </div>
+              ) as unknown as JSX.Element,
               value: "",
             },
           ],
@@ -975,8 +987,9 @@ export const DusunSureng = () => {
         map?.flyTo({
           center: [110.66206, -8.15249],
           zoom: 16,
-          bearing: -60,
+          bearing: 0,
           pitch: 0,
+          duration: 2000,
         });
       }}
     >
@@ -1014,11 +1027,23 @@ export const DusunSekolah = ({
           active: true,
           popups: [
             {
-              pinPosition: "bottom",
+              pinPosition: "top",
               lng: 110.66206,
               lat: -8.15249,
-              title: "Dusun Sureng 2",
-              subtitle: "",
+              subtitle: (
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                  <span>
+                    <img
+                      alt="tag"
+                      className="h-[clamp(1rem,3vw,2rem)]"
+                      src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
+                    />
+                  </span>
+                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                    Dusun Sureng 2
+                  </h1>
+                </div>
+              ) as unknown as JSX.Element,
               value: "",
             },
           ],
@@ -1047,11 +1072,11 @@ export const DusunSekolah = ({
           },
         }));
         map?.flyTo({
-          center: [110.64806, -8.14049],
-          zoom: 14,
-          bearing: -30,
+          center: [110.64806, -8.13049],
+          zoom: 13.6,
+          bearing: 30,
           pitch: 60,
-          duration: 1000,
+          duration: 2000,
         });
 
         let start = 0,
@@ -1066,10 +1091,14 @@ export const DusunSekolah = ({
           pathDistances.push(turf.lineDistance(dusunSekolah));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
-            'url("/images/person-walking.png")';
+            index == 0
+              ? 'url("/images/poverty/student-elementary.png")'
+              : index == 1
+              ? 'url("/images/poverty/student-junior-high.png")'
+              : 'url("/images/poverty/student-senior-high.png")';
           markerIconElement.style.backgroundSize = "cover";
-          markerIconElement.style.width = "50px";
-          markerIconElement.style.height = "50px";
+          markerIconElement.style.width = "70px";
+          markerIconElement.style.height = "70px";
           markerIconElement.style.borderRadius = "50%";
           markerIconElement.style.cursor = "pointer";
           const markerIcon = new Marker({
@@ -1087,16 +1116,16 @@ export const DusunSekolah = ({
 
           const markerTargetElement = document.createElement("div");
           markerTargetElement.style.backgroundSize = "cover";
-          markerTargetElement.style.width = "50px";
-          markerTargetElement.style.height = "50px";
+          markerTargetElement.style.width = "100px";
+          markerTargetElement.style.height = "100px";
           markerTargetElement.style.borderRadius = "50%";
           markerTargetElement.style.cursor = "pointer";
           markerTargetElement.style.backgroundImage =
             index == 0
-              ? 'url("/images/topi-sd.png")'
+              ? 'url("/images/poverty/elementary-school.png")'
               : index == 1
-              ? 'url("/images/topi-smp.png")'
-              : 'url("/images/topi-sma.png")';
+              ? 'url("/images/poverty/junior-high-school.png")'
+              : 'url("/images/poverty/senior-high-school.png")';
           const markerTarget = new Marker({
             color: "red",
             scale: 0.8,
@@ -1148,9 +1177,9 @@ export const DusunSekolah = ({
               .setPaintProperty(paintProperty, "line-gradient", [
                 "step",
                 ["line-progress"],
-                "red",
+                "#fbbf24",
                 animationPhase,
-                "rgba(255, 0, 0, 0)",
+                "#fffbeb",
               ]);
           });
           requestAnimationFrame(frame);
@@ -1190,11 +1219,23 @@ export const DusunKesehatan = ({
           active: true,
           popups: [
             {
-              pinPosition: "top",
-              lng: 110.45347,
-              lat: -7.69632,
-              title: "Pondok Jaya Permai Dusun",
-              subtitle: "",
+              pinPosition: "bottom",
+              lng: 110.66206,
+              lat: -8.15249,
+              subtitle: (
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                  <span>
+                    <img
+                      alt="tag"
+                      className="h-[clamp(1rem,3vw,2rem)]"
+                      src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
+                    />
+                  </span>
+                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                    Dusun Sureng 2
+                  </h1>
+                </div>
+              ) as unknown as JSX.Element,
               value: "",
             },
           ],
@@ -1226,8 +1267,8 @@ export const DusunKesehatan = ({
           center: [110.64806, -8.14049],
           zoom: 13.7,
           bearing: -60,
-          pitch: 45,
-          duration: 1000,
+          pitch: 65,
+          duration: 2000,
         });
 
         let start = 0,
@@ -1242,7 +1283,11 @@ export const DusunKesehatan = ({
           pathDistances.push(turf.lineDistance(dusunKesehatan));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
-            'url("/images/person-walking.png")';
+            index == 0
+              ? 'url("/images/poverty/person-1.png")'
+              : index == 1
+              ? 'url("/images/poverty/person-2.png")'
+              : 'url("/images/poverty/person-3.png")';
           markerIconElement.style.backgroundSize = "cover";
           markerIconElement.style.width = "50px";
           markerIconElement.style.height = "50px";
@@ -1263,14 +1308,16 @@ export const DusunKesehatan = ({
 
           const markerTargetElement = document.createElement("div");
           markerTargetElement.style.backgroundSize = "cover";
-          markerTargetElement.style.width = "50px";
-          markerTargetElement.style.height = "50px";
+          markerTargetElement.style.width = "120px";
+          markerTargetElement.style.height = "120px";
           markerTargetElement.style.borderRadius = "50%";
           markerTargetElement.style.cursor = "pointer";
           markerTargetElement.style.backgroundImage =
             index == 0
-              ? 'url("/images/apotek.png")'
-              : 'url("/images/puskesmas.png")';
+              ? 'url("/images/poverty/pharmacy.png")'
+              : index == 1
+              ? 'url("/images/poverty/health-center.png")'
+              : 'url("/images/poverty/hospital.png")';
           const markerTarget = new Marker({
             color: "red",
             scale: 0.8,
@@ -1313,9 +1360,9 @@ export const DusunKesehatan = ({
                 [
                   "step",
                   ["line-progress"],
-                  "red",
+                  "#fbbf24",
                   animationPhase,
-                  "rgba(255, 0, 0, 0)",
+                  "#fffbeb",
                 ]
               );
           });
@@ -1357,8 +1404,20 @@ export const DusunEkonomi = ({
               pinPosition: "bottom",
               lng: 110.66206,
               lat: -8.15249,
-              title: "Dusun Sureng 2",
-              subtitle: "",
+              subtitle: (
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                  <span>
+                    <img
+                      alt="tag"
+                      className="h-[clamp(1rem,3vw,2rem)]"
+                      src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
+                    />
+                  </span>
+                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                    Dusun Sureng 2
+                  </h1>
+                </div>
+              ) as unknown as JSX.Element,
               value: "",
             },
           ],
@@ -1376,7 +1435,7 @@ export const DusunEkonomi = ({
           },
         }));
         map?.flyTo({
-          center: [110.65306, -8.14949],
+          center: [110.66006, -8.14549],
           zoom: 14.5,
           bearing: -60,
           pitch: 60,
@@ -1395,7 +1454,11 @@ export const DusunEkonomi = ({
           pathDistances.push(turf.lineDistance(dusunEkonomi));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
-            'url("/images/person-walking.png")';
+            index == 0
+              ? 'url("/images/poverty/person-1.png")'
+              : index == 1
+              ? 'url("/images/poverty/person-2.png")'
+              : 'url("/images/poverty/person-3.png")';
           markerIconElement.style.backgroundSize = "cover";
           markerIconElement.style.width = "50px";
           markerIconElement.style.height = "50px";
@@ -1416,16 +1479,16 @@ export const DusunEkonomi = ({
 
           const markerTargetElement = document.createElement("div");
           markerTargetElement.style.backgroundSize = "cover";
-          markerTargetElement.style.width = "50px";
-          markerTargetElement.style.height = "50px";
+          markerTargetElement.style.width = "120px";
+          markerTargetElement.style.height = "120px";
           markerTargetElement.style.borderRadius = "50%";
           markerTargetElement.style.cursor = "pointer";
           markerTargetElement.style.backgroundImage =
             index == 0
-              ? 'url("/images/market.png")'
+              ? 'url("/images/poverty/market.png")'
               : index == 1
-              ? 'url("/images/bank.png")'
-              : 'url("/images/tourism.png")';
+              ? 'url("/images/poverty/bank.png")'
+              : 'url("/images/poverty/tourism-site-2.png")';
           const markerTarget = new Marker({
             color: "red",
             scale: 0.8,
@@ -1472,9 +1535,9 @@ export const DusunEkonomi = ({
                 [
                   "step",
                   ["line-progress"],
-                  "red",
+                  "#fbbf24",
                   animationPhase,
-                  "rgba(255, 0, 0, 0)",
+                  "#fffbeb",
                 ]
               );
           });
