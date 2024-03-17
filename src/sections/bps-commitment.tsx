@@ -42,19 +42,19 @@ export const BPSCommitment = ({ className }: BPSCommitmentProps) => {
 
             <h1 className="font-title !text-center text-[clamp(1.2rem,1.6vw,1.4rem)] font-medium leading-[1.1] mt-[0.8em]">
               <span className="inline-grid text-center">
-                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,70vw,66rem)]">
-                  As a commitment to sustainable development, BPS - Statistics
-                  Indonesia provides poverty data to support the first goal of
-                  the SDGs. However, the currently available data cannot
-                  accurately identify child deprivation in poor households,
-                  making it challenging to implement targeted assistance.
+                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,60vw,56rem)]">
+                  As a commitment to sustainable development, <br />
+                  BPS-Statistics Indonesia provides poverty data to support the
+                  first goal of the SDG. <br /> However, the current data can
+                  not accurately identify the deprivation of children <br />
+                  in poor households to provide targeted aid.
                 </span>
               </span>
             </h1>
           </span>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [0, 3200], [-200, 350]) }}
+            style={{ y: useTransform(scrollY, [1000, 3000], [-200, 350]) }}
             className="flex justify-center"
           >
             <img
@@ -96,7 +96,7 @@ export const BPSCommitment = ({ className }: BPSCommitmentProps) => {
               marginTop: "22%",
             }}
           >
-            <motion.h1 
+            <motion.h1
               style={{ y: useTransform(scrollY, [100, 2000], [100, 200]) }}
               className={
                 " text-lg font-bold py-2 px-7 bg-[#ec0043] text-white rounded-lg drop-shadow-[0px_2px_10px_theme(colors.neutral-content)]"

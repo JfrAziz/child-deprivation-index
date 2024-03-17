@@ -46,12 +46,11 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               </span>
             </h1>
 
+
             <h1 className="ml-1 font-title !text-left text-[clamp(1.2rem,1.6vw,2rem)] font-bold leading-[1.1] mt-[0.8em]">
               <span className="inline-grid text-left">
                 <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,45vw,42rem)]">
-                  Child deprivation is closely related to poverty. Poverty can
-                  cause children to not have access to various basic needs, such
-                  as education, health, economic and social services.
+                Child deprivation is closely related to poverty, leading children to lack access to basic needs such as education, health, economics, and social services.
                 </span>
               </span>
             </h1>
@@ -96,93 +95,14 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
             }}
           >
             <img
-              alt="curve-arrow"
-              src="/images/poverty/curve-arrow.png"
+              alt="lacking-in-access-to"
+              src="/images/poverty/lacking-in-access-to.png"
               style={{
                 width: "23%",
-                marginTop: "102%",
-                marginLeft: "120%",
+                marginTop: "50%",
+                marginLeft: "63%",
               }}
               className="z-50 invert"
-            />
-          </span>
-
-          <span
-            ref={ref}
-            style={{
-              transform: isInView ? "none" : "translateY(10%)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            }}
-          >
-            <img
-              alt="curve-arrow"
-              src="/images/poverty/curve-arrow.png"
-              style={{
-                width: "23%",
-                marginTop: "102%",
-                marginLeft: "85%",
-              }}
-              className="z-50 invert scale-x-[-1]"
-            />
-          </span>
-
-          <span
-            ref={ref}
-            style={{
-              transform: isInView ? "none" : "translateY(100%)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginRight: "-48%",
-              marginTop: "27%",
-            }}
-          >
-            <motion.h1
-              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
-              className={" text-2xl font-semibold "}
-            >
-              LACKING IN <br />
-              ACCESS TO
-            </motion.h1>
-          </span>
-          
-          <span
-            ref={ref}
-            style={{
-              transform: isInView ? "none" : "translateY(5%)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            }}
-          >
-            <img
-              alt="curve-arrow"
-              src="/images/poverty/curve-arrow.png"
-              style={{
-                width: "23%",
-                marginTop: "165%", 
-                marginLeft: "120%",
-              }}
-              className="z-50 invert rotate-180 scale-x-[-1]"
-            />
-          </span>
-
-          <span
-            ref={ref}
-            style={{
-              transform: isInView ? "none" : "translateY(5%)",
-              opacity: isInView ? 1 : 0,
-              transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-            }}
-          >
-            <img
-              alt="curve-arrow"
-              src="/images/poverty/curve-arrow.png"
-              style={{
-                width: "23%",
-                marginTop: "165%",
-                marginLeft: "85%",
-              }}
-              className="z-50 invert rotate-180"
             />
           </span>
 

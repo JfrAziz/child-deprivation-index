@@ -99,17 +99,14 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
             <p className={` ` + pNarative}>
               <span className="inline-grid text-left">
                 <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,61vw,67rem)]">
-                  Air quality is monitored using the Sentinel-5P Satellite,
-                  which measures pollutants like carbon monoxide and sulfur
-                  dioxide. The MODIS satellite's geothermal heat data also helps
-                  assess environmental conditions beneficial for child
-                  development. This satellite data, with its high precision,
-                  helps identify where children are most in need by mapping
-                  their access to education, health, and economic facilities on
-                  a 1 km² scale. With the aid of machine learning, this
-                  innovative approach estimates the percentage of children in
-                  need in these areas, a task difficult with traditional data
-                  collection methods.
+                  This satellite-derived data, renowned for its precision,
+                  serves to pinpoint areas where children are most in need by
+                  charting their access to education, healthcare, and economic
+                  resources at a 1 km² resolution. Employing machine learning
+                  techniques, this innovative approach estimates the proportion
+                  of children requiring assistance in these regions, a task
+                  traditionally challenging with conventional data collection
+                  methods.
                 </span>
               </span>
             </p>

@@ -128,7 +128,7 @@ export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
               style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
               className={cloudNarative + " rounded-tl-none"}
             >
-              In our exploration, we sheds light on the interconnected
+              In our exploration, we shed light on the interconnected
               challenges that arise when children lack access to basic needs
               like education, health services, and economic support.
             </motion.h1>

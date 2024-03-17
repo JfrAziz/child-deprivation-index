@@ -39,10 +39,10 @@ export const YogyakartaRegencies = () => {
     >
       <SectionCard>
         <p>
-          The development of Machine Learning and Utilization of Satellite Image
-          Data Makes it possible to find child deprivation in the Province of
-          D.I Yogyakarta and other regions in Java at the level of estimating
-          the 1 km².
+          The development of machine learning and the utilization of satellite
+          image data make it possible to find child deprivation in the province
+          of D.I. Yogyakarta and other regions in Java at the level of
+          estimating 1 km².
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -183,9 +183,9 @@ export const YogyakartaCDIHighlight = () => {
     >
       <SectionCard title="Three Lowest CDI Percentage">
         <p>
-          Three grids with the lowest percentage of children listed are at a
-          value of 9.57% - 9.58% in Yogyakarta Province in Sleman Regency with a
-          percentage of monetary poverty of 8.12% in 2020.
+          The three grids with the lowest percentage of children have values of
+          9.57%–9.58% in Sleman Regency, Yogyakarta Province. Meanwhile, in
+          2020, Sleman Regency had a poverty rate of 8.12% in 2020.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -435,12 +435,12 @@ export const KlasterSekolah = ({
         requestAnimationFrame(frame);
       }}
     >
-      <SectionCard title="Cluster - Educational Facilities">
+      <SectionCard title="Access to Educational Facilities">
         <p>
-          As many as 9 to 10 out of 100 children aged 0-17 years in the grid can
-          get 16 minutes to elementary school (Sd n Ngemplak 1), 18 minutes to
-          junior high school and (SMP Negeri 1 Ngemplak) high school (SMA Negeri
-          1 Ngemplak) on foot or 7 minutes by car with a distance of 1.4 - 3 km.
+          It takes 16 minutes to elementary school (Sd n Ngemplak 1), 18 minutes
+          to junior high school and (SMP Negeri 1 Ngemplak) high school (SMA
+          Negeri 1 Ngemplak) on foot or 7 minutes by car with a distance of 1.4
+          - 3 km.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -635,11 +635,10 @@ export const KlasterKesehatan = ({
         window.requestAnimationFrame(frame);
       }}
     >
-      <SectionCard title="Cluster - Health Facilities">
+      <SectionCard title="Access to Health Facilities">
         <p>
-          As many as 9 to 10 out of 100 children aged 0-17 years in the grid can
-          get 15 minutes to the pharmacy (Apotik Widigdo 3), 22 minutes to the
-          health center (Puskesmas Ngemplak 2), 35 minutes to the hospital
+          It takes 15 minutes to the pharmacy (Apotik Widigdo 3), 22 minutes to
+          the health center (Puskesmas Ngemplak 2), 35 minutes to the hospital
           (Mitra Medika Hospital) on foot or 3-7 minutes by car with a distance
           of 1.4 - 2.8 km.
         </p>
@@ -827,14 +826,13 @@ export const KlasterEkonomi = ({
         window.requestAnimationFrame(frame);
       }}
     >
-      <SectionCard title="Cluster - Economic Facilities">
+      <SectionCard title="Access to Economic Facilities">
         <p>
-          As many as 9 to 10 out of 100 children aged 0-17 years in the grid can
-          get 7 minutes to the market (Saparan Ki Ageng Wonolelo Traditional
-          Festival Night Market (550m) 2 minutes), 1 minute to the financial
-          counter (mandiri bank partner (Rpk Arum Sari) ), 3 minutes to
-          entertainment facilities (Pondok Wonolelo Tourism Village) on foot or
-          1 minute by car with a distance of 280-550 m.
+          It takes 7 minutes to the market (Saparan Ki Ageng Wonolelo
+          Traditional Festival Night Market (550m) 2 minutes), 1 minute to the
+          financial counter (mandiri bank partner (Rpk Arum Sari) ), 3 minutes
+          to entertainment facilities (Pondok Wonolelo Tourism Village) on foot
+          or 1 minute by car with a distance of 280-550 m.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -882,36 +880,51 @@ export const YogyakartaCDIHighlightHighest = () => {
               pinPosition: "top",
               lng: centers[0].geometry.coordinates[0],
               lat: centers[0].geometry.coordinates[1],
-              title: "Third Highest CDI",
-              subtitle: "",
-              value: highestCdi.features[0].properties.child_pov.toFixed(2),
+              title: "3rd",
+              subtitle: (
+                <>
+                  <span className="text-xl font-black">Highest CDI</span>
+                </>
+              ) as unknown as JSX.Element,
+              value:
+                highestCdi.features[0].properties.child_pov.toFixed(2) + "%",
             },
             {
               pinPosition: "bottom",
               lng: centers[1].geometry.coordinates[0],
               lat: centers[1].geometry.coordinates[1],
-              title: "Second Highest CDI",
-              subtitle: "",
-              value: highestCdi.features[1].properties.child_pov.toFixed(2),
+              title: "2nd",
+              subtitle: (
+                <>
+                  <span className="text-xl font-black">Highest CDI</span>
+                </>
+              ) as unknown as JSX.Element,
+              value:
+                highestCdi.features[1].properties.child_pov.toFixed(2) + "%",
             },
             {
               pinPosition: "top",
               lng: centers[2].geometry.coordinates[0],
               lat: centers[2].geometry.coordinates[1],
-              title: "First Highest CDI",
-              subtitle: "",
-              value: highestCdi.features[2].properties.child_pov.toFixed(2),
+              title: "1st",
+              subtitle: (
+                <>
+                  <span className="text-xl font-black">HIghest CDI</span>
+                </>
+              ) as unknown as JSX.Element,
+              value:
+                highestCdi.features[2].properties.child_pov.toFixed(2) + "%",
             },
           ],
         });
       }}
     >
-      <SectionCard title="D.I Yogyakarta CDI Highlight">
+      <SectionCard title="Three Highest CDI Percentage">
         <p>
-          Three grids with the highest percentage of children with the highest
-          leadership at 20.1 - 20.3 percent in the Province of D.I Yogyakarta
-          are in Gunungkidul Regency with a percentage of monetary poverty of
-          17.07 percent in 2020.
+          The three grids with the highest percentage of children with the
+          highest leadership at 20.1 - 20.3% in Gunungkidul Regency, Yogyakarta
+          Province. Meanwhile, in 2020, Gunungkidul Regency had a poverty rate
+          of 17.07% in 2020.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -1134,13 +1147,12 @@ export const DusunSekolah = ({
         requestAnimationFrame(frame);
       }}
     >
-      <SectionCard title="Dusun - Educational Facilities">
+      <SectionCard title="Access to Educational Facilities">
         <p>
-          As many as 20 out of 100 children aged 0-17 years in the grid can get
-          28-34 minutes to elementary school (sdn tepus - Sd muhammadiyah), 53
-          minutes to junior high school (SMP Sanjaya Tepus) and 176 minutes to
-          high school (SMK Muhammadiyah) on foot or 8-25minutes by car with a
-          distance of 1.8 - 13.1 km.
+          It takes 28-34 minutes to elementary school (sdn tepus - Sd
+          muhammadiyah), 53 minutes to junior high school (SMP Sanjaya Tepus)
+          and 176 minutes to high school (SMK Muhammadiyah) on foot or
+          8-25minutes by car with a distance of 1.8 - 13.1 km.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -1301,13 +1313,12 @@ export const DusunKesehatan = ({
         window.requestAnimationFrame(frame);
       }}
     >
-      <SectionCard title="Dusun - Health Facilities">
+      <SectionCard title="Access to Health Facilities">
         <p>
-          As many as 20 out of 100 children aged 0-17 years in the grid can get
-          150 minutes to the pharmacy (Apotik Bintaos) and 95-151 minutes to the
-          health center (Puskesmas Pembantu Tepus-Puskesmas Pembantu
-          Sumberwungu) on foot or 14 - 27 minutes by car with a distance of 6.8
-          - 11.3 km.
+          It takes 150 minutes to the pharmacy (Apotik Bintaos) and 95-151
+          minutes to the health center (Puskesmas Pembantu Tepus-Puskesmas
+          Pembantu Sumberwungu) on foot or 14 - 27 minutes by car with a
+          distance of 6.8 - 11.3 km.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -1461,11 +1472,10 @@ export const DusunEkonomi = ({
         window.requestAnimationFrame(frame);
       }}
     >
-      <SectionCard title="Dusun - Economic Facilities">
+      <SectionCard title="Access to Economic Facilities">
         <p>
-          As many as 20 out of 100 children aged 0-17 years in the grid can get
-          81 minutes to the market (Pasar Tepus and Indomaret Tepus) on foot or
-          12 minutes by car with a distance of 5.6 km.
+          It takes 81 minutes to the market (Pasar Tepus and Indomaret Tepus) on
+          foot or 12 minutes by car with a distance of 5.6 km.
         </p>
       </SectionCard>
     </SectionWrapper>
