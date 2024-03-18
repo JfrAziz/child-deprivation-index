@@ -472,7 +472,7 @@ export const KlasterKesehatan = ({
           active: true,
           popups: [
             {
-              pinPosition: "top",
+              pinPosition: "bottom",
               lng: 110.45347,
               lat: -7.69632,
               subtitle: (
@@ -525,8 +525,8 @@ export const KlasterKesehatan = ({
           },
         }));
         map?.flyTo({
-          center: [110.4472711, -7.6997777],
-          zoom: 15,
+          center: [110.4572711, -7.6997777],
+          zoom: 14.5,
           bearing: -40,
           pitch: 60,
           duration: 3000,
