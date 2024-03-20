@@ -66,7 +66,7 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               style={{
                 // marginTop: "5%",
               }}
-              className="z-20 object-cover w-lvw h-[45vh]"
+              className="z-20 object-cover w-lvw h-[40vh]"
             />
           </motion.div>
 
