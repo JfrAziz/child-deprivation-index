@@ -31,9 +31,9 @@ export const IndonesiaOverview = () => {
     >
       <SectionCard>
         <p>
-          Poverty data is commonly presented at the district or city level,
-          lacking sensitivity to the diverse conditions across the various
-          regions within the 34 provinces.
+          The official poverty statistics in Indonesia are currently presented
+          at the district or city level, which overlooks the diverse conditions
+          across the various regions within the 34 provinces.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -267,12 +267,12 @@ export const JavaPoverty = () => {
         });
       }}
     >
-      <SectionCard title="Poverty">
+      <SectionCard>
         <p>
-          but, Yogyakarta has the third highest poverty level after West Java
-          Province on Java. In addition, as many as 47 percent of children
-          experience deprivation in two dimensions of non-income poverty or more
-          in 2015.
+          Nevertheless, Yogyakarta ranks among the top 3 provinces in Java
+          Island with the highest poverty rates, following West Java.
+          Additionally, in 2015, as many as 47% of children experienced
+          deprivation in two dimensions of non-income poverty or more.
         </p>
       </SectionCard>
     </SectionWrapper>

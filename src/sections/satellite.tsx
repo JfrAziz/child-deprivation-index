@@ -83,16 +83,16 @@ export const YogyakartaCDI = () => {
             <>
               Yogyakarta Province
               <br />
-              Child Deprivation Index (CDI)
+              Child Deprivation Rate (CDR)
             </>
           ) as unknown as JSX.Element
         }
       >
         <p>
-          The 1 km² area displayed illustrates children who are prioritized from
-          access to education, health and economic facilities. In the Sleman
-          Regency there are 3 grids that have the lowest percentage of children
-          with the lowest supply of all provinces of Yogyakarta.
+          The 1 km² area depicted represents children who suffer from a lack of
+          access to education, health, and economic facilities. In the Sleman
+          Regency, there are three grids with the lowest percentage of deprived
+          children in the Yogyakarta Province.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -181,11 +181,12 @@ export const YogyakartaCDIHighlight = () => {
         });
       }}
     >
-      <SectionCard title="Three Lowest CDI Percentage">
+      <SectionCard title="Three Grids with the Lowest CDR">
         <p>
-          The three grids with the lowest percentage of children have values of
-          9.57%–9.58% in Sleman Regency, Yogyakarta Province. Meanwhile, in
-          2020, Sleman Regency had a poverty rate of 8.12% in 2020.
+          The three grids with the lowest percentage of the Child Deprivation
+          Rate (CDR) scores between 9.57% and 9.58% in in Sleman Regency,
+          Yogyakarta Province. Meanwhile, in 2020, Sleman Regency had a poverty
+          rate of 8.12% in 2020.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -245,10 +246,10 @@ export const PondokJayaPermai = () => {
     >
       <SectionCard title="Pondok Jaya Permai Cluster">
         <p>
-          Pondok Jaya Permai Cluster is the grid with the lowest percentage of
-          deprived children in D.I Yogyakarta Province at 9.8 percent. As many
-          as 9 to 10 out of 100 children aged 0-17 years in the grid experience
-          deprivation of access to education, health and economic facilities.
+          Pondok Jaya Permai Cluster, situated in the grid with the lowest CDR
+          percentage in Yogyakarta, records a score of 9.8%. This means that 9
+          to 10 out of 100 children aged 0-17 years in this area experience
+          deprivation of access to education, health, and economic facilities.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -930,12 +931,12 @@ export const YogyakartaCDIHighlightHighest = () => {
         });
       }}
     >
-      <SectionCard title="Three Highest CDI Percentage">
+      <SectionCard title="Three Grids with the Highest CDR">
         <p>
-          The three grids with the highest percentage of children with the
-          highest leadership at 20.1 - 20.3% in Gunungkidul Regency, Yogyakarta
-          Province. Meanwhile, in 2020, Gunungkidul Regency had a poverty rate
-          of 17.07% in 2020.
+          The three grids with the highest percentage of the Child Deprivation
+          Rate (CDR) scores between 20.1% and 20.3% in Gunungkidul Regency,
+          Yogyakarta Province. Meanwhile, by 2020, Gunungkidul Regency has a
+          poverty rate of 17,07% by 2020.
         </p>
       </SectionCard>
     </SectionWrapper>
@@ -995,10 +996,10 @@ export const DusunSureng = () => {
     >
       <SectionCard title="Dusun Sureng 2">
         <p>
-          Dusun Sureng 2 is the grid with the highest percentage of deprived
-          children in D.I Yogyakarta Province at 20.3 percent. As many as 20 out
-          of 100 children aged 0-17 years experience deprivation of access to
-          educational, health and economic facilities.
+          Dusun Sureng 2, situated in the grid with the highest CDR percentage
+          in Yogyakarta, records a score of 20.3%. This means that 20 out of 100
+          children aged 0-17 years in this area experience deprivation of access
+          to education, health, and economic facilities.
         </p>
       </SectionCard>
     </SectionWrapper>
