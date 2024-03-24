@@ -145,7 +145,7 @@ export const YogyakartaCDIHighlight = () => {
               title: "3rd",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Lowest CDI</span>
+                  <span className="text-xl font-black">Lowest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -158,7 +158,7 @@ export const YogyakartaCDIHighlight = () => {
               title: "2nd",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Lowest CDI</span>
+                  <span className="text-xl font-black">Lowest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -171,7 +171,7 @@ export const YogyakartaCDIHighlight = () => {
               title: "1st",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Lowest CDI</span>
+                  <span className="text-xl font-black">Lowest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -895,7 +895,7 @@ export const YogyakartaCDIHighlightHighest = () => {
               title: "3rd",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Highest CDI</span>
+                  <span className="text-xl font-black">Highest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -908,7 +908,7 @@ export const YogyakartaCDIHighlightHighest = () => {
               title: "2nd",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Highest CDI</span>
+                  <span className="text-xl font-black">Highest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -921,7 +921,7 @@ export const YogyakartaCDIHighlightHighest = () => {
               title: "1st",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">HIghest CDI</span>
+                  <span className="text-xl font-black">HIghest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
