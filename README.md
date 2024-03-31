@@ -53,7 +53,7 @@ Code Repository
 * https://github.com/JfrAziz/child-deprivation-index/
 
 Web Story Showcase
-* https://know-ais.vercel.app/
+* https://child-deprivation.pages.dev
 
 Presentation Video
 * https://www.youtube.com/watch?v=wtKWJNX8Pt0
