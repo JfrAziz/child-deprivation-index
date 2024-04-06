@@ -6,42 +6,42 @@ interface LayerStyle {
   "yogyakarta-regencies": FillPaint;
   "lowest-cdi": FillPaint;
   graticule: LinePaint;
-  "klaster-sd": LinePaint;
-  "route-klaster-sd": LinePaint;
-  "klaster-smp": LinePaint;
-  "route-klaster-smp": LinePaint;
-  "klaster-sma": LinePaint;
-  "route-klaster-sma": LinePaint;
-  "klaster-apotek": LinePaint;
-  "route-klaster-apotek": LinePaint;
-  "klaster-puskesmas": LinePaint;
-  "route-klaster-puskesmas": LinePaint;
-  "klaster-rumah-sakit": LinePaint;
-  "route-klaster-rumah-sakit": LinePaint;
-  "klaster-bank": LinePaint;
-  "route-klaster-bank": LinePaint;
-  "klaster-tourism": LinePaint;
-  "route-klaster-tourism": LinePaint;
-  "klaster-pasar": LinePaint;
-  "route-klaster-pasar": LinePaint;
+  "cluster-sd": LinePaint;
+  "route-cluster-sd": LinePaint;
+  "cluster-smp": LinePaint;
+  "route-cluster-smp": LinePaint;
+  "cluster-sma": LinePaint;
+  "route-cluster-sma": LinePaint;
+  "cluster-pharmacy": LinePaint;
+  "route-cluster-pharmacy": LinePaint;
+  "cluster-health_center": LinePaint;
+  "route-cluster-health_center": LinePaint;
+  "cluster-rumah-sakit": LinePaint;
+  "route-cluster-rumah-sakit": LinePaint;
+  "cluster-bank": LinePaint;
+  "route-cluster-bank": LinePaint;
+  "cluster-tourism": LinePaint;
+  "route-cluster-tourism": LinePaint;
+  "cluster-market": LinePaint;
+  "route-cluster-market": LinePaint;
   "dusun-sd": LinePaint;
   "route-dusun-sd": LinePaint;
   "dusun-smp": LinePaint;
   "route-dusun-smp": LinePaint;
   "dusun-sma": LinePaint;
   "route-dusun-sma": LinePaint;
-  "dusun-apotek": LinePaint;
-  "route-dusun-apotek": LinePaint;
-  "dusun-puskesmas": LinePaint;
-  "route-dusun-puskesmas": LinePaint;
+  "dusun-pharmacy": LinePaint;
+  "route-dusun-pharmacy": LinePaint;
+  "dusun-health_center": LinePaint;
+  "route-dusun-health_center": LinePaint;
   "dusun-rumah-sakit": LinePaint;
   "route-dusun-rumah-sakit": LinePaint;
   "dusun-bank": LinePaint;
   "route-dusun-bank": LinePaint;
   "dusun-tourism": LinePaint;
   "route-dusun-tourism": LinePaint;
-  "dusun-pasar": LinePaint;
-  "route-dusun-pasar": LinePaint;
+  "dusun-market": LinePaint;
+  "route-dusun-market": LinePaint;
   resetRouteStyles: () => void;
 }
 
@@ -71,109 +71,109 @@ export const useLayerStyle = create<LayerStyle>((set) => ({
     "line-color": "#777",
     "line-opacity-transition": { duration: 1000 },
   },
-  "klaster-sd": {
+  "cluster-sd": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-klaster-sd": {
+  "route-cluster-sd": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "klaster-smp": {
+  "cluster-smp": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-klaster-smp": {
+  "route-cluster-smp": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "klaster-sma": {
+  "cluster-sma": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-klaster-sma": {
+  "route-cluster-sma": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "klaster-apotek": {
+  "cluster-pharmacy": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-klaster-apotek": {
+  "route-cluster-pharmacy": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "klaster-puskesmas": {
+  "cluster-health_center": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-klaster-puskesmas": {
+  "route-cluster-health_center": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "klaster-rumah-sakit": {
+  "cluster-rumah-sakit": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-klaster-rumah-sakit": {
+  "route-cluster-rumah-sakit": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "klaster-bank": {
+  "cluster-bank": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-klaster-bank": {
+  "route-cluster-bank": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "klaster-tourism": {
+  "cluster-tourism": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-klaster-tourism": {
+  "route-cluster-tourism": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "klaster-pasar": {
+  "cluster-market": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-klaster-pasar": {
+  "route-cluster-market": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
@@ -215,25 +215,25 @@ export const useLayerStyle = create<LayerStyle>((set) => ({
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "dusun-apotek": {
+  "dusun-pharmacy": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-dusun-apotek": {
+  "route-dusun-pharmacy": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "dusun-puskesmas": {
+  "dusun-health_center": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-dusun-puskesmas": {
+  "route-dusun-health_center": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
@@ -275,13 +275,13 @@ export const useLayerStyle = create<LayerStyle>((set) => ({
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "dusun-pasar": {
+  "dusun-market": {
     "line-opacity": 0,
     "line-color": "#ece0db",
     "line-width": 4,
     "line-opacity-transition": { duration: 1000 },
   },
-  "route-dusun-pasar": {
+  "route-dusun-market": {
     "line-opacity": 0,
     "line-color": "rgb(0,0,0)",
     "line-width": 4,
@@ -298,58 +298,58 @@ export const useLayerStyle = create<LayerStyle>((set) => ({
         ...state["yogyakarta-regencies"],
         "fill-opacity": 0,
       },
-      "klaster-sd": { ...state["klaster-sd"], "line-opacity": 0 },
-      "route-klaster-sd": {
-        ...state["route-klaster-sd"],
+      "cluster-sd": { ...state["cluster-sd"], "line-opacity": 0 },
+      "route-cluster-sd": {
+        ...state["route-cluster-sd"],
         "line-opacity": 0,
       },
-      "klaster-smp": { ...state["klaster-smp"], "line-opacity": 0 },
-      "route-klaster-smp": {
-        ...state["route-klaster-smp"],
+      "cluster-smp": { ...state["cluster-smp"], "line-opacity": 0 },
+      "route-cluster-smp": {
+        ...state["route-cluster-smp"],
         "line-opacity": 0,
       },
-      "klaster-sma": { ...state["klaster-sma"], "line-opacity": 0 },
-      "route-klaster-sma": {
-        ...state["route-klaster-sma"],
+      "cluster-sma": { ...state["cluster-sma"], "line-opacity": 0 },
+      "route-cluster-sma": {
+        ...state["route-cluster-sma"],
         "line-opacity": 0,
       },
-      "klaster-apotek": {
-        ...state["klaster-apotek"],
+      "cluster-pharmacy": {
+        ...state["cluster-pharmacy"],
         "line-opacity": 0,
       },
-      "route-klaster-apotek": {
-        ...state["route-klaster-apotek"],
+      "route-cluster-pharmacy": {
+        ...state["route-cluster-pharmacy"],
         "line-opacity": 0,
       },
-      "klaster-puskesmas": {
-        ...state["klaster-puskesmas"],
+      "cluster-health_center": {
+        ...state["cluster-health_center"],
         "line-opacity": 0,
       },
-      "route-klaster-puskesmas": {
-        ...state["route-klaster-puskesmas"],
+      "route-cluster-health_center": {
+        ...state["route-cluster-health_center"],
         "line-opacity": 0,
       },
-      "klaster-rumah-sakit": {
-        ...state["klaster-rumah-sakit"],
+      "cluster-rumah-sakit": {
+        ...state["cluster-rumah-sakit"],
         "line-opacity": 0,
       },
-      "route-klaster-rumah-sakit": {
-        ...state["route-klaster-rumah-sakit"],
+      "route-cluster-rumah-sakit": {
+        ...state["route-cluster-rumah-sakit"],
         "line-opacity": 0,
       },
-      "klaster-bank": { ...state["klaster-bank"], "line-opacity": 0 },
-      "route-klaster-bank": {
-        ...state["route-klaster-bank"],
+      "cluster-bank": { ...state["cluster-bank"], "line-opacity": 0 },
+      "route-cluster-bank": {
+        ...state["route-cluster-bank"],
         "line-opacity": 0,
       },
-      "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 0 },
-      "route-klaster-tourism": {
-        ...state["route-klaster-tourism"],
+      "cluster-tourism": { ...state["cluster-tourism"], "line-opacity": 0 },
+      "route-cluster-tourism": {
+        ...state["route-cluster-tourism"],
         "line-opacity": 0,
       },
-      "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 0 },
-      "route-klaster-pasar": {
-        ...state["route-klaster-pasar"],
+      "cluster-market": { ...state["cluster-market"], "line-opacity": 0 },
+      "route-cluster-market": {
+        ...state["route-cluster-market"],
         "line-opacity": 0,
       },
       "dusun-sd": { ...state["dusun-sd"], "line-opacity": 0 },
@@ -367,20 +367,20 @@ export const useLayerStyle = create<LayerStyle>((set) => ({
         ...state["route-dusun-sma"],
         "line-opacity": 0,
       },
-      "dusun-apotek": {
-        ...state["dusun-apotek"],
+      "dusun-pharmacy": {
+        ...state["dusun-pharmacy"],
         "line-opacity": 0,
       },
-      "route-dusun-apotek": {
-        ...state["route-dusun-apotek"],
+      "route-dusun-pharmacy": {
+        ...state["route-dusun-pharmacy"],
         "line-opacity": 0,
       },
-      "dusun-puskesmas": {
-        ...state["dusun-puskesmas"],
+      "dusun-health_center": {
+        ...state["dusun-health_center"],
         "line-opacity": 0,
       },
-      "route-dusun-puskesmas": {
-        ...state["route-dusun-puskesmas"],
+      "route-dusun-health_center": {
+        ...state["route-dusun-health_center"],
         "line-opacity": 0,
       },
       "dusun-rumah-sakit": {
@@ -401,9 +401,9 @@ export const useLayerStyle = create<LayerStyle>((set) => ({
         ...state["route-dusun-tourism"],
         "line-opacity": 0,
       },
-      "dusun-pasar": { ...state["dusun-pasar"], "line-opacity": 0 },
-      "route-dusun-pasar": {
-        ...state["route-dusun-pasar"],
+      "dusun-market": { ...state["dusun-market"], "line-opacity": 0 },
+      "route-dusun-market": {
+        ...state["route-dusun-market"],
         "line-opacity": 0,
       },
     })),

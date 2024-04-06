@@ -6,23 +6,23 @@ import "./globals.css";
 import { useLayerStyle, usePopupStore } from "./stores/map";
 
 import { useEffect, useState } from "react";
-import dusunApotek from "@/data/dusun/apotek.json";
-import dusunPasar from "@/data/dusun/pasar.json";
-import dusunPuskesmas from "@/data/dusun/puskesmas.json";
-import dusunSd from "@/data/dusun/sdn.json";
-import dusunSma from "@/data/dusun/smk.json";
-import dusunSmp from "@/data/dusun/smp.json";
+import dusunPharmacy from "@/data/dusun/pharmacy.json";
+import dusunMarket from "@/data/dusun/market.json";
+import dusunHealthCenter from "@/data/dusun/health-center.json";
+import dusunElementarySchool from "@/data/dusun/elementary-school.json";
+import dusunJuniorHighSchool from "@/data/dusun/junior-high-school.json";
+import dusunHighSchool from "@/data/dusun/high-school.json";
 import graticule from "@/data/graticule";
 import indonesiaProvince from "@/data/indonesia.json";
-import klasterApotek from "@/data/klaster/apotek.json";
-import klasterBank from "@/data/klaster/bank.json";
-import klasterPasar from "@/data/klaster/market.json";
-import klasterPuskesmas from "@/data/klaster/puskesmas.json";
-import klasterRumahSakit from "@/data/klaster/rumah_sakit.json";
-import klasterSd from "@/data/klaster/sd.json";
-import klasterSma from "@/data/klaster/sma.json";
-import klasterSmp from "@/data/klaster/smp.json";
-import klasterTourism from "@/data/klaster/tourism.json";
+import clusterPharmacy from "@/data/cluster/pharmacy.json";
+import clusterBank from "@/data/cluster/bank.json";
+import clusterMarket from "@/data/cluster/market.json";
+import clusterHealthCenter from "@/data/cluster/health-center.json";
+import clusterHospital from "@/data/cluster/hospital.json";
+import clusterElementarySchool from "@/data/cluster/elementary-school.json";
+import clusterJuniorHighSchool from "@/data/cluster/junior-high-school.json";
+import clusterHighSchool from "@/data/cluster/high-school.json";
+import clusterTourism from "@/data/cluster/tourism.json";
 import yogyakartaRegencies from "@/data/yogyakarta_regencies.json";
 import { BPSCommitment } from "./sections/bps-commitment";
 import { ChildDeprivation } from "./sections/child-deprivation";
@@ -171,220 +171,220 @@ const App = () => {
             </Source>
             <Source
               type="geojson"
-              id="klaster-sd"
-              data={klasterSd as GeoJSON.FeatureCollection}
+              id="cluster-sd"
+              data={clusterElementarySchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
-              <Layer type="line" id="klaster-sd" paint={state["klaster-sd"]} />
+              <Layer type="line" id="cluster-sd" paint={state["cluster-sd"]} />
             </Source>
             <Source
               type="geojson"
-              id="route-klaster-sd"
-              data={klasterSd as GeoJSON.FeatureCollection}
+              id="route-cluster-sd"
+              data={clusterElementarySchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-klaster-sd"
-                paint={state["route-klaster-sd"]}
+                id="route-cluster-sd"
+                paint={state["route-cluster-sd"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="klaster-smp"
-              data={klasterSmp as GeoJSON.FeatureCollection}
+              id="cluster-smp"
+              data={clusterJuniorHighSchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="klaster-smp"
-                paint={state["klaster-smp"]}
+                id="cluster-smp"
+                paint={state["cluster-smp"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-klaster-smp"
-              data={klasterSmp as GeoJSON.FeatureCollection}
+              id="route-cluster-smp"
+              data={clusterJuniorHighSchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-klaster-smp"
-                paint={state["route-klaster-smp"]}
+                id="route-cluster-smp"
+                paint={state["route-cluster-smp"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="klaster-sma"
-              data={klasterSma as GeoJSON.FeatureCollection}
+              id="cluster-sma"
+              data={clusterHighSchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="klaster-sma"
-                paint={state["klaster-sma"]}
+                id="cluster-sma"
+                paint={state["cluster-sma"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-klaster-sma"
-              data={klasterSma as GeoJSON.FeatureCollection}
+              id="route-cluster-sma"
+              data={clusterHighSchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-klaster-sma"
-                paint={state["route-klaster-sma"]}
+                id="route-cluster-sma"
+                paint={state["route-cluster-sma"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="klaster-apotek"
-              data={klasterApotek as GeoJSON.FeatureCollection}
+              id="cluster-pharmacy"
+              data={clusterPharmacy as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="klaster-apotek"
-                paint={state["klaster-apotek"]}
+                id="cluster-pharmacy"
+                paint={state["cluster-pharmacy"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-klaster-apotek"
-              data={klasterApotek as GeoJSON.FeatureCollection}
+              id="route-cluster-pharmacy"
+              data={clusterPharmacy as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-klaster-apotek"
-                paint={state["route-klaster-apotek"]}
+                id="route-cluster-pharmacy"
+                paint={state["route-cluster-pharmacy"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="klaster-puskesmas"
-              data={klasterPuskesmas as GeoJSON.FeatureCollection}
+              id="cluster-health_center"
+              data={clusterHealthCenter as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="klaster-puskesmas"
-                paint={state["klaster-puskesmas"]}
+                id="cluster-health_center"
+                paint={state["cluster-health_center"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-klaster-puskesmas"
-              data={klasterPuskesmas as GeoJSON.FeatureCollection}
+              id="route-cluster-health_center"
+              data={clusterHealthCenter as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-klaster-puskesmas"
-                paint={state["route-klaster-puskesmas"]}
+                id="route-cluster-health_center"
+                paint={state["route-cluster-health_center"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="klaster-rumah-sakit"
-              data={klasterRumahSakit as GeoJSON.FeatureCollection}
+              id="cluster-rumah-sakit"
+              data={clusterHospital as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="klaster-rumah-sakit"
-                paint={state["klaster-rumah-sakit"]}
+                id="cluster-rumah-sakit"
+                paint={state["cluster-rumah-sakit"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-klaster-rumah-sakit"
-              data={klasterRumahSakit as GeoJSON.FeatureCollection}
+              id="route-cluster-rumah-sakit"
+              data={clusterHospital as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-klaster-rumah-sakit"
-                paint={state["route-klaster-rumah-sakit"]}
+                id="route-cluster-rumah-sakit"
+                paint={state["route-cluster-rumah-sakit"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="klaster-tourism"
-              data={klasterTourism as GeoJSON.FeatureCollection}
+              id="cluster-tourism"
+              data={clusterTourism as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="klaster-tourism"
-                paint={state["klaster-tourism"]}
+                id="cluster-tourism"
+                paint={state["cluster-tourism"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-klaster-tourism"
-              data={klasterTourism as GeoJSON.FeatureCollection}
+              id="route-cluster-tourism"
+              data={clusterTourism as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-klaster-tourism"
-                paint={state["route-klaster-tourism"]}
+                id="route-cluster-tourism"
+                paint={state["route-cluster-tourism"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="klaster-bank"
-              data={klasterBank as GeoJSON.FeatureCollection}
+              id="cluster-bank"
+              data={clusterBank as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="klaster-bank"
-                paint={state["klaster-bank"]}
+                id="cluster-bank"
+                paint={state["cluster-bank"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-klaster-bank"
-              data={klasterBank as GeoJSON.FeatureCollection}
+              id="route-cluster-bank"
+              data={clusterBank as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-klaster-bank"
-                paint={state["route-klaster-bank"]}
+                id="route-cluster-bank"
+                paint={state["route-cluster-bank"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="klaster-pasar"
-              data={klasterPasar as GeoJSON.FeatureCollection}
+              id="cluster-market"
+              data={clusterMarket as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="klaster-pasar"
-                paint={state["klaster-pasar"]}
+                id="cluster-market"
+                paint={state["cluster-market"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-klaster-pasar"
-              data={klasterPasar as GeoJSON.FeatureCollection}
+              id="route-cluster-market"
+              data={clusterMarket as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-klaster-pasar"
-                paint={state["route-klaster-pasar"]}
+                id="route-cluster-market"
+                paint={state["route-cluster-market"]}
               />
             </Source>
             <Source
               type="geojson"
               id="dusun-sd"
-              data={dusunSd as GeoJSON.FeatureCollection}
+              data={dusunElementarySchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer type="line" id="dusun-sd" paint={state["dusun-sd"]} />
@@ -392,7 +392,7 @@ const App = () => {
             <Source
               type="geojson"
               id="route-dusun-sd"
-              data={dusunSd as GeoJSON.FeatureCollection}
+              data={dusunElementarySchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
@@ -404,7 +404,7 @@ const App = () => {
             <Source
               type="geojson"
               id="dusun-smp"
-              data={dusunSmp as GeoJSON.FeatureCollection}
+              data={dusunJuniorHighSchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer type="line" id="dusun-smp" paint={state["dusun-smp"]} />
@@ -412,7 +412,7 @@ const App = () => {
             <Source
               type="geojson"
               id="route-dusun-smp"
-              data={dusunSmp as GeoJSON.FeatureCollection}
+              data={dusunJuniorHighSchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
@@ -424,7 +424,7 @@ const App = () => {
             <Source
               type="geojson"
               id="dusun-sma"
-              data={dusunSma as GeoJSON.FeatureCollection}
+              data={dusunHighSchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer type="line" id="dusun-sma" paint={state["dusun-sma"]} />
@@ -432,7 +432,7 @@ const App = () => {
             <Source
               type="geojson"
               id="route-dusun-sma"
-              data={dusunSma as GeoJSON.FeatureCollection}
+              data={dusunHighSchool as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
@@ -443,74 +443,74 @@ const App = () => {
             </Source>
             <Source
               type="geojson"
-              id="dusun-apotek"
-              data={dusunApotek as GeoJSON.FeatureCollection}
+              id="dusun-pharmacy"
+              data={dusunPharmacy as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="dusun-apotek"
-                paint={state["dusun-apotek"]}
+                id="dusun-pharmacy"
+                paint={state["dusun-pharmacy"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-dusun-apotek"
-              data={dusunApotek as GeoJSON.FeatureCollection}
+              id="route-dusun-pharmacy"
+              data={dusunPharmacy as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-dusun-apotek"
-                paint={state["route-dusun-apotek"]}
+                id="route-dusun-pharmacy"
+                paint={state["route-dusun-pharmacy"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="dusun-puskesmas"
-              data={dusunPuskesmas as GeoJSON.FeatureCollection}
+              id="dusun-health_center"
+              data={dusunHealthCenter as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="dusun-puskesmas"
-                paint={state["dusun-puskesmas"]}
+                id="dusun-health_center"
+                paint={state["dusun-health_center"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-dusun-puskesmas"
-              data={dusunPuskesmas as GeoJSON.FeatureCollection}
+              id="route-dusun-health_center"
+              data={dusunHealthCenter as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-dusun-puskesmas"
-                paint={state["route-dusun-puskesmas"]}
+                id="route-dusun-health_center"
+                paint={state["route-dusun-health_center"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="dusun-pasar"
-              data={dusunPasar as GeoJSON.FeatureCollection}
+              id="dusun-market"
+              data={dusunMarket as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="dusun-pasar"
-                paint={state["dusun-pasar"]}
+                id="dusun-market"
+                paint={state["dusun-market"]}
               />
             </Source>
             <Source
               type="geojson"
-              id="route-dusun-pasar"
-              data={dusunPasar as GeoJSON.FeatureCollection}
+              id="route-dusun-market"
+              data={dusunMarket as GeoJSON.FeatureCollection}
               lineMetrics
             >
               <Layer
                 type="line"
-                id="route-dusun-pasar"
-                paint={state["route-dusun-pasar"]}
+                id="route-dusun-market"
+                paint={state["route-dusun-market"]}
               />
             </Source>
           </Map>
@@ -533,33 +533,33 @@ const App = () => {
           <YogyakartaCDIHighlight />
           <PondokJayaPermai />
           <KlasterSekolah
-            klasterSd={klasterSd.features[0] as GeoJSON.Feature}
-            klasterSmp={klasterSmp.features[0] as GeoJSON.Feature}
-            klasterSma={klasterSma.features[0] as GeoJSON.Feature}
+            clusterElementarySchool={clusterElementarySchool.features[0] as GeoJSON.Feature}
+            clusterJuniorHighSchool={clusterJuniorHighSchool.features[0] as GeoJSON.Feature}
+            clusterHighSchool={clusterHighSchool.features[0] as GeoJSON.Feature}
           />
           <KlasterKesehatan
-            klasterApotek={klasterApotek.features[0] as GeoJSON.Feature}
-            klasterPuskesmas={klasterPuskesmas.features[0] as GeoJSON.Feature}
-            klasterRumahSakit={klasterRumahSakit.features[0] as GeoJSON.Feature}
+            clusterPharmacy={clusterPharmacy.features[0] as GeoJSON.Feature}
+            clusterHealthCenter={clusterHealthCenter.features[0] as GeoJSON.Feature}
+            clusterHospital={clusterHospital.features[0] as GeoJSON.Feature}
           />
           <KlasterEkonomi
-            klasterBank={klasterBank.features[0] as GeoJSON.Feature}
-            klasterPasar={klasterPasar.features[0] as GeoJSON.Feature}
-            klasterTourism={klasterTourism.features[0] as GeoJSON.Feature}
+            clusterBank={clusterBank.features[0] as GeoJSON.Feature}
+            clusterMarket={clusterMarket.features[0] as GeoJSON.Feature}
+            clusterTourism={clusterTourism.features[0] as GeoJSON.Feature}
           />
           <YogyakartaCDIHighlightHighest />
           <DusunSureng />
           <DusunSekolah
-            dusunSd={dusunSd.features[0] as GeoJSON.Feature}
-            dusunSmp={dusunSmp.features[0] as GeoJSON.Feature}
-            dusunSma={dusunSma.features[0] as GeoJSON.Feature}
+            dusunElementarySchool={dusunElementarySchool.features[0] as GeoJSON.Feature}
+            dusunJuniorHighSchool={dusunJuniorHighSchool.features[0] as GeoJSON.Feature}
+            dusunHighSchool={dusunHighSchool.features[0] as GeoJSON.Feature}
           />
           <DusunKesehatan
-            dusunApotek={dusunApotek.features[0] as GeoJSON.Feature}
-            dusunPuskesmas={dusunPuskesmas.features[0] as GeoJSON.Feature}
+            dusunPharmacy={dusunPharmacy.features[0] as GeoJSON.Feature}
+            dusunHealthCenter={dusunHealthCenter.features[0] as GeoJSON.Feature}
           />
           <DusunEkonomi
-            dusunPasar={dusunPasar.features[0] as GeoJSON.Feature}
+            dusunMarket={dusunMarket.features[0] as GeoJSON.Feature}
           />
           <Remarks />
           <Footer />

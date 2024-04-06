@@ -130,9 +130,9 @@ export const YogyakartaCDIHighlight = () => {
           pitch: 0,
           duration: 2000,
         });
-        // @ts-expect-error ignore klasterSd types
+        // @ts-expect-error ignore clusterElementarySchool types
         const centers = lowestCdi.features.map((feature: GeoJSON.Feature) => {
-          // @ts-expect-error ignore klasterSd types
+          // @ts-expect-error ignore clusterElementarySchool types
           return turf.center(feature);
         });
         usePopupStore.setState({
@@ -257,13 +257,13 @@ export const PondokJayaPermai = () => {
 };
 
 export const KlasterSekolah = ({
-  klasterSd,
-  klasterSmp,
-  klasterSma,
+  clusterElementarySchool,
+  clusterJuniorHighSchool,
+  clusterHighSchool,
 }: {
-  klasterSd: GeoJSON.Feature;
-  klasterSmp: GeoJSON.Feature;
-  klasterSma: GeoJSON.Feature;
+  clusterElementarySchool: GeoJSON.Feature;
+  clusterJuniorHighSchool: GeoJSON.Feature;
+  clusterHighSchool: GeoJSON.Feature;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -306,19 +306,19 @@ export const KlasterSekolah = ({
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.2,
           },
-          "klaster-sd": { ...state["klaster-sd"], "line-opacity": 1 },
-          "route-klaster-sd": {
-            ...state["route-klaster-sd"],
+          "cluster-sd": { ...state["cluster-sd"], "line-opacity": 1 },
+          "route-cluster-sd": {
+            ...state["route-cluster-sd"],
             "line-opacity": 1,
           },
-          "klaster-smp": { ...state["klaster-smp"], "line-opacity": 1 },
-          "route-klaster-smp": {
-            ...state["route-klaster-smp"],
+          "cluster-smp": { ...state["cluster-smp"], "line-opacity": 1 },
+          "route-cluster-smp": {
+            ...state["route-cluster-smp"],
             "line-opacity": 1,
           },
-          "klaster-sma": { ...state["klaster-sma"], "line-opacity": 1 },
-          "route-klaster-sma": {
-            ...state["route-klaster-sma"],
+          "cluster-sma": { ...state["cluster-sma"], "line-opacity": 1 },
+          "route-cluster-sma": {
+            ...state["route-cluster-sma"],
             "line-opacity": 1,
           },
         }));
@@ -335,11 +335,11 @@ export const KlasterSekolah = ({
         const animationDuration = 5000;
         const markers: Marker[] = [];
         const pathDistances: number[] = [];
-        for (const klasterSekolah of [klasterSd, klasterSmp, klasterSma]) {
-          // @ts-expect-error ignore klasterSd types
-          const pinRoute = klasterSekolah.geometry.coordinates;
-          // @ts-expect-error ignore klasterSd types
-          pathDistances.push(turf.lineDistance(klasterSekolah));
+        for (const clusterSekolah of [clusterElementarySchool, clusterJuniorHighSchool, clusterHighSchool]) {
+          // @ts-expect-error ignore clusterElementarySchool types
+          const pinRoute = clusterSekolah.geometry.coordinates;
+          // @ts-expect-error ignore clusterElementarySchool types
+          pathDistances.push(turf.lineDistance(clusterSekolah));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
             index == 0
@@ -399,11 +399,11 @@ export const KlasterSekolah = ({
             return;
           }
 
-          [klasterSd, klasterSmp, klasterSma].forEach(
-            async (klaster, index) => {
+          [clusterElementarySchool, clusterJuniorHighSchool, clusterHighSchool].forEach(
+            async (cluster, index) => {
               const alongPath = turf.along(
-                // @ts-expect-error ignore klaster types
-                klaster,
+                // @ts-expect-error ignore cluster types
+                cluster,
                 pathDistances[index] * animationPhase
               ).geometry.coordinates;
               const lngLat = {
@@ -414,13 +414,13 @@ export const KlasterSekolah = ({
               let paintProperty: string;
               switch (index) {
                 case 1:
-                  paintProperty = "route-klaster-smp";
+                  paintProperty = "route-cluster-smp";
                   break;
                 case 2:
-                  paintProperty = "route-klaster-sma";
+                  paintProperty = "route-cluster-sma";
                   break;
                 default:
-                  paintProperty = "route-klaster-sd";
+                  paintProperty = "route-cluster-sd";
                   break;
               }
               map
@@ -452,13 +452,13 @@ export const KlasterSekolah = ({
 };
 
 export const KlasterKesehatan = ({
-  klasterApotek,
-  klasterPuskesmas,
-  klasterRumahSakit,
+  clusterPharmacy,
+  clusterHealthCenter,
+  clusterHospital,
 }: {
-  klasterApotek: GeoJSON.Feature;
-  klasterPuskesmas: GeoJSON.Feature;
-  klasterRumahSakit: GeoJSON.Feature;
+  clusterPharmacy: GeoJSON.Feature;
+  clusterHealthCenter: GeoJSON.Feature;
+  clusterHospital: GeoJSON.Feature;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -500,28 +500,28 @@ export const KlasterKesehatan = ({
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.2,
           },
-          "klaster-apotek": {
-            ...state["klaster-apotek"],
+          "cluster-pharmacy": {
+            ...state["cluster-pharmacy"],
             "line-opacity": 1,
           },
-          "route-klaster-apotek": {
-            ...state["route-klaster-apotek"],
+          "route-cluster-pharmacy": {
+            ...state["route-cluster-pharmacy"],
             "line-opacity": 1,
           },
-          "klaster-puskesmas": {
-            ...state["klaster-puskesmas"],
+          "cluster-health_center": {
+            ...state["cluster-health_center"],
             "line-opacity": 1,
           },
-          "route-klaster-puskesmas": {
-            ...state["route-klaster-puskesmas"],
+          "route-cluster-health_center": {
+            ...state["route-cluster-health_center"],
             "line-opacity": 1,
           },
-          "klaster-rumah-sakit": {
-            ...state["klaster-rumah-sakit"],
+          "cluster-rumah-sakit": {
+            ...state["cluster-rumah-sakit"],
             "line-opacity": 1,
           },
-          "route-klaster-rumah-sakit": {
-            ...state["route-klaster-rumah-sakit"],
+          "route-cluster-rumah-sakit": {
+            ...state["route-cluster-rumah-sakit"],
             "line-opacity": 1,
           },
         }));
@@ -538,15 +538,15 @@ export const KlasterKesehatan = ({
         const animationDuration = 5000;
         const markers: Marker[] = [];
         const pathDistances: number[] = [];
-        for (const klasterKesehatan of [
-          klasterApotek,
-          klasterPuskesmas,
-          klasterRumahSakit,
+        for (const clusterKesehatan of [
+          clusterPharmacy,
+          clusterHealthCenter,
+          clusterHospital,
         ]) {
-          // @ts-expect-error ignore klasterSd types
-          const pinRoute = klasterKesehatan.geometry.coordinates;
-          // @ts-expect-error ignore klasterSd types
-          pathDistances.push(turf.lineDistance(klasterKesehatan));
+          // @ts-expect-error ignore clusterElementarySchool types
+          const pinRoute = clusterKesehatan.geometry.coordinates;
+          // @ts-expect-error ignore clusterElementarySchool types
+          pathDistances.push(turf.lineDistance(clusterKesehatan));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
             index == 0
@@ -607,11 +607,11 @@ export const KlasterKesehatan = ({
             return;
           }
 
-          [klasterApotek, klasterPuskesmas, klasterRumahSakit].forEach(
-            (klaster, index) => {
+          [clusterPharmacy, clusterHealthCenter, clusterHospital].forEach(
+            (cluster, index) => {
               const alongPath = turf.along(
-                // @ts-expect-error ignore klaster types
-                klaster,
+                // @ts-expect-error ignore cluster types
+                cluster,
                 pathDistances[index] * animationPhase
               ).geometry.coordinates;
               const lngLat = {
@@ -623,10 +623,10 @@ export const KlasterKesehatan = ({
                 ?.getMap()
                 .setPaintProperty(
                   index == 0
-                    ? "route-klaster-apotek"
+                    ? "route-cluster-pharmacy"
                     : index == 1
-                    ? "route-klaster-puskesmas"
-                    : "route-klaster-rumah-sakit",
+                    ? "route-cluster-health_center"
+                    : "route-cluster-rumah-sakit",
                   "line-gradient",
                   [
                     "step",
@@ -646,7 +646,7 @@ export const KlasterKesehatan = ({
       <SectionCard title="Access to Health Facilities">
         <p>
           It takes 15 minutes to the pharmacy (Apotik Widigdo 3), 22 minutes to
-          the health center (Puskesmas Ngemplak 2), 35 minutes to the hospital
+          the health center (PuskesmasNgemplak 2), 35 minutes to the hospital
           (Mitra Medika Hospital) on foot or 3-7 minutes by car with a distance
           of 1.4 - 2.8 km.
         </p>
@@ -656,13 +656,13 @@ export const KlasterKesehatan = ({
 };
 
 export const KlasterEkonomi = ({
-  klasterPasar,
-  klasterBank,
-  klasterTourism,
+  clusterMarket,
+  clusterBank,
+  clusterTourism,
 }: {
-  klasterPasar: GeoJSON.Feature;
-  klasterBank: GeoJSON.Feature;
-  klasterTourism: GeoJSON.Feature;
+  clusterMarket: GeoJSON.Feature;
+  clusterBank: GeoJSON.Feature;
+  clusterTourism: GeoJSON.Feature;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -704,19 +704,19 @@ export const KlasterEkonomi = ({
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.2,
           },
-          "klaster-bank": { ...state["klaster-bank"], "line-opacity": 1 },
-          "route-klaster-bank": {
-            ...state["route-klaster-bank"],
+          "cluster-bank": { ...state["cluster-bank"], "line-opacity": 1 },
+          "route-cluster-bank": {
+            ...state["route-cluster-bank"],
             "line-opacity": 1,
           },
-          "klaster-tourism": { ...state["klaster-tourism"], "line-opacity": 1 },
-          "route-klaster-tourism": {
-            ...state["route-klaster-tourism"],
+          "cluster-tourism": { ...state["cluster-tourism"], "line-opacity": 1 },
+          "route-cluster-tourism": {
+            ...state["route-cluster-tourism"],
             "line-opacity": 1,
           },
-          "klaster-pasar": { ...state["klaster-pasar"], "line-opacity": 1 },
-          "route-klaster-pasar": {
-            ...state["route-klaster-pasar"],
+          "cluster-market": { ...state["cluster-market"], "line-opacity": 1 },
+          "route-cluster-market": {
+            ...state["route-cluster-market"],
             "line-opacity": 1,
           },
         }));
@@ -733,15 +733,15 @@ export const KlasterEkonomi = ({
         const animationDuration = 5000;
         const markers: Marker[] = [];
         const pathDistances: number[] = [];
-        for (const klasterEkonomi of [
-          klasterPasar,
-          klasterBank,
-          klasterTourism,
+        for (const clusterEkonomi of [
+          clusterMarket,
+          clusterBank,
+          clusterTourism,
         ]) {
-          // @ts-expect-error ignore klasterSd types
-          const pinRoute = klasterEkonomi.geometry.coordinates;
-          // @ts-expect-error ignore klasterSd types
-          pathDistances.push(turf.lineDistance(klasterEkonomi));
+          // @ts-expect-error ignore clusterElementarySchool types
+          const pinRoute = clusterEkonomi.geometry.coordinates;
+          // @ts-expect-error ignore clusterElementarySchool types
+          pathDistances.push(turf.lineDistance(clusterEkonomi));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
             index == 0
@@ -802,11 +802,11 @@ export const KlasterEkonomi = ({
             return;
           }
 
-          [klasterPasar, klasterBank, klasterTourism].forEach(
-            (klaster, index) => {
+          [clusterMarket, clusterBank, clusterTourism].forEach(
+            (cluster, index) => {
               const alongPath = turf.along(
-                // @ts-expect-error ignore klaster types
-                klaster,
+                // @ts-expect-error ignore cluster types
+                cluster,
                 pathDistances[index] * animationPhase
               ).geometry.coordinates;
               const lngLat = {
@@ -818,10 +818,10 @@ export const KlasterEkonomi = ({
                 ?.getMap()
                 .setPaintProperty(
                   index == 0
-                    ? "route-klaster-pasar"
+                    ? "route-cluster-market"
                     : index == 1
-                    ? "route-klaster-bank"
-                    : "route-klaster-tourism",
+                    ? "route-cluster-bank"
+                    : "route-cluster-tourism",
                   "line-gradient",
                   [
                     "step",
@@ -880,9 +880,9 @@ export const YogyakartaCDIHighlightHighest = () => {
           bearing: 0,
           pitch: 0,
         });
-        // @ts-expect-error ignore dusunSd types
+        // @ts-expect-error ignore dusunElementarySchool types
         const centers = highestCdi.features.map((feature: GeoJSON.Feature) => {
-          // @ts-expect-error ignore dusunSd types
+          // @ts-expect-error ignore dusunElementarySchool types
           return turf.center(feature);
         });
         usePopupStore.setState({
@@ -1007,13 +1007,13 @@ export const DusunSureng = () => {
 };
 
 export const DusunSekolah = ({
-  dusunSd,
-  dusunSmp,
-  dusunSma,
+  dusunElementarySchool,
+  dusunJuniorHighSchool,
+  dusunHighSchool,
 }: {
-  dusunSd: GeoJSON.Feature;
-  dusunSmp: GeoJSON.Feature;
-  dusunSma: GeoJSON.Feature;
+  dusunElementarySchool: GeoJSON.Feature;
+  dusunJuniorHighSchool: GeoJSON.Feature;
+  dusunHighSchool: GeoJSON.Feature;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -1085,10 +1085,10 @@ export const DusunSekolah = ({
         const animationDuration = 5000;
         const markers: Marker[] = [];
         const pathDistances: number[] = [];
-        for (const dusunSekolah of [dusunSd, dusunSmp, dusunSma]) {
-          // @ts-expect-error ignore dusunSd types
+        for (const dusunSekolah of [dusunElementarySchool, dusunJuniorHighSchool, dusunHighSchool]) {
+          // @ts-expect-error ignore dusunElementarySchool types
           const pinRoute = dusunSekolah.geometry.coordinates;
-          // @ts-expect-error ignore dusunSd types
+          // @ts-expect-error ignore dusunElementarySchool types
           pathDistances.push(turf.lineDistance(dusunSekolah));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
@@ -1150,7 +1150,7 @@ export const DusunSekolah = ({
             return;
           }
 
-          [dusunSd, dusunSmp, dusunSma].forEach(async (dusun, index) => {
+          [dusunElementarySchool, dusunJuniorHighSchool, dusunHighSchool].forEach(async (dusun, index) => {
             const alongPath = turf.along(
               // @ts-expect-error ignore dusun types
               dusun,
@@ -1201,11 +1201,11 @@ export const DusunSekolah = ({
 };
 
 export const DusunKesehatan = ({
-  dusunApotek,
-  dusunPuskesmas,
+  dusunPharmacy,
+  dusunHealthCenter,
 }: {
-  dusunApotek: GeoJSON.Feature;
-  dusunPuskesmas: GeoJSON.Feature;
+  dusunPharmacy: GeoJSON.Feature;
+  dusunHealthCenter: GeoJSON.Feature;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -1247,20 +1247,20 @@ export const DusunKesehatan = ({
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.2,
           },
-          "dusun-apotek": {
-            ...state["dusun-apotek"],
+          "dusun-pharmacy": {
+            ...state["dusun-pharmacy"],
             "line-opacity": 1,
           },
-          "route-dusun-apotek": {
-            ...state["route-dusun-apotek"],
+          "route-dusun-pharmacy": {
+            ...state["route-dusun-pharmacy"],
             "line-opacity": 1,
           },
-          "dusun-puskesmas": {
-            ...state["dusun-puskesmas"],
+          "dusun-health_center": {
+            ...state["dusun-health_center"],
             "line-opacity": 1,
           },
-          "route-dusun-puskesmas": {
-            ...state["route-dusun-puskesmas"],
+          "route-dusun-health_center": {
+            ...state["route-dusun-health_center"],
             "line-opacity": 1,
           },
         }));
@@ -1277,10 +1277,10 @@ export const DusunKesehatan = ({
         const animationDuration = 5000;
         const markers: Marker[] = [];
         const pathDistances: number[] = [];
-        for (const dusunKesehatan of [dusunApotek, dusunPuskesmas]) {
-          // @ts-expect-error ignore dusunSd types
+        for (const dusunKesehatan of [dusunPharmacy, dusunHealthCenter]) {
+          // @ts-expect-error ignore dusunElementarySchool types
           const pinRoute = dusunKesehatan.geometry.coordinates;
-          // @ts-expect-error ignore dusunSd types
+          // @ts-expect-error ignore dusunElementarySchool types
           pathDistances.push(turf.lineDistance(dusunKesehatan));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
@@ -1342,7 +1342,7 @@ export const DusunKesehatan = ({
             return;
           }
 
-          [dusunApotek, dusunPuskesmas].forEach((dusun, index) => {
+          [dusunPharmacy, dusunHealthCenter].forEach((dusun, index) => {
             const alongPath = turf.along(
               // @ts-expect-error ignore dusun types
               dusun,
@@ -1356,7 +1356,7 @@ export const DusunKesehatan = ({
             map
               ?.getMap()
               .setPaintProperty(
-                index == 0 ? "route-dusun-apotek" : "route-dusun-puskesmas",
+                index == 0 ? "route-dusun-pharmacy" : "route-dusun-health_center",
                 "line-gradient",
                 [
                   "step",
@@ -1375,7 +1375,7 @@ export const DusunKesehatan = ({
       <SectionCard title="Access to Health Facilities">
         <p>
           It takes 150 minutes to the pharmacy (Apotik Bintaos) and 95-151
-          minutes to the health center (Puskesmas Pembantu Tepus-Puskesmas
+          minutes to the health center (PuskesmasPembantu Tepus-HealthCenter
           Pembantu Sumberwungu) on foot or 14 - 27 minutes by car with a
           distance of 6.8 - 11.3 km.
         </p>
@@ -1385,9 +1385,9 @@ export const DusunKesehatan = ({
 };
 
 export const DusunEkonomi = ({
-  dusunPasar,
+  dusunMarket,
 }: {
-  dusunPasar: GeoJSON.Feature;
+  dusunMarket: GeoJSON.Feature;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -1429,9 +1429,9 @@ export const DusunEkonomi = ({
             ...state["yogyakarta-regencies"],
             "fill-opacity": 0.2,
           },
-          "dusun-pasar": { ...state["dusun-pasar"], "line-opacity": 1 },
-          "route-dusun-pasar": {
-            ...state["route-dusun-pasar"],
+          "dusun-market": { ...state["dusun-market"], "line-opacity": 1 },
+          "route-dusun-market": {
+            ...state["route-dusun-market"],
             "line-opacity": 1,
           },
         }));
@@ -1448,10 +1448,10 @@ export const DusunEkonomi = ({
         const animationDuration = 5000;
         const markers: Marker[] = [];
         const pathDistances: number[] = [];
-        for (const dusunEkonomi of [dusunPasar]) {
-          // @ts-expect-error ignore dusunSd types
+        for (const dusunEkonomi of [dusunMarket]) {
+          // @ts-expect-error ignore dusunElementarySchool types
           const pinRoute = dusunEkonomi.geometry.coordinates;
-          // @ts-expect-error ignore dusunSd types
+          // @ts-expect-error ignore dusunElementarySchool types
           pathDistances.push(turf.lineDistance(dusunEkonomi));
           const markerIconElement = document.createElement("div");
           markerIconElement.style.backgroundImage =
@@ -1513,7 +1513,7 @@ export const DusunEkonomi = ({
             return;
           }
 
-          [dusunPasar].forEach((dusun, index) => {
+          [dusunMarket].forEach((dusun, index) => {
             const alongPath = turf.along(
               // @ts-expect-error ignore dusun types
               dusun,
@@ -1528,7 +1528,7 @@ export const DusunEkonomi = ({
               ?.getMap()
               .setPaintProperty(
                 index == 0
-                  ? "route-dusun-pasar"
+                  ? "route-dusun-market"
                   : index == 1
                   ? "route-dusun-bank"
                   : "route-dusun-tourism",
@@ -1549,7 +1549,7 @@ export const DusunEkonomi = ({
     >
       <SectionCard title="Access to Economic Facilities">
         <p>
-          It takes 81 minutes to the market (Pasar Tepus and Indomaret Tepus) on
+          It takes 81 minutes to the market (Market Tepus and Indomaret Tepus) on
           foot or 12 minutes by car with a distance of 5.6 km.
         </p>
       </SectionCard>
