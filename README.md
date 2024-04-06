@@ -3,7 +3,9 @@
 
 # From the Sky to the Ground: Mapping Child Deprivation via Satellite - Application in Java, Indonesia
 
-<i>"From the Sky to the Ground: Mapping Child Deprivation via Satellite"</i> is a web story project that utilizes satellite imagery to map and analyze areas of child deprivation. As of March 31st, 2024, this project has been honored with selection as part of the shortlist for the PacificVis 2024 Visual Data Storytelling Contest (https://visstory.github.io/).
+**_"From the Sky to the Ground: Mapping Child Deprivation via Satellite"_** is a web story project that utilizes satellite imagery to map and analyze areas of child deprivation. This project has been honored as part of 🎖️ The Shortlist for The PacificVis 2024 Visual Data Storytelling Contest (https://visstory.github.io/).
+
+**The PacificVis 2024 Visual Data Storytelling Contest** aims to encourage students, researchers, and visualization practitioners to demonstrate the value of data visualization through compelling visual data stories. This contest celebrates the emerging data communication genre, including data storytelling, narrative visualizations, explanatory notebooks, and visual essays. The contest held in conjunction with IEEE PacificVis 2024 from April 23-26, 2024 at Keio University, Tokyo, Japan. (https://visstory.github.io/#about)
 
 This project employs advanced satellite imagery analysis techniques to identify spots where children face deprivation in crucial aspects of their lives. By combining cutting-edge technology with data visualization, we aim to shed light on areas lacking essential resources such as education, healthcare, and social services for children.
 
@@ -19,7 +21,8 @@ This project employs advanced satellite imagery analysis techniques to identify 
 - [Kasiful Aprianto](https://www.linkedin.com/in/kasiful-aprianto/) *BPS - Statistics Indonesia*
 
 ## Presentation Video
-[![Video Teaser](https://github.com/JfrAziz/child-deprivation-index/assets/1611358/cb32d030-a31b-461e-bef9-881ccc26c120)](https://www.youtube.com/watch?v=wtKWJNX8Pt0)
+[![Video Teaser](https://github.com/JfrAziz/child-deprivation-index/assets/1611358/cb32d030-a31b-461e-bef9-881ccc26c120)](https://www.youtube.com/watch?v=2MORixE_pAU){:target="_blank"}
+
 
 ## Background
 Children face challenges in accessing healthcare, education, and protection, particularly those in rural or suburban areas where geographical, economic, and infrastructural disparities hinder access to quality services. Economic and social services constraints often prevent parents from meeting their children's needs, including adequate healthcare accessibility. Furthermore, access to economic infrastructure supporting families and their children in meeting basic needs remains insufficient. 
