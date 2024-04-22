@@ -7,10 +7,13 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
   const ref = useRef(null);
   const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
-  console.log(isMobile);
-  const cloudNarative = `z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
-      bg-base-200/90 p-[clamp(1.4rem,2.5vw,2.2rem)] max-w-[clamp(17rem,30vw,32rem)] rounded-[3em]
-      drop-shadow-[0px_2px_15px_theme(colors.neutral-content)]`;
+
+  const cloudNarative = cn(
+    `z-50 text-neutral-content font-bold text-[clamp(0.7rem,1.5vw,1rem)] mt-2                 
+      bg-base-200/90 p-[clamp(1.4rem,2.5vw,2.2rem)] max-w-[clamp(10rem,30vw,32rem)] rounded-[3em]
+      drop-shadow-[0px_2px_15px_theme(colors.neutral-content)]`,
+    ``
+  );
 
   return (
     <section className={cn("w-full ", className)}>
@@ -31,14 +34,14 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               alt="base_island"
               src="/images/poverty/base_island0.png"
               style={{
-                width: "90%",
-                marginBottom: "-15%",
+                width: isMobile ? "200%" : "90%",
+                marginBottom: isMobile ? "-80%" : "-15%"
               }}
             />
           </motion.div>
 
           <span id="cityscape" className="scroll-mt-16"></span>
-          
+
           <motion.div
             style={{ y: useTransform(scrollY, [100, 2500], [0, 400]) }}
             className="flex justify-center"
@@ -47,20 +50,20 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               alt="city1"
               src="/images/poverty/city_1.png"
               style={{
-                width: "90%",
-                marginBottom: "15%",
+                width: isMobile ? "200%" : "90%",
+                marginBottom: isMobile ? "-40%" : "15%"
               }}
             />
           </motion.div>
-          
+
           <span
             ref={ref}
             style={{
               transform: isInView ? "none" : "translateY(100%)",
               opacity: isInView ? 1 : 0,
               transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginLeft: "-60%",
-              marginBottom: "12%",
+              marginLeft: isMobile ? "-50%" : "-60%",
+              marginBottom: isMobile ? "30%" : "12%",
             }}
           >
             <motion.h1
@@ -83,8 +86,8 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               id="city2"
               src="/images/poverty/city_2.png"
               style={{
-                width: "90%",
-                // marginBottom: "25%"
+                width: isMobile ? "200%" : "90%",
+                marginBottom: isMobile ? "-10%" : "0%"
               }}
             />
           </motion.div>
@@ -95,8 +98,8 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               transform: isInView ? "none" : "translateY(200%)",
               opacity: isInView ? 1 : 0,
               transition: "all 1.2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginRight: "-55%",
-              marginBottom: "5%",
+              marginRight: isMobile ? "-50%" : "-55%",
+              marginBottom: isMobile ? "-10%" : "5%",
             }}
           >
             <motion.h1
@@ -116,16 +119,16 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               opacity: isInView ? 1 : 0,
               transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               marginLeft: "-45%",
-              marginBottom: "-25%",
+              marginBottom: isMobile ? "-100%" : "-25%",
             }}
           >
             <motion.h1
               style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
               className={cloudNarative + " rounded-tl-none"}
             >
-              In our exploration, we shed light on the interconnected
-              challenges that arise when children lack access to basic needs
-              like education, health services, and economic support.
+              In our exploration, we shed light on the interconnected challenges
+              that arise when children lack access to basic needs like
+              education, health services, and economic support.
             </motion.h1>
           </span>
 
@@ -138,8 +141,8 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               id="poor"
               src="/images/poverty/poor_area_0.png"
               style={{
-                width: "90%",
-                marginBottom: "15%",
+                width: isMobile ? "200%" : "90%",
+                marginBottom: isMobile ? "15%" : "15%"
               }}
             />
           </motion.div>
@@ -151,11 +154,12 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               opacity: isInView ? 1 : 0,
               transition: "all 1.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
               marginRight: "-45%",
-              marginBottom: "-35%",
+              marginBottom: isMobile ? "-170%" : "-50%",
+              // marginTop: isMobile ? "40%" : "0%"
             }}
           >
             <motion.h1
-              style={{ y: useTransform(scrollY, [100, 10000], [200, 0]) }}
+              style={{ y: useTransform(scrollY, [100, 3000], [200, 0]) }}
               className={cloudNarative + " rounded-tr-none"}
             >
               It emphasizes the pressing need to address these issues for a
