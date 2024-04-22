@@ -526,7 +526,7 @@ const App = () => {
           <ThemeButton />
           <Hero isMobile={isMobile} />
           <Cityscape isMobile={isMobile} />
-          <ChildDeprivation />
+          <ChildDeprivation isMobile={isMobile} />
           <BPSCommitment />
           <Quotes />
           <IndonesiaOverview />

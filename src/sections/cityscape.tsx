@@ -35,7 +35,7 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               src="/images/poverty/base_island0.png"
               style={{
                 width: isMobile ? "200%" : "90%",
-                marginBottom: isMobile ? "-80%" : "-15%"
+                marginBottom: isMobile ? "-80%" : "-15%",
               }}
             />
           </motion.div>
@@ -51,7 +51,7 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               src="/images/poverty/city_1.png"
               style={{
                 width: isMobile ? "200%" : "90%",
-                marginBottom: isMobile ? "-40%" : "15%"
+                marginBottom: isMobile ? "-40%" : "15%",
               }}
             />
           </motion.div>
@@ -87,7 +87,7 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               src="/images/poverty/city_2.png"
               style={{
                 width: isMobile ? "200%" : "90%",
-                marginBottom: isMobile ? "-10%" : "0%"
+                marginBottom: isMobile ? "-10%" : "0%",
               }}
             />
           </motion.div>
@@ -112,6 +112,21 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
             </motion.h1>
           </span>
 
+          <motion.div
+            style={{ y: useTransform(scrollY, [100, 2000], [100, 500]) }}
+            className="flex justify-center"
+          >
+            <img
+              alt="poor"
+              id="poor"
+              src="/images/poverty/poor_area_0.png"
+              style={{
+                width: isMobile ? "200%" : "90%",
+                marginBottom: isMobile ? "15%" : "15%",
+              }}
+            />
+          </motion.div>
+
           <span
             ref={ref}
             style={{
@@ -131,21 +146,6 @@ export const Cityscape = ({ className, isMobile }: divProps) => {
               education, health services, and economic support.
             </motion.h1>
           </span>
-
-          <motion.div
-            style={{ y: useTransform(scrollY, [100, 2000], [100, 500]) }}
-            className="flex justify-center"
-          >
-            <img
-              alt="poor"
-              id="poor"
-              src="/images/poverty/poor_area_0.png"
-              style={{
-                width: isMobile ? "200%" : "90%",
-                marginBottom: isMobile ? "15%" : "15%"
-              }}
-            />
-          </motion.div>
 
           <span
             ref={ref}

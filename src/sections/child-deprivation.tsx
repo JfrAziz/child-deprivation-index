@@ -1,10 +1,10 @@
 import { useRef } from "react";
 import { useScroll, motion, useTransform, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { divProps } from "@/App";
 
-type ChildDeprivationProps = React.ComponentPropsWithRef<"div">;
 
-export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
+export const ChildDeprivation = ({ className, isMobile }: divProps) => {
   const ref = useRef(null);
   const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
@@ -29,11 +29,12 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               transform: isInView ? "none" : "translateX(-200px)",
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginLeft: "-45%",
-              marginTop: "15%",
+              marginLeft: isMobile ? "-30%" : "-45%",
+              marginTop: isMobile ? "-25%" : "15%",
             }}
+            className="z-50"
           >
-            <h1 className="font-title !text-left text-[clamp(1.3rem,4vw,4rem)] font-black leading-[1.1] ">
+            <h1 className="font-title !text-left text-[clamp(0.9rem,4vw,4rem)] font-black leading-[1.1] ">
               <span className="inline-grid text-left">
                 <span
                   className="pointer-events-none col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text blur-xl [-webkit-text-fill-color:transparent] [transform:translate3d(0,0,0)] before:content-[attr(data-text)] [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]"
@@ -47,9 +48,9 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
             </h1>
 
 
-            <h1 className="ml-1 font-title !text-left text-[clamp(1.2rem,1.6vw,2rem)] font-bold leading-[1.1] mt-[0.8em]">
+            <h1 className="sm:ml-1 font-title !text-left text-[clamp(0.8rem,1.6vw,2rem)] font-bold leading-[1.1] mt-[0.8em]">
               <span className="inline-grid text-left">
-                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,45vw,42rem)]">
+                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(15rem,45vw,42rem)]">
                 Child deprivation is closely related to poverty, leading children to lack access to basic needs such as education, health, economics, and social services.
                 </span>
               </span>
@@ -64,23 +65,23 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               alt="city1"
               src="/images/poverty/children.jpg"
               style={{
-                // marginTop: "5%",
+                marginBottom: isMobile ? "65%" : "0%",
               }}
-              className="z-20 object-cover w-lvw h-[40vh]"
+              className= {cn(`object-cover w-lvw `, isMobile ? `h-[40vh]` : `h-[40vh]`)}
             />
           </motion.div>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [0, 2200], [-500, 300]) }}
+            style={{ y: useTransform(scrollY, [0, 2200], [0, 300]) }}
             className="flex justify-end"
           >
             <img
               alt="poor_island"
-              src="/images/poverty/poor-island_2.png"
+              src={isMobile ? "/images/poverty/poor-island.png" : "/images/poverty/poor-island_2.png"}
               style={{
-                width: "38%",
+                width: isMobile ? "75%" :"38%",
                 // marginBottom: "1%",
-                marginRight: "5%",
+                marginRight: isMobile ? "-0%" :"5%",
               }}
               className="z-10"
             />
@@ -98,9 +99,9 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               alt="lacking-in-access-to"
               src="/images/poverty/lacking-in-access-to.png"
               style={{
-                width: "23%",
-                marginTop: "50%",
-                marginLeft: "63%",
+                width: isMobile ? "47%" :"23%",
+                marginTop: isMobile ? "80%" :"50%",
+                marginLeft: isMobile ? "38%" : "63%",
               }}
               className="z-50 invert"
             />
@@ -112,8 +113,8 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               transform: isInView ? "none" : "translateY(100%)",
               opacity: isInView ? 1 : 0,
               transition: "all 1s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginRight: "-17%",
-              marginBottom: "-10%",
+              marginRight: isMobile ? "15%" : "-17%",
+              marginBottom: isMobile ? "40%" : "-10%",
             }}
           >
             <motion.h1
@@ -130,8 +131,8 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               transform: isInView ? "none" : "translateY(200%)",
               opacity: isInView ? 1 : 0,
               transition: "all 1.2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginRight: "-80%",
-              marginBottom: "-10%",
+              marginRight: isMobile ? "-57%" : "-80%",
+              marginBottom: isMobile ? "40%" : "-10%",
             }}
           >
             <motion.h1
@@ -148,7 +149,7 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               transform: isInView ? "none" : "translateY(100%)",
               opacity: isInView ? 1 : 0,
               transition: "all 1.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginRight: "-18%",
+              marginRight: isMobile ? "15%" : "-18%",
               marginBottom: "-43%",
             }}
           >
@@ -166,7 +167,7 @@ export const ChildDeprivation = ({ className }: ChildDeprivationProps) => {
               transform: isInView ? "none" : "translateY(200%)",
               opacity: isInView ? 1 : 0,
               transition: "all 1.7s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginRight: "-82%",
+              marginRight: isMobile ? "-65%" : "-82%",
               marginBottom: "-43%",
             }}
           >
