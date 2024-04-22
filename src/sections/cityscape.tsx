@@ -1,18 +1,13 @@
 import { useRef } from "react";
 import { useScroll, motion, useTransform, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { divProps } from "@/App";
 
-type CityscapeProps = React.ComponentPropsWithRef<"div"> & {
-  isMobile?: boolean;
-};
-
-export const Cityscape = ({ className, isMobile }: CityscapeProps) => {
+export const Cityscape = ({ className, isMobile }: divProps) => {
   const ref = useRef(null);
   const { scrollY } = useScroll({ target: ref });
   const isInView = useInView(ref);
-
   console.log(isMobile);
-  
   const cloudNarative = `z-50 text-neutral-content font-bold text-[clamp(0.8rem,1.5vw,1rem)] mt-2                 
       bg-base-200/90 p-[clamp(1.4rem,2.5vw,2.2rem)] max-w-[clamp(17rem,30vw,32rem)] rounded-[3em]
       drop-shadow-[0px_2px_15px_theme(colors.neutral-content)]`;

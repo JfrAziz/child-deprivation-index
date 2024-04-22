@@ -54,6 +54,12 @@ import {
 import { ThemeButton } from "./sections/theme-button";
 import { Remarks } from "./sections/remarks";
 
+
+export type divProps = React.ComponentPropsWithRef<"div"> & {
+  isMobile?: boolean;
+};
+
+
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
   const state = useLayerStyle((state) => state);
@@ -518,7 +524,7 @@ const App = () => {
 
         <div className="z-10 absolute w-full">
           <ThemeButton />
-          <Hero />
+          <Hero isMobile={isMobile} />
           <Cityscape isMobile={isMobile} />
           <ChildDeprivation />
           <BPSCommitment />
