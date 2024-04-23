@@ -105,12 +105,12 @@ const App = () => {
                   anchor={popup.pinPosition}
                   className="font-urbanist"
                 >
-                  <div className="bg-background rounded-2xl py-4 px-6 min-w-64 text-card-foreground">
-                    <div className="text-2xl text-pink-600 font-black text-left">
+                  <div className="bg-background rounded-2xl py-3 px-3 sm:py-4 sm:px-6 w-32 sm:min-w-64 text-card-foreground  ">
+                    <div className="text-lg sm:text-2xl text-pink-600 font-black text-left !leading-[1.1] sm:leading-normal mb-1 sm:mb-0">
                       <h1>{popup.title}</h1>
                     </div>
                     {popup.subtitle ? (
-                      <div className="text-sm text-left -mt-1 font-semibold text-purple-950  ">
+                      <div className="text-xs sm:text-sm leading-[1.1] sm:leading-normal text-left -mt-1 font-semibold text-purple-950  ">
                         {popup.subtitle}
                       </div>
                     ) : (
@@ -118,7 +118,7 @@ const App = () => {
                     )}
                     {popup.value && (
                       <div
-                        className={`text-5xl font-bold text-neutral-500 text-right  ${
+                        className={`text-2xl sm:text-5xl font-bold text-neutral-500 text-right  ${
                           String(popup.value).includes("%") && "relative"
                         }`}
                       >
@@ -133,11 +133,11 @@ const App = () => {
                         <span>
                           <img
                             alt="tag"
-                            className="h-[clamp(1rem,1.4vw,1.2rem)]"
+                            className="h-[clamp(0.8rem,1.4vw,1.2rem)]"
                             src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                           />
                         </span>
-                        <h1 className="text-base text-base-300 font-black">
+                        <h1 className="text-xs sm:text-base text-base-300 font-black">
                           {popup.location}
                         </h1>
                       </div>
@@ -529,10 +529,10 @@ const App = () => {
           <ChildDeprivation isMobile={isMobile} />
           <BPSCommitment isMobile={isMobile} />
           <Quotes />
-          <IndonesiaOverview />
-          <JavaPovertyOverview />
-          <JavaHDI />
-          <JavaPoverty />
+          <IndonesiaOverview isMobile={isMobile} />
+          <JavaPovertyOverview isMobile={isMobile} />
+          <JavaHDI isMobile={isMobile} />
+          <JavaPoverty isMobile={isMobile} />
           <RemoteSensingLayers />
           <YogyakartaRegencies />
           <YogyakartaCDI />

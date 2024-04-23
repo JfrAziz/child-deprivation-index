@@ -3,11 +3,10 @@ import { useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { markersStore, useLayerStyle, usePopupStore } from "@/stores/map";
 import { SectionWrapper } from "@/components/section-card";
+import { divProps } from "@/App";
 
-type ChildDeprivationProps = React.ComponentPropsWithRef<"div">;
-
-export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
-  const pNarative = ` ml-1 mt-[0.8em] !text-left text-[clamp(1.1rem,0.6vw,0.5rem)] font-light`;
+export const RemoteSensingLayers = ({ className, isMobile }: divProps) => {
+  const pNarative = ` sm:ml-1 mt-[0.8em] !text-left text-[clamp(0.8rem,1.1vw,1.2rem)] font-light`;
 
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const ref = useRef(null);
@@ -67,7 +66,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
 
             <p className={` ` + pNarative}>
               <span className="inline-grid text-left">
-                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,52vw,52rem)]">
+                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] sm:max-w-[clamp(17rem,52vw,52rem)] w-5/6">
                   The Copernicus Earth Observation Program, initiated by the
                   European Space Agency on March 22, 2014, allows for detailed
                   study of the Earth's surface. Using sensors on the Sentinel
@@ -83,7 +82,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
             </p>
             <p className={` ` + pNarative}>
               <span className="inline-grid text-left">
-                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,52vw,52rem)]">
+                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] sm:max-w-[clamp(17rem,52vw,52rem)] w-5/6">
                   The program uses the Normalized Difference Vegetation Index
                   (NDVI) from Sentinel-2 to monitor land uses like residential,
                   industrial, and agricultural areas and observe changes such as
@@ -98,7 +97,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
             </p>
             <p className={` ` + pNarative}>
               <span className="inline-grid text-left">
-                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(17rem,61vw,67rem)]">
+                <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] sm:max-w-[clamp(17rem,52vw,52rem)] w-5/6">
                   This satellite-derived data, renowned for its precision,
                   serves to pinpoint areas where children are most in need by
                   charting their access to education, healthcare, and economic
@@ -128,6 +127,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
                 marginTop: "38%",
                 marginLeft: "65%",
               }}
+              className="hidden sm:block"
             />
           </span>
           <span
@@ -146,6 +146,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
                 marginTop: "42%",
                 marginLeft: "66%",
               }}
+              className="hidden sm:block"
             />
           </span>
           <span
@@ -164,6 +165,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
                 marginTop: "35%",
                 marginLeft: "67%",
               }}
+              className="hidden sm:block"
             />
           </span>
           <span
@@ -182,6 +184,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
                 marginTop: "25%",
                 marginLeft: "69%",
               }}
+              className="hidden sm:block"
             />
           </span>
           <span
@@ -200,6 +203,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
                 marginTop: "20%",
                 marginLeft: "70%",
               }}
+              className="hidden sm:block"
             />
           </span>
           <span
@@ -218,6 +222,7 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
                 marginTop: "10%",
                 marginLeft: "71%",
               }}
+              className="hidden sm:block"
             />
           </span>
           <span
@@ -236,8 +241,10 @@ export const RemoteSensingLayers = ({ className }: ChildDeprivationProps) => {
                 marginTop: "1%",
                 marginLeft: "73%",
               }}
+              className="hidden sm:block"
             />
           </span>
+
         </div>
       </div>
       <div className="bg-gradient-to-t from-transparent to-foreground/60 h-96" />

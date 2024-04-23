@@ -1,15 +1,17 @@
 import { useLayerStyle, usePopupStore } from "@/stores/map";
 import { SectionCard, SectionWrapper } from "@/components/section-card";
+import { divProps } from "@/App";
+import { cn } from "@/lib/utils";
 
-export const IndonesiaOverview = () => {
+export const IndonesiaOverview = ({ className, isMobile }: divProps) => {
   return (
     <SectionWrapper
-      className="flex items-center flex-row"
+      className={cn(className, "flex items-center flex-row")}
       onSectionEnter={(map) => {
         map?.flyTo({
-          duration: 3000,
+          duration: isMobile ? 5000 : 3000,
           center: [118, -2],
-          zoom: 4,
+          zoom: isMobile ? 2.3 : 4,
           curve: 3,
           pitch: 0.0,
           bearing: 4,
@@ -40,17 +42,17 @@ export const IndonesiaOverview = () => {
   );
 };
 
-export const JavaPovertyOverview = () => {
+export const JavaPovertyOverview = ({ className, isMobile }: divProps) => {
   return (
     <SectionWrapper
-      className="flex items-center justify-end flex-row"
+      className={cn(className,"flex items-center justify-end flex-row")}
       onSectionEnter={(map) => {
         usePopupStore.setState({ active: false });
 
         map?.flyTo({
-          duration: 2000,
+          duration: isMobile ? 5000 : 2000,
           center: [110, -6],
-          zoom: 6,
+          zoom: isMobile ? 4.5 : 6,
           pitch: 0.0,
           bearing: 0.0,
         });
@@ -110,17 +112,17 @@ export const JavaPovertyOverview = () => {
   );
 };
 
-export const JavaHDI = () => {
+export const JavaHDI = ({ className, isMobile }: divProps) => {
   return (
     <SectionWrapper
-      className="flex items-center flex-row"
+      className={cn(className,"flex items-center flex-row")}
       onSectionEnter={(map) => {
         map?.flyTo({
           duration: 4000,
           center: [108.30713, -7.44617],
-          zoom: 7.29,
+          zoom: isMobile ? 5.25 : 7.29,
           pitch: 47.53,
-          bearing: 35.98,
+          bearing:  isMobile ? 40 :  35.98,
         });
         map?.getMap().setLayoutProperty("cdi", "visibility", "none");
         map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
@@ -160,7 +162,7 @@ export const JavaHDI = () => {
                 <>
                   Human Development Index
                   <br />
-                  <span className="text-xl font-black">2023</span>
+                  <span className="text-base sm:text-xl font-black">2023</span>
                 </>
               ) as unknown as JSX.Element,
               location: "Jakarta",
@@ -175,7 +177,7 @@ export const JavaHDI = () => {
                 <>
                   Human Development Index
                   <br />
-                  <span className="text-xl font-black">2023</span>
+                  <span className="text-base sm:text-xl font-black">2023</span>
                 </>
               ) as unknown as JSX.Element,
               location: "Yogyakarta",
@@ -195,15 +197,15 @@ export const JavaHDI = () => {
   );
 };
 
-export const JavaPoverty = () => {
+export const JavaPoverty = ({ className, isMobile }: divProps) => {
   return (
     <SectionWrapper
-      className="flex items-center justify-end flex-row"
+      className={cn(className,"flex items-center justify-end flex-row")}
       onSectionEnter={(map) => {
         map?.flyTo({
           duration: 4000,
-          center: [109.87454, -6.8634],
-          zoom: 7.213,
+          center: isMobile ? [108.7454, -6.2344] : [109.87454, -6.8634],
+          zoom: isMobile ? 5.5 : 7.213,
           pitch: 40.03,
           bearing: -19.22,
         });
@@ -242,7 +244,7 @@ export const JavaPoverty = () => {
               title: "Poverty Rate",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">March 2023</span>
+                  <span className="text-base sm:text-xl font-black">March 2023</span>
                 </>
               ) as unknown as JSX.Element,
               // subtitle: "The percentage of people living below the poverty line",
@@ -256,7 +258,7 @@ export const JavaPoverty = () => {
               title: "Poverty Rate",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">March 2023</span>
+                  <span className="text-base sm:text-xl font-black">March 2023</span>
                 </>
               ) as unknown as JSX.Element,
               // subtitle: "The percentage of people living below the poverty line",
