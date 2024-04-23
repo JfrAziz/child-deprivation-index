@@ -1,14 +1,16 @@
+import { divProps } from "@/App";
 import { SectionWrapper } from "@/components/section-card";
+import { cn } from "@/lib/utils";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 
-export const Quotes = () => {
+export const Quotes = ({ className }: divProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
   return (
     <SectionWrapper
-      className="!max-w-full flex items-center justify-center bg-gradient-to-b from-base-100 to-transparent !-z-10"
+      className={cn(className, "!max-w-full flex items-center justify-center bg-gradient-to-b from-base-100 to-transparent !-z-10")}
       onSectionEnter={(map) => {
         map?.flyTo({
           duration: 3000,
@@ -29,7 +31,7 @@ export const Quotes = () => {
           }}
           className="flex justify-center flex-col items-center"
         >
-          <blockquote className="z-10 text-[clamp(1.4rem,4vw,4rem)] font-extralight px-[clamp(1rem,10vw,8rem)] leading-[1] italic">
+          <blockquote className="z-10 text-[clamp(1.4rem,4vw,4rem)] font-extralight sm:px-[clamp(1rem,10vw,8rem)] leading-[1] italic">
             ”Children are our most valuable resource and the best hope for the
             future.”
           </blockquote>

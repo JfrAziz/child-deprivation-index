@@ -528,7 +528,7 @@ const App = () => {
           <Cityscape isMobile={isMobile} />
           <ChildDeprivation isMobile={isMobile} />
           <BPSCommitment isMobile={isMobile} />
-          <Quotes />
+          <Quotes isMobile={isMobile} />
           <IndonesiaOverview />
           <JavaPovertyOverview />
           <JavaHDI />
