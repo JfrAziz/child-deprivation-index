@@ -29,8 +29,8 @@ export const ChildDeprivation = ({ className, isMobile }: divProps) => {
               transform: isInView ? "none" : "translateX(-200px)",
               opacity: isInView ? 1 : 0,
               transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
-              marginLeft: isMobile ? "-30%" : "-45%",
-              marginTop: isMobile ? "-25%" : "15%",
+              marginLeft: isMobile ? "-20%" : "-45%",
+              marginTop: isMobile ? "-15%" : "15%",
             }}
             className="z-50"
           >
@@ -72,7 +72,7 @@ export const ChildDeprivation = ({ className, isMobile }: divProps) => {
           </motion.div>
 
           <motion.div
-            style={{ y: useTransform(scrollY, [0, 2200], [0, 300]) }}
+            style={{ y: useTransform(scrollY, [0, 1900], [0, 300]) }}
             className="flex justify-end"
           >
             <img
@@ -100,7 +100,7 @@ export const ChildDeprivation = ({ className, isMobile }: divProps) => {
               src="/images/poverty/lacking-in-access-to.png"
               style={{
                 width: isMobile ? "47%" :"23%",
-                marginTop: isMobile ? "80%" :"50%",
+                marginTop: isMobile ? "100%" :"50%",
                 marginLeft: isMobile ? "38%" : "63%",
               }}
               className="z-50 invert"

@@ -527,7 +527,7 @@ const App = () => {
           <Hero isMobile={isMobile} />
           <Cityscape isMobile={isMobile} />
           <ChildDeprivation isMobile={isMobile} />
-          <BPSCommitment />
+          <BPSCommitment isMobile={isMobile} />
           <Quotes />
           <IndonesiaOverview />
           <JavaPovertyOverview />
