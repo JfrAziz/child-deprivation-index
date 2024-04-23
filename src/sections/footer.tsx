@@ -27,20 +27,20 @@ export const Footer = () => {
         });
       }}
     >
-      <div className="bg-gradient-to-t from-base-100/40 to-base-100/80 pt-48 px-40 min-h-svh text-center text-background mt-13">
-        <div className="font-bold text-[clamp(1rem,3.6vw,4rem)] whitespace-nowrap mt-2 ">
+      <div className="bg-gradient-to-t from-base-100/40 to-base-100/80 pt-48 sm:px-40 px-12 min-h-svh text-center text-background mt-13">
+        <div className="font-bold text-[clamp(1.5rem,3vw,4rem)] whitespace-nowrap mt-2 ">
           Special thanks to...
         </div>
-        <div className="grid lg:grid-cols-5 md:grid-cols-2 xs:grid-cols-1 gap-10 mt-10">
-          <div className="flex text-center items-center justify-center flex-col p-5 rounded-3xl bg-black w-[200px] h-[200px]">
+        <div className="sm:flex grid gap-4 sm:gap-10 mt-10 justify-center items-center">
+          <div className="flex text-center items-center justify-center flex-col rounded-3xl bg-black sm:w-[200px] sm:h-[200px] w-full h-[100px]">
             <img
-              className="w-[120%]"
+              className="w-[62%] sm:w-[120%]"
               src="https://unsplash.com/blog/content/images/max/2560/1-vQ5EsgnJkANWb5fktHPwnw.jpeg"
               title="Flaticon logo"
               alt="Flaticon logo"
             />
           </div>
-          <div className="flex items-center justify-center flex-col p-5 rounded-3xl bg-white w-[200px] h-[200px]">
+          {/* <div className="flex items-center justify-center flex-col p-5 rounded-3xl bg-white sm:w-[200px] sm:h-[200px] w-full h-[100px]">
             <img
               className="w-2/5"
               alt="bps"
@@ -53,17 +53,17 @@ export const Footer = () => {
               Indonesia
             </p>
           </div>
-          <div className="flex text-center items-center justify-center flex-col p-5 rounded-3xl bg-[#00AEEC] w-[200px] h-[200px]">
+          <div className="flex text-center items-center justify-center flex-col p-5 rounded-3xl bg-[#00AEEC] sm:w-[200px] sm:h-[200px] w-full h-[100px]">
             <img
               className="w-full"
               alt="unicef"
               src="https://www.unicef.org/sites/default/files/styles/large/public/UN0369246.jpg.webp"
             />
+          </div> */}
+          <div className="flex text-center items-center justify-center flex-col rounded-3xl bg-white sm:w-[200px] sm:h-[200px] w-[100px]] h-[100px]">
+            <img className="w-[40%] sm:w-3/4" alt="freepik" src={freepikLogo} />
           </div>
-          <div className="flex text-center items-center justify-center flex-col p-5 rounded-3xl bg-white w-[200px] h-[200px]">
-            <img className="w-3/4" alt="freepik" src={freepikLogo} />
-          </div>
-          {/* <div className="flex text-center items-center justify-center flex-col p-5 rounded-3xl bg-blue-950 w-[200px] h-[200px]">
+          {/* <div className="flex text-center items-center justify-center flex-col p-5 rounded-3xl bg-blue-950 sm:w-[200px] sm:h-[200px] w-full h-[100px]">
             <img
               className="w-4/5"
               src="https://media.flaticon.com/dist/min/img/logos/flaticon-color-negative.svg"
@@ -71,9 +71,9 @@ export const Footer = () => {
               alt="Flaticon logo"
             />
           </div> */}
-          <div className="flex text-center items-center justify-center flex-col p-5 rounded-3xl bg-black w-[200px] h-[200px]">
+          <div className="flex text-center items-center justify-center flex-col rounded-3xl bg-black sm:w-[200px] sm:h-[200px] w-full h-[100px]">
             <svg
-              className="w-3/4"
+              className="w-[40%] sm:w-3/4"
               xmlns="http://www.w3.org/2000/svg"
               width="100%"
               height="100%"
@@ -91,14 +91,14 @@ export const Footer = () => {
         </div>
       </div>
       <footer className="footer footer-center p-4 bg-neutral-50/70 text-base-300 inline-flex">
-        <aside className="inline-flex justify-center items-center text-center footer footer-center ">
+        <aside className="flex sm:inline-flex justify-center items-center text-center footer footer-center gap-4 ">
           <img
             alt="logoDAPS"
             src="/images/poverty/logoDAPS.png"
-            className="h-10"
+            className="h-6 sm:h-10 "
           />
-          <div className="text-left flex flex-col justify-start items-start gap-0">
-            <span className="font-bold -mb-1">
+          <div className="text-center flex flex-col gap-0 text-[clamp(0.65rem,1vw,1.2rem)]">
+            <span className="font-bold sm:-mb-1 -mb-2">
               Directorate of Statistical Analysis and Development{" "}
             </span>
             <span>BPS - Statistics Indonesia | <a href="https://bps.go.id" className="hover:underline" target="_blank">bps.go.id</a></span>
