@@ -29,7 +29,7 @@ export const Remarks = () => {
           }}
           className="flex justify-center flex-col items-center"
         >
-          <blockquote className="z-10 text-[clamp(1.4rem,1.9vw,2rem)] font-light px-[clamp(1rem,20vw,18rem)] leading-[1.3] italic">
+          <blockquote className="z-10 text-[clamp(1.3rem,1.9vw,2rem)] font-light sm:px-[clamp(1rem,20vw,18rem)] leading-[1.3] italic">
           The utilization of satellite imagery data and machine learning modeling can pinpoint the locations of deprived children in basic needs at a granular level and potentially serve as a supportive dataset for more detailed official statistical data.
           </blockquote>
         </span>
