@@ -96,9 +96,9 @@ export const JavaPovertyOverview = () => {
       }}
     >
       <SectionCard>
-        <h1 className="mb-2 text-5xl font-bold text-amber-300 ">
+        <h1 className="mb-1 sm:mb-2 text-2xl sm:text-5xl font-bold text-amber-300 ">
           56.1
-          <span className="text-3xl">&nbsp;%</span>
+          <span className="text-lg sm:text-3xl">&nbsp;%</span>
         </h1>
         <p>
           Java Island, home to 56.1 % of Indonesia's population, comprises six
