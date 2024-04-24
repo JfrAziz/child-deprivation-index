@@ -105,7 +105,7 @@ const App = () => {
                   anchor={popup.pinPosition}
                   className="font-urbanist"
                 >
-                  <div className="bg-background rounded-2xl py-3 px-3 sm:py-4 sm:px-6 w-32 sm:min-w-64 text-card-foreground  ">
+                  <div className="bg-background rounded-2xl py-3 px-3 sm:py-4 sm:px-6 max-w-36 sm:min-w-64 text-card-foreground  ">
                     <div className="text-lg sm:text-2xl text-pink-600 font-black text-left !leading-[1.1] sm:leading-normal mb-1 sm:mb-0">
                       <h1>{popup.title}</h1>
                     </div>
@@ -534,38 +534,44 @@ const App = () => {
           <JavaHDI isMobile={isMobile} />
           <JavaPoverty isMobile={isMobile} />
           <RemoteSensingLayers />
-          <YogyakartaRegencies />
-          <YogyakartaCDI />
-          <YogyakartaCDIHighlight />
-          <PondokJayaPermai />
+          <YogyakartaRegencies isMobile={isMobile} />
+          <YogyakartaCDI isMobile={isMobile} />
+          <YogyakartaCDIHighlight isMobile={isMobile} />
+          <PondokJayaPermai isMobile={isMobile} />
           <KlasterSekolah
             clusterElementarySchool={clusterElementarySchool.features[0] as GeoJSON.Feature}
             clusterJuniorHighSchool={clusterJuniorHighSchool.features[0] as GeoJSON.Feature}
             clusterHighSchool={clusterHighSchool.features[0] as GeoJSON.Feature}
+            isMobile={isMobile}
           />
           <KlasterKesehatan
             clusterPharmacy={clusterPharmacy.features[0] as GeoJSON.Feature}
             clusterHealthCenter={clusterHealthCenter.features[0] as GeoJSON.Feature}
             clusterHospital={clusterHospital.features[0] as GeoJSON.Feature}
+            isMobile={isMobile}
           />
           <KlasterEkonomi
             clusterBank={clusterBank.features[0] as GeoJSON.Feature}
             clusterMarket={clusterMarket.features[0] as GeoJSON.Feature}
             clusterTourism={clusterTourism.features[0] as GeoJSON.Feature}
+            isMobile={isMobile}
           />
-          <YogyakartaCDIHighlightHighest />
-          <DusunSureng />
+          <YogyakartaCDIHighlightHighest isMobile={isMobile} />
+          <DusunSureng isMobile={isMobile} />
           <DusunSekolah
             dusunElementarySchool={dusunElementarySchool.features[0] as GeoJSON.Feature}
             dusunJuniorHighSchool={dusunJuniorHighSchool.features[0] as GeoJSON.Feature}
             dusunHighSchool={dusunHighSchool.features[0] as GeoJSON.Feature}
+            isMobile={isMobile}
           />
           <DusunKesehatan
             dusunPharmacy={dusunPharmacy.features[0] as GeoJSON.Feature}
             dusunHealthCenter={dusunHealthCenter.features[0] as GeoJSON.Feature}
+            isMobile={isMobile}
           />
           <DusunEkonomi
             dusunMarket={dusunMarket.features[0] as GeoJSON.Feature}
+            isMobile={isMobile}
           />
           <Remarks />
           <Footer />

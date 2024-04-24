@@ -29,7 +29,7 @@ export const BPSCommitment = ({ className, isMobile }: divProps) => {
           >
             <span className="flex text-center items-center flex-col">
               <img
-                className="h-[clamp(0.8rem,6vw,6rem)] "
+                className="h-[clamp(2.2rem,6vw,6rem)] "
                 alt="bps"
                 src="https://www.bps.go.id/_next/image?url=%2Fassets%2Flogo-bps.png&w=1080&q=75"
               />
@@ -39,7 +39,7 @@ export const BPSCommitment = ({ className, isMobile }: divProps) => {
               </p>
             </span>
 
-            <h1 className="font-title !text-center text-[clamp(0.7rem,1.6vw,1.4rem)] font-medium leading-[1.1] mt-[0.8em]">
+            <h1 className="font-title !text-center text-[clamp(0.7rem,1.6vw,1.4rem)] font-medium leading-[1.3] mt-[0.8em]">
               <span className="inline-grid text-center">
                 <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937] max-w-[clamp(18rem,75vw,60rem)]">
                   As a commitment to sustainable development, 
@@ -81,7 +81,6 @@ export const BPSCommitment = ({ className, isMobile }: divProps) => {
                 "text-sm sm:text-xl font-bold py-3 px-6 sm:py-4 sm:px-8 bg-[#00AEEC] text-white rounded-full drop-shadow-[0px_2px_10px_theme(colors.neutral-content)]"
               }
             >
-              {/* END POVERTY IN ALL ITS FORMS EVERYWHERE */}
               End poverty in all its forms everywhere
             </motion.h1>
           </span>

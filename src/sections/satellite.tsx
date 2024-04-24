@@ -1,16 +1,18 @@
+import { divProps } from "@/App";
 import { SectionCard, SectionWrapper } from "@/components/section-card";
 import highestCdi from "@/data/three_highest_cdi.json";
 import lowestCdi from "@/data/three_lowerst_cdi.json";
+import { cn } from "@/lib/utils";
 import { markersStore, useLayerStyle, usePopupStore } from "@/stores/map";
 import * as turf from "@turf/turf";
 import { Marker } from "mapbox-gl";
 
-export const YogyakartaRegencies = () => {
+export const YogyakartaRegencies = ({ className, isMobile }: divProps) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className="flex flex-row items-center justify-end"
+      className={cn(className, "flex flex-row items-center justify-end")}
       onSectionEnter={(map) => {
         clearMarkers();
         map?.getMap().setLayoutProperty("cdi", "visibility", "none");
@@ -29,7 +31,7 @@ export const YogyakartaRegencies = () => {
 
         map?.flyTo({
           center: [110.61413, -7.7754],
-          zoom: 9.2,
+          zoom: isMobile ? 7.8 : 9.2,
           bearing: 0,
           pitch: 0,
           duration: 2000,
@@ -49,12 +51,12 @@ export const YogyakartaRegencies = () => {
   );
 };
 
-export const YogyakartaCDI = () => {
+export const YogyakartaCDI = ({ className, isMobile }: divProps) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className="flex flex-row items-center"
+      className={cn(className,"flex flex-row items-center")}
       onSectionEnter={(map) => {
         clearMarkers();
         usePopupStore.setState({ active: false });
@@ -70,7 +72,7 @@ export const YogyakartaCDI = () => {
 
         map?.flyTo({
           center: [110.22413, -7.7754],
-          zoom: 9.2,
+          zoom: isMobile ? 7.8 : 9.2,
           bearing: 0,
           pitch: 0,
           duration: 2000,
@@ -99,12 +101,12 @@ export const YogyakartaCDI = () => {
   );
 };
 
-export const YogyakartaCDIHighlight = () => {
+export const YogyakartaCDIHighlight = ({ className, isMobile }: divProps) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className="flex flex-row items-center"
+      className={cn(className,"flex flex-row items-center")}
       onSectionEnter={(map) => {
         clearMarkers();
         resetRouteStyles();
@@ -125,7 +127,7 @@ export const YogyakartaCDIHighlight = () => {
             center.geometry.coordinates[0] - 0.02,
             center.geometry.coordinates[1],
           ],
-          zoom: 12.9,
+          zoom: isMobile ? 10.8 : 12.9,
           bearing: 0,
           pitch: 0,
           duration: 2000,
@@ -145,7 +147,7 @@ export const YogyakartaCDIHighlight = () => {
               title: "3rd",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Lowest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">Lowest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -158,7 +160,7 @@ export const YogyakartaCDIHighlight = () => {
               title: "2nd",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Lowest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">Lowest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -171,7 +173,7 @@ export const YogyakartaCDIHighlight = () => {
               title: "1st",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Lowest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">Lowest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -193,12 +195,12 @@ export const YogyakartaCDIHighlight = () => {
   );
 };
 
-export const PondokJayaPermai = () => {
+export const PondokJayaPermai = ({ className, isMobile }: divProps) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className="flex flex-row items-center"
+      className={cn(className,"flex flex-row items-center")}
       onSectionEnter={(map) => {
         clearMarkers();
         resetRouteStyles();
@@ -216,15 +218,15 @@ export const PondokJayaPermai = () => {
               lng: 110.45347,
               lat: -7.69632,
               subtitle: (
-                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left  ">
                   <span>
                     <img
                       alt="tag"
-                      className="h-[clamp(1rem,3vw,2rem)]"
+                      className="h-[clamp(1.3rem,3vw,2rem)]"
                       src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                     />
                   </span>
-                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                  <h1 className="text-[1em] sm:text-xl text-base-300 font-black leading-[1.1]">
                     Pondok Jaya <br /> Permai Cluster
                   </h1>
                 </div>
@@ -236,8 +238,8 @@ export const PondokJayaPermai = () => {
         map?.moveLayer("cdi");
         map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
         map?.flyTo({
-          center: [110.4523693, -7.6965357],
-          zoom: 16,
+          center: isMobile ? [110.4523693, -7.699200007] : [110.4523693, -7.6965357],
+          zoom: isMobile ? 14 : 16,
           bearing: -60,
           pitch: 0,
           duration: 2000,
@@ -260,10 +262,12 @@ export const KlasterSekolah = ({
   clusterElementarySchool,
   clusterJuniorHighSchool,
   clusterHighSchool,
+  isMobile,
 }: {
   clusterElementarySchool: GeoJSON.Feature;
   clusterJuniorHighSchool: GeoJSON.Feature;
   clusterHighSchool: GeoJSON.Feature;
+  isMobile?: boolean;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -282,15 +286,15 @@ export const KlasterSekolah = ({
               lng: 110.45347,
               lat: -7.69632,
               subtitle: (
-                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left  ">
                   <span>
                     <img
                       alt="tag"
-                      className="h-[clamp(1rem,3vw,2rem)]"
+                      className="h-[clamp(1.3rem,3vw,2rem)]"
                       src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                     />
                   </span>
-                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                  <h1 className="text-[1em] sm:text-xl text-base-300 font-black leading-[1.1]">
                     Pondok Jaya <br /> Permai Cluster
                   </h1>
                 </div>
@@ -323,10 +327,10 @@ export const KlasterSekolah = ({
           },
         }));
         map?.flyTo({
-          center: [110.4548634, -7.6981721],
-          zoom: 15.6,
-          bearing: -20,
-          pitch: 60,
+          center: isMobile ? [110.4523693, -7.699200007] : [110.4548634, -7.6981721],
+          zoom: isMobile ? 14 : 15.6,
+          bearing: isMobile ? -50 : -20,
+          pitch: isMobile ? -30 : 60,
           duration: 3000,
         });
 
@@ -455,10 +459,12 @@ export const KlasterKesehatan = ({
   clusterPharmacy,
   clusterHealthCenter,
   clusterHospital,
+  isMobile,
 }: {
   clusterPharmacy: GeoJSON.Feature;
   clusterHealthCenter: GeoJSON.Feature;
   clusterHospital: GeoJSON.Feature;
+  isMobile?: boolean;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -477,15 +483,15 @@ export const KlasterKesehatan = ({
               lng: 110.45347,
               lat: -7.69632,
               subtitle: (
-                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left  ">
                   <span>
                     <img
                       alt="tag"
-                      className="h-[clamp(1rem,3vw,2rem)]"
+                      className="h-[clamp(1.3rem,3vw,2rem)]"
                       src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                     />
                   </span>
-                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                  <h1 className="text-[1em] sm:text-xl text-base-300 font-black leading-[1.1]">
                     Pondok Jaya <br /> Permai Cluster
                   </h1>
                 </div>
@@ -526,9 +532,9 @@ export const KlasterKesehatan = ({
           },
         }));
         map?.flyTo({
-          center: [110.4572711, -7.6997777],
-          zoom: 14.5,
-          bearing: -40,
+          center: isMobile ? [110.45032711, -7.6997777] :  [110.4572711, -7.6997777],
+          zoom: isMobile ? 14 : 14.5,
+          bearing: isMobile ? 10 : -40,
           pitch: 60,
           duration: 3000,
         });
@@ -659,10 +665,12 @@ export const KlasterEkonomi = ({
   clusterMarket,
   clusterBank,
   clusterTourism,
+  isMobile,
 }: {
   clusterMarket: GeoJSON.Feature;
   clusterBank: GeoJSON.Feature;
   clusterTourism: GeoJSON.Feature;
+  isMobile?: boolean;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -681,15 +689,15 @@ export const KlasterEkonomi = ({
               lng: 110.45347,
               lat: -7.69632,
               subtitle: (
-                <div className="flex items-center justify-start gap-x-[0.9em] text-left ">
+                <div className="flex items-center justify-start gap-x-[0.9em] text-left  ">
                   <span>
                     <img
                       alt="tag"
-                      className="h-[clamp(1rem,3vw,2rem)]"
+                      className="h-[clamp(1.3rem,3vw,2rem)]"
                       src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                     />
                   </span>
-                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                  <h1 className="text-[1em] sm:text-xl text-base-300 font-black leading-[1.1]">
                     Pondok Jaya <br /> Permai Cluster
                   </h1>
                 </div>
@@ -721,11 +729,11 @@ export const KlasterEkonomi = ({
           },
         }));
         map?.flyTo({
-          center: [110.4533748, -7.6958745],
-          zoom: 16.9,
-          bearing: -30,
+          center: isMobile ? [110.45223748, -7.6958745] : [110.4533748, -7.6958745],
+          zoom: isMobile ? 16.5 : 16.9,
+          bearing: isMobile ? -80 : -30,
           pitch: 30,
-          duration: 2000,
+          duration: 3000,
         });
 
         let start = 0,
@@ -851,12 +859,12 @@ export const KlasterEkonomi = ({
   );
 };
 
-export const YogyakartaCDIHighlightHighest = () => {
+export const YogyakartaCDIHighlightHighest = ({className, isMobile} : divProps) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className="flex flex-row items-center"
+      className={cn(className,"flex flex-row items-center")}
       onSectionEnter={(map) => {
         clearMarkers();
         resetRouteStyles();
@@ -873,10 +881,10 @@ export const YogyakartaCDIHighlightHighest = () => {
         const center = turf.center(highestCdiType);
         map?.flyTo({
           center: [
-            center.geometry.coordinates[0] - 0.09,
-            center.geometry.coordinates[1],
+            center.geometry.coordinates[0] - (isMobile ? 0.0 : 0.09),
+            center.geometry.coordinates[1] - (isMobile ? 0.05 : 0.0),
           ],
-          zoom: 11,
+          zoom: isMobile ? 10 : 11,
           bearing: 0,
           pitch: 0,
         });
@@ -895,7 +903,7 @@ export const YogyakartaCDIHighlightHighest = () => {
               title: "3rd",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Highest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">Highest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -908,7 +916,7 @@ export const YogyakartaCDIHighlightHighest = () => {
               title: "2nd",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">Highest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">Highest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -921,7 +929,7 @@ export const YogyakartaCDIHighlightHighest = () => {
               title: "1st",
               subtitle: (
                 <>
-                  <span className="text-xl font-black">HIghest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">HIghest CDR</span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -943,12 +951,12 @@ export const YogyakartaCDIHighlightHighest = () => {
   );
 };
 
-export const DusunSureng = () => {
+export const DusunSureng = ({className, isMobile} : divProps) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className="flex flex-row items-center"
+      className={cn(className,"flex flex-row items-center")}
       onSectionEnter={(map) => {
         clearMarkers();
         resetRouteStyles();
@@ -974,7 +982,7 @@ export const DusunSureng = () => {
                       src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                     />
                   </span>
-                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                  <h1 className="text-md sm:text-lg text-base-300 font-black leading-[1.1]">
                     Dusun Sureng 2
                   </h1>
                 </div>
@@ -986,9 +994,9 @@ export const DusunSureng = () => {
         map?.moveLayer("cdi");
         map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
         map?.flyTo({
-          center: [110.66206, -8.15249],
-          zoom: 16,
-          bearing: 0,
+          center: isMobile ?   [110.660206, -8.15249] : [110.66206, -8.15249],
+          zoom: isMobile ? 14 : 16,
+          bearing: -1,
           pitch: 0,
           duration: 2000,
         });
@@ -1010,10 +1018,12 @@ export const DusunSekolah = ({
   dusunElementarySchool,
   dusunJuniorHighSchool,
   dusunHighSchool,
+  isMobile
 }: {
   dusunElementarySchool: GeoJSON.Feature;
   dusunJuniorHighSchool: GeoJSON.Feature;
   dusunHighSchool: GeoJSON.Feature;
+  isMobile: boolean;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -1040,7 +1050,7 @@ export const DusunSekolah = ({
                       src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                     />
                   </span>
-                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                  <h1 className="text-md sm:text-lg text-base-300 font-black leading-[1.1]">
                     Dusun Sureng 2
                   </h1>
                 </div>
@@ -1074,9 +1084,9 @@ export const DusunSekolah = ({
         }));
         map?.flyTo({
           center: [110.64806, -8.13049],
-          zoom: 13.6,
-          bearing: 30,
-          pitch: 60,
+          zoom: isMobile ? 12 : 13.6,
+          bearing: isMobile ? -20 : 30,
+          pitch: isMobile ? 20 : 60,
           duration: 2000,
         });
 
@@ -1203,9 +1213,11 @@ export const DusunSekolah = ({
 export const DusunKesehatan = ({
   dusunPharmacy,
   dusunHealthCenter,
+  isMobile,
 }: {
   dusunPharmacy: GeoJSON.Feature;
   dusunHealthCenter: GeoJSON.Feature;
+  isMobile: boolean;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -1232,7 +1244,7 @@ export const DusunKesehatan = ({
                       src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                     />
                   </span>
-                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                  <h1 className="text-md sm:text-lg text-base-300 font-black leading-[1.1]">
                     Dusun Sureng 2
                   </h1>
                 </div>
@@ -1265,10 +1277,10 @@ export const DusunKesehatan = ({
           },
         }));
         map?.flyTo({
-          center: [110.64806, -8.14049],
-          zoom: 13.7,
-          bearing: -60,
-          pitch: 65,
+          center: isMobile ? [110.65206, -8.13249] : [110.64806, -8.14049],
+          zoom: isMobile ? 12.5 : 13.7,
+          bearing: isMobile ? -20 : -60,
+          pitch: isMobile ? 20 : 65,
           duration: 2000,
         });
 
@@ -1386,8 +1398,10 @@ export const DusunKesehatan = ({
 
 export const DusunEkonomi = ({
   dusunMarket,
+  isMobile,
 }: {
   dusunMarket: GeoJSON.Feature;
+  isMobile: boolean;
 }) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
@@ -1414,7 +1428,7 @@ export const DusunEkonomi = ({
                       src="https://cdn-icons-png.flaticon.com/512/8126/8126435.png"
                     />
                   </span>
-                  <h1 className="text-lg text-base-300 font-black leading-[1.1]">
+                  <h1 className="text-md sm:text-lg text-base-300 font-black leading-[1.1]">
                     Dusun Sureng 2
                   </h1>
                 </div>
@@ -1437,7 +1451,7 @@ export const DusunEkonomi = ({
         }));
         map?.flyTo({
           center: [110.66006, -8.14549],
-          zoom: 14.5,
+          zoom: isMobile ? 13.4 : 14.5,
           bearing: -60,
           pitch: 60,
           duration: 1000,
