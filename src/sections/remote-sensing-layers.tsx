@@ -5,7 +5,7 @@ import { markersStore, useLayerStyle, usePopupStore } from "@/stores/map";
 import { SectionWrapper } from "@/components/section-card";
 import { divProps } from "@/App";
 
-export const RemoteSensingLayers = ({ className, isMobile }: divProps) => {
+export const RemoteSensingLayers = ({ className }: divProps) => {
   const pNarative = ` sm:ml-1 mt-[0.8em] !text-left text-[clamp(0.8rem,1.1vw,1.2rem)] font-light`;
 
   const clearMarkers = markersStore((state) => state.clearMarkers);
