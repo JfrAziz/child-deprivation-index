@@ -35,7 +35,7 @@ export const Footer = () => {
           <div className="flex text-center items-center justify-center flex-col rounded-3xl bg-black sm:w-[200px] sm:h-[200px] w-full h-[100px]">
             <img
               className="w-[62%] sm:w-[120%]"
-              src="https://unsplash.com/blog/content/images/max/2560/1-vQ5EsgnJkANWb5fktHPwnw.jpeg"
+              src="/images/unsplash-logo.png"
               title="Flaticon logo"
               alt="Flaticon logo"
             />
