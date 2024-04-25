@@ -30,7 +30,11 @@ export const Hero = ({ className, isMobile }: divProps) => {
             className="swing-left justify-start"
             style={{
               width: "clamp(7rem,17vw,17rem)",
-              marginBottom: cn(`clamp(`, isMobile ? `13rem` : `14rem`, `,35vw,37rem)`),
+              marginBottom: cn(
+                `clamp(`,
+                isMobile ? `13rem` : `14rem`,
+                `,35vw,37rem)`
+              ),
               marginRight: "65%",
             }}
           />
@@ -40,7 +44,11 @@ export const Hero = ({ className, isMobile }: divProps) => {
             className="swing"
             style={{
               width: "clamp(7rem,17vw,17rem)",
-              marginBottom: cn(`clamp(`, isMobile ? `5rem` : `20rem`, `,20vw,15rem)`),
+              marginBottom: cn(
+                `clamp(`,
+                isMobile ? `5rem` : `20rem`,
+                `,20vw,15rem)`
+              ),
               marginLeft: "60%",
               transform: "rotate(-15deg)",
             }}
@@ -55,7 +63,14 @@ export const Hero = ({ className, isMobile }: divProps) => {
             }}
           >
             <motion.div
-              style={{ y: useTransform(scrollY, [0, isMobile ? 0 : 900], [0, isMobile ? 200 : 300]), x: 0 }}
+              style={{
+                y: useTransform(
+                  scrollY,
+                  [0, isMobile ? 0 : 900],
+                  [0, isMobile ? 200 : 300]
+                ),
+                x: 0,
+              }}
               className=" hero-content flex flex-col gap-y-[clamp(1.4rem,3vw,3rem)]"
             >
               <div className="flex justify-evenly gap-[clamp(0.2rem,2vw,1rem)]">
@@ -85,14 +100,28 @@ export const Hero = ({ className, isMobile }: divProps) => {
 
               <div className="flex flex-col justify-center gap-y-[clamp(0.2rem,1vw,1rem)] text-center">
                 <div className=" drop-shadow-[0_7px_130px_theme(colors.secondary)]">
-                  <h1 className={cn(`font-title !text-center font-bold`, isMobile ? ` mb-2 text-[clamp(1rem,4vw,3rem)] ` : ` leading-[1.3] text-[clamp(1.2rem,4vw,3rem)] `)}>
+                  <h1
+                    className={cn(
+                      `font-title !text-center font-bold`,
+                      isMobile
+                        ? ` mb-2 text-[clamp(1rem,4vw,3rem)] `
+                        : ` leading-[1.3] text-[clamp(1.2rem,4vw,3rem)] `
+                    )}
+                  >
                     <span className="inline-grid text-center">
                       <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937]">
                         From the Sky to the Ground:
                       </span>
                     </span>
                   </h1>
-                  <h1 className={cn(`font-title !text-center -mt-2 font-black`, isMobile ? `text-[clamp(1.1rem,4vw,4rem)]` :` text-[clamp(1.3rem,4vw,4rem)]`)}>
+                  <h1
+                    className={cn(
+                      `font-title !text-center -mt-2 font-black`,
+                      isMobile
+                        ? `text-[clamp(1.1rem,4vw,4rem)]`
+                        : ` text-[clamp(1.3rem,4vw,4rem)]`
+                    )}
+                  >
                     <span className="inline-grid text-center">
                       <span
                         className="pointer-events-none col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text blur-xl [-webkit-text-fill-color:transparent] [transform:translate3d(0,0,0)] before:content-[attr(data-text)] [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)]"
@@ -130,11 +159,13 @@ export const Hero = ({ className, isMobile }: divProps) => {
               opacity: isInView ? 1 : 0,
               transition: "all 2s cubic-bezier(0.17, 0.55, 0.55, 1) 0.5s",
             }}
-            className={ cn(` absolute top-[80vh] flex justify-center flex-col items-center z-50 `)}
+            className={cn(
+              ` absolute top-[80vh] flex justify-center flex-col items-center z-50 `
+            )}
           >
             <button
               onClick={() => scrollInto("cityscape")}
-              className="pt-1 pb-5 px-3 rounded-full bg-transparent border-2 border-white opacity-60 border-spacing-8"
+              className="hidden sm:block pt-1 pb-5 px-3 rounded-full bg-transparent border-2 border-white opacity-60 border-spacing-8"
             >
               <span
                 className=" inline-flex h-3 w-1 rounded-full bg-white "
@@ -142,6 +173,21 @@ export const Hero = ({ className, isMobile }: divProps) => {
                   animation: "animated-mouse 1s ease infinite",
                 }}
               ></span>
+            </button>
+
+            <button
+              onClick={() => scrollInto("cityscape")}
+              className="flex justify-center items-center sm:hidden  bg-transparent "
+            >
+              <img
+                alt="scroll"
+                src="/images/scroll.png"
+                style={{
+                  width: "8%",
+                  marginBottom: "3%" ,
+                  animation: "animated-mouse 1.2s ease infinite",
+                }}
+              />
             </button>
 
             <button
