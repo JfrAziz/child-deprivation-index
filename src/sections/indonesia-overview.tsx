@@ -18,9 +18,31 @@ export const IndonesiaOverview = ({ className, isMobile }: divProps) => {
         });
 
         useLayerStyle.setState((state) => ({
+          "indonesia-poverty-regency": {
+            ...state["indonesia-poverty-regency"],
+            "fill-outline-color": "#666666",
+            "fill-opacity": [
+              "interpolate",
+              ["linear"],
+              ["get", "kemiskinan"],
+              0,
+              0.5,
+              50,
+              1,
+            ],
+            "fill-color": [
+              "interpolate",
+              ["linear"],
+              ["get", "kemiskinan"],
+              0,
+              "#acf0f2",
+              40,
+              "#d23600",
+            ],
+          },
           "indonesia-province": {
             ...state["indonesia-province"],
-            "fill-opacity": 0.6,
+            "fill-opacity": 0,
             "fill-color": "#a3e635",
             "fill-outline-color": "#facc15",
             "fill-outline-color-transition": {
@@ -34,7 +56,7 @@ export const IndonesiaOverview = ({ className, isMobile }: divProps) => {
       <SectionCard>
         <p>
           The official poverty statistics in Indonesia are currently presented
-          at the district or city level, which overlooks the diverse conditions
+          at the regencies or city level, which overlooks the diverse conditions
           across the various regions within the 34 provinces.
         </p>
       </SectionCard>
@@ -58,6 +80,9 @@ export const JavaPovertyOverview = ({ className, isMobile }: divProps) => {
         });
 
         useLayerStyle.setState((state) => ({
+          "indonesia-poverty-regency": {
+            "fill-opacity": 0
+          },
           "indonesia-province": {
             ...state["indonesia-province"],
             "fill-color-transition": { duration: 2000 },
@@ -126,6 +151,7 @@ export const JavaHDI = ({ className, isMobile }: divProps) => {
         });
         map?.getMap().setLayoutProperty("cdi", "visibility", "none");
         map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
+        
         useLayerStyle.setState((state) => ({
           "indonesia-province": {
             ...state["indonesia-province"],

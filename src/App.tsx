@@ -14,6 +14,7 @@ import dusunJuniorHighSchool from "@/data/dusun/junior-high-school.json";
 import dusunHighSchool from "@/data/dusun/high-school.json";
 import graticule from "@/data/graticule";
 import indonesiaProvince from "@/data/indonesia.json";
+import indonesiaPovertyRegency from "@/data/indonesia-poverty-regency.json";
 import clusterPharmacy from "@/data/cluster/pharmacy.json";
 import clusterBank from "@/data/cluster/bank.json";
 import clusterMarket from "@/data/cluster/market.json";
@@ -155,6 +156,17 @@ const App = () => {
                 type="fill"
                 id="indonesia-province"
                 paint={state["indonesia-province"]}
+              />
+            </Source>
+            <Source
+              type="geojson"
+              id="indonesia-poverty-regency"
+              data={indonesiaPovertyRegency as GeoJSON.FeatureCollection}
+            >
+              <Layer
+                type="fill"
+                id="indonesia-poverty-regency"
+                paint={state["indonesia-poverty-regency"]}
               />
             </Source>
             <Source

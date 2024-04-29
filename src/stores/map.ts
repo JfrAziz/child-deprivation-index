@@ -3,6 +3,7 @@ import { create } from "zustand";
 
 interface LayerStyle {
   "indonesia-province": FillPaint;
+  "indonesia-poverty-regency": FillPaint;
   "yogyakarta-regencies": FillPaint;
   "lowest-cdi": FillPaint;
   graticule: LinePaint;
@@ -54,6 +55,30 @@ export const useLayerStyle = create<LayerStyle>((set) => ({
     "fill-opacity-transition": { duration: 2000 },
     "fill-outline-color-transition": { duration: 2000 },
   },
+  "indonesia-poverty-regency": {
+    "fill-opacity": [
+      "interpolate",
+      ["linear"],
+      ["get", "kemiskinan"],
+      0,
+      0.5,
+      50,
+      1,
+    ],
+    "fill-color": [
+      "interpolate",
+      ["linear"],
+      ["get", "kemiskinan"],
+      0,
+      "#acf0f2",
+      40,
+      "#d23600",
+    ],
+    "fill-outline-color": "#000000",
+    "fill-color-transition": { duration: 2000 },
+    "fill-opacity-transition": { duration: 2000 },
+    "fill-outline-color-transition": { duration: 2000 },
+  },
   "yogyakarta-regencies": {
     "fill-color": "#FFF",
     "fill-opacity": 0,
@@ -61,8 +86,8 @@ export const useLayerStyle = create<LayerStyle>((set) => ({
     "fill-outline-color-transition": { duration: 2000 },
   },
   "lowest-cdi": {
-    'fill-outline-color': '#000', 
-    'fill-outline-opacity': 1,
+    "fill-outline-color": "#000",
+    "fill-outline-opacity": 1,
     "fill-opacity-transition": { duration: 500 },
     "fill-outline-color-transition": { duration: 2000 },
   },
