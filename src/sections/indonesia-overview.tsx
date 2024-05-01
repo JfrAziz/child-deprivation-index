@@ -3,71 +3,73 @@ import { SectionCard, SectionWrapper } from "@/components/section-card";
 import { divProps } from "@/App";
 import { cn } from "@/lib/utils";
 
-export const IndonesiaOverview = ({ className, isMobile }: divProps) => {
+export const IndonesiaOverview = ({ id, className, isMobile }: divProps) => {
   return (
-    <SectionWrapper
-      className={cn(className, "flex items-center flex-row")}
-      onSectionEnter={(map) => {
-        map?.flyTo({
-          duration: isMobile ? 5000 : 3000,
-          center: [118, -2],
-          zoom: isMobile ? 2.3 : 4,
-          curve: 3,
-          pitch: 0.0,
-          bearing: 4,
-        });
+    <section id={id}>
+      <SectionWrapper
+        className={cn(className, "flex items-center flex-row")}
+        onSectionEnter={(map) => {
+          map?.flyTo({
+            duration: isMobile ? 5000 : 3000,
+            center: [118, -2],
+            zoom: isMobile ? 2.3 : 4,
+            curve: 3,
+            pitch: 0.0,
+            bearing: 4,
+          });
 
-        useLayerStyle.setState((state) => ({
-          "indonesia-poverty-regency": {
-            ...state["indonesia-poverty-regency"],
-            "fill-outline-color": "#666666",
-            "fill-opacity": [
-              "interpolate",
-              ["linear"],
-              ["get", "kemiskinan"],
-              0,
-              0.5,
-              50,
-              1,
-            ],
-            "fill-color": [
-              "interpolate",
-              ["linear"],
-              ["get", "kemiskinan"],
-              0,
-              "#acf0f2",
-              40,
-              "#d23600",
-            ],
-          },
-          "indonesia-province": {
-            ...state["indonesia-province"],
-            "fill-opacity": 0,
-            "fill-color": "#a3e635",
-            "fill-outline-color": "#facc15",
-            "fill-outline-color-transition": {
-              duration: 6000000000,
-              delay: 60000000000,
+          useLayerStyle.setState((state) => ({
+            "indonesia-poverty-regency": {
+              ...state["indonesia-poverty-regency"],
+              "fill-outline-color": "#666666",
+              "fill-opacity": [
+                "interpolate",
+                ["linear"],
+                ["get", "kemiskinan"],
+                0,
+                0.5,
+                50,
+                1,
+              ],
+              "fill-color": [
+                "interpolate",
+                ["linear"],
+                ["get", "kemiskinan"],
+                0,
+                "#d9f99d",
+                30,
+                "#FE0020",
+              ],
             },
-          },
-        }));
-      }}
-    >
-      <SectionCard>
-        <p>
-          The official poverty statistics in Indonesia are currently presented
-          at the regencies or city level, which overlooks the diverse conditions
-          across the various regions within the 34 provinces.
-        </p>
-      </SectionCard>
-    </SectionWrapper>
+            "indonesia-province": {
+              ...state["indonesia-province"],
+              "fill-opacity": 0,
+              "fill-color": "#a3e635",
+              "fill-outline-color": "#facc15",
+              "fill-outline-color-transition": {
+                duration: 6000000000,
+                delay: 60000000000,
+              },
+            },
+          }));
+        }}
+      >
+        <SectionCard>
+          <p>
+            The official poverty statistics in Indonesia are currently presented
+            at the regencies or city level, which overlooks the diverse
+            conditions across the various regions within the 34 provinces.
+          </p>
+        </SectionCard>
+      </SectionWrapper>
+    </section>
   );
 };
 
 export const JavaPovertyOverview = ({ className, isMobile }: divProps) => {
   return (
     <SectionWrapper
-      className={cn(className,"flex items-center justify-end flex-row")}
+      className={cn(className, "flex items-center justify-end flex-row")}
       onSectionEnter={(map) => {
         usePopupStore.setState({ active: false });
 
@@ -81,7 +83,7 @@ export const JavaPovertyOverview = ({ className, isMobile }: divProps) => {
 
         useLayerStyle.setState((state) => ({
           "indonesia-poverty-regency": {
-            "fill-opacity": 0
+            "fill-opacity": 0,
           },
           "indonesia-province": {
             ...state["indonesia-province"],
@@ -140,18 +142,18 @@ export const JavaPovertyOverview = ({ className, isMobile }: divProps) => {
 export const JavaHDI = ({ className, isMobile }: divProps) => {
   return (
     <SectionWrapper
-      className={cn(className,"flex items-center flex-row")}
+      className={cn(className, "flex items-center flex-row")}
       onSectionEnter={(map) => {
         map?.flyTo({
           duration: 4000,
           center: [108.30713, -7.44617],
           zoom: isMobile ? 5.25 : 7.29,
           pitch: 47.53,
-          bearing:  isMobile ? 40 :  35.98,
+          bearing: isMobile ? 40 : 35.98,
         });
         map?.getMap().setLayoutProperty("cdi", "visibility", "none");
         map?.getMap().setLayoutProperty("cdi-3d", "visibility", "none");
-        
+
         useLayerStyle.setState((state) => ({
           "indonesia-province": {
             ...state["indonesia-province"],
@@ -226,7 +228,7 @@ export const JavaHDI = ({ className, isMobile }: divProps) => {
 export const JavaPoverty = ({ className, isMobile }: divProps) => {
   return (
     <SectionWrapper
-      className={cn(className,"flex items-center justify-end flex-row")}
+      className={cn(className, "flex items-center justify-end flex-row")}
       onSectionEnter={(map) => {
         map?.flyTo({
           duration: 4000,
@@ -270,7 +272,9 @@ export const JavaPoverty = ({ className, isMobile }: divProps) => {
               title: "Poverty Rate",
               subtitle: (
                 <>
-                  <span className="text-base sm:text-xl font-black">March 2023</span>
+                  <span className="text-base sm:text-xl font-black">
+                    March 2023
+                  </span>
                 </>
               ) as unknown as JSX.Element,
               // subtitle: "The percentage of people living below the poverty line",
@@ -284,7 +288,9 @@ export const JavaPoverty = ({ className, isMobile }: divProps) => {
               title: "Poverty Rate",
               subtitle: (
                 <>
-                  <span className="text-base sm:text-xl font-black">March 2023</span>
+                  <span className="text-base sm:text-xl font-black">
+                    March 2023
+                  </span>
                 </>
               ) as unknown as JSX.Element,
               // subtitle: "The percentage of people living below the poverty line",

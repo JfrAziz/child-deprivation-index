@@ -52,14 +52,12 @@ import {
   YogyakartaCDIHighlightHighest,
   YogyakartaRegencies,
 } from "./sections/satellite";
-import { ThemeButton } from "./sections/theme-button";
+import { NavigationButton } from "./sections/navigation-button";
 import { Remarks } from "./sections/remarks";
-
 
 export type divProps = React.ComponentPropsWithRef<"div"> & {
   isMobile?: boolean;
 };
-
 
 const App = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -535,30 +533,37 @@ const App = () => {
         </div>
 
         <div className="z-10 absolute w-full">
-          <ThemeButton />
+          <NavigationButton />
+
           <Hero isMobile={isMobile} />
           <Cityscape isMobile={isMobile} />
           <ChildDeprivation isMobile={isMobile} />
           <BPSCommitment isMobile={isMobile} />
           <Quotes />
-          <IndonesiaOverview isMobile={isMobile} />
+          <IndonesiaOverview id="poverty-rate" isMobile={isMobile} />
           <JavaPovertyOverview isMobile={isMobile} />
           <JavaHDI isMobile={isMobile} />
           <JavaPoverty isMobile={isMobile} />
-          <RemoteSensingLayers />
+          <RemoteSensingLayers id="remote-sensing" />
           <YogyakartaRegencies isMobile={isMobile} />
-          <YogyakartaCDI isMobile={isMobile} />
+          <YogyakartaCDI id="child-deprivation" isMobile={isMobile} />
           <YogyakartaCDIHighlight isMobile={isMobile} />
           <PondokJayaPermai isMobile={isMobile} />
           <KlasterSekolah
-            clusterElementarySchool={clusterElementarySchool.features[0] as GeoJSON.Feature}
-            clusterJuniorHighSchool={clusterJuniorHighSchool.features[0] as GeoJSON.Feature}
+            clusterElementarySchool={
+              clusterElementarySchool.features[0] as GeoJSON.Feature
+            }
+            clusterJuniorHighSchool={
+              clusterJuniorHighSchool.features[0] as GeoJSON.Feature
+            }
             clusterHighSchool={clusterHighSchool.features[0] as GeoJSON.Feature}
             isMobile={isMobile}
           />
           <KlasterKesehatan
             clusterPharmacy={clusterPharmacy.features[0] as GeoJSON.Feature}
-            clusterHealthCenter={clusterHealthCenter.features[0] as GeoJSON.Feature}
+            clusterHealthCenter={
+              clusterHealthCenter.features[0] as GeoJSON.Feature
+            }
             clusterHospital={clusterHospital.features[0] as GeoJSON.Feature}
             isMobile={isMobile}
           />
@@ -571,8 +576,12 @@ const App = () => {
           <YogyakartaCDIHighlightHighest isMobile={isMobile} />
           <DusunSureng isMobile={isMobile} />
           <DusunSekolah
-            dusunElementarySchool={dusunElementarySchool.features[0] as GeoJSON.Feature}
-            dusunJuniorHighSchool={dusunJuniorHighSchool.features[0] as GeoJSON.Feature}
+            dusunElementarySchool={
+              dusunElementarySchool.features[0] as GeoJSON.Feature
+            }
+            dusunJuniorHighSchool={
+              dusunJuniorHighSchool.features[0] as GeoJSON.Feature
+            }
             dusunHighSchool={dusunHighSchool.features[0] as GeoJSON.Feature}
             isMobile={isMobile}
           />

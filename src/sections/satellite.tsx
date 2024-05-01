@@ -51,53 +51,55 @@ export const YogyakartaRegencies = ({ className, isMobile }: divProps) => {
   );
 };
 
-export const YogyakartaCDI = ({ className, isMobile }: divProps) => {
+export const YogyakartaCDI = ({ id, className, isMobile }: divProps) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
-    <SectionWrapper
-      className={cn(className,"flex flex-row items-center")}
-      onSectionEnter={(map) => {
-        clearMarkers();
-        usePopupStore.setState({ active: false });
-        resetRouteStyles();
-        useLayerStyle.setState((state) => ({
-          "yogyakarta-regencies": {
-            ...state["yogyakarta-regencies"],
-            "fill-opacity": 0.2,
-          },
-        }));
-        map?.moveLayer("cdi");
-        map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
+    <section id={id}>
+      <SectionWrapper
+        className={cn(className, "flex flex-row items-center")}
+        onSectionEnter={(map) => {
+          clearMarkers();
+          usePopupStore.setState({ active: false });
+          resetRouteStyles();
+          useLayerStyle.setState((state) => ({
+            "yogyakarta-regencies": {
+              ...state["yogyakarta-regencies"],
+              "fill-opacity": 0.2,
+            },
+          }));
+          map?.moveLayer("cdi");
+          map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
 
-        map?.flyTo({
-          center: [110.22413, -7.7754],
-          zoom: isMobile ? 7.8 : 9.2,
-          bearing: 0,
-          pitch: 0,
-          duration: 2000,
-        });
-      }}
-    >
-      <SectionCard
-        title={
-          (
-            <>
-              Yogyakarta Province
-              <br />
-              Child Deprivation Rate (CDR)
-            </>
-          ) as unknown as JSX.Element
-        }
+          map?.flyTo({
+            center: [110.22413, -7.7754],
+            zoom: isMobile ? 7.8 : 9.2,
+            bearing: 0,
+            pitch: 0,
+            duration: 2000,
+          });
+        }}
       >
-        <p>
-          The 1 km² area depicted represents children who suffer from a lack of
-          access to education, health, and economic facilities. In the Sleman
-          Regency, there are three grids with the lowest percentage of deprived
-          children in the Yogyakarta Province.
-        </p>
-      </SectionCard>
-    </SectionWrapper>
+        <SectionCard
+          title={
+            (
+              <>
+                Yogyakarta Province
+                <br />
+                Child Deprivation Rate (CDR)
+              </>
+            ) as unknown as JSX.Element
+          }
+        >
+          <p>
+            The 1 km² area depicted represents children who suffer from a lack
+            of access to education, health, and economic facilities. In the
+            Sleman Regency, there are three grids with the lowest percentage of
+            deprived children in the Yogyakarta Province.
+          </p>
+        </SectionCard>
+      </SectionWrapper>
+    </section>
   );
 };
 
@@ -106,7 +108,7 @@ export const YogyakartaCDIHighlight = ({ className, isMobile }: divProps) => {
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className={cn(className,"flex flex-row items-center")}
+      className={cn(className, "flex flex-row items-center")}
       onSectionEnter={(map) => {
         clearMarkers();
         resetRouteStyles();
@@ -147,7 +149,9 @@ export const YogyakartaCDIHighlight = ({ className, isMobile }: divProps) => {
               title: "3rd",
               subtitle: (
                 <>
-                  <span className="text-lg sm:text-xl font-black">Lowest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">
+                    Lowest CDR
+                  </span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -160,7 +164,9 @@ export const YogyakartaCDIHighlight = ({ className, isMobile }: divProps) => {
               title: "2nd",
               subtitle: (
                 <>
-                  <span className="text-lg sm:text-xl font-black">Lowest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">
+                    Lowest CDR
+                  </span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -173,7 +179,9 @@ export const YogyakartaCDIHighlight = ({ className, isMobile }: divProps) => {
               title: "1st",
               subtitle: (
                 <>
-                  <span className="text-lg sm:text-xl font-black">Lowest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">
+                    Lowest CDR
+                  </span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -200,7 +208,7 @@ export const PondokJayaPermai = ({ className, isMobile }: divProps) => {
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className={cn(className,"flex flex-row items-center")}
+      className={cn(className, "flex flex-row items-center")}
       onSectionEnter={(map) => {
         clearMarkers();
         resetRouteStyles();
@@ -238,7 +246,9 @@ export const PondokJayaPermai = ({ className, isMobile }: divProps) => {
         map?.moveLayer("cdi");
         map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
         map?.flyTo({
-          center: isMobile ? [110.4523693, -7.699200007] : [110.4523693, -7.6965357],
+          center: isMobile
+            ? [110.4523693, -7.699200007]
+            : [110.4523693, -7.6965357],
           zoom: isMobile ? 14 : 16,
           bearing: -60,
           pitch: 0,
@@ -327,7 +337,9 @@ export const KlasterSekolah = ({
           },
         }));
         map?.flyTo({
-          center: isMobile ? [110.4523693, -7.699200007] : [110.4548634, -7.6981721],
+          center: isMobile
+            ? [110.4523693, -7.699200007]
+            : [110.4548634, -7.6981721],
           zoom: isMobile ? 14 : 15.6,
           bearing: isMobile ? -50 : -20,
           pitch: isMobile ? -30 : 60,
@@ -339,7 +351,11 @@ export const KlasterSekolah = ({
         const animationDuration = 5000;
         const markers: Marker[] = [];
         const pathDistances: number[] = [];
-        for (const clusterSekolah of [clusterElementarySchool, clusterJuniorHighSchool, clusterHighSchool]) {
+        for (const clusterSekolah of [
+          clusterElementarySchool,
+          clusterJuniorHighSchool,
+          clusterHighSchool,
+        ]) {
           // @ts-expect-error ignore clusterElementarySchool types
           const pinRoute = clusterSekolah.geometry.coordinates;
           // @ts-expect-error ignore clusterElementarySchool types
@@ -403,41 +419,43 @@ export const KlasterSekolah = ({
             return;
           }
 
-          [clusterElementarySchool, clusterJuniorHighSchool, clusterHighSchool].forEach(
-            async (cluster, index) => {
-              const alongPath = turf.along(
-                // @ts-expect-error ignore cluster types
-                cluster,
-                pathDistances[index] * animationPhase
-              ).geometry.coordinates;
-              const lngLat = {
-                lng: alongPath[0],
-                lat: alongPath[1],
-              };
-              markers[index + 1 * index].setLngLat(lngLat);
-              let paintProperty: string;
-              switch (index) {
-                case 1:
-                  paintProperty = "route-cluster-smp";
-                  break;
-                case 2:
-                  paintProperty = "route-cluster-sma";
-                  break;
-                default:
-                  paintProperty = "route-cluster-sd";
-                  break;
-              }
-              map
-                ?.getMap()
-                .setPaintProperty(paintProperty, "line-gradient", [
-                  "step",
-                  ["line-progress"],
-                  "#fbbf24",
-                  animationPhase,
-                  "#fffbeb",
-                ]);
+          [
+            clusterElementarySchool,
+            clusterJuniorHighSchool,
+            clusterHighSchool,
+          ].forEach(async (cluster, index) => {
+            const alongPath = turf.along(
+              // @ts-expect-error ignore cluster types
+              cluster,
+              pathDistances[index] * animationPhase
+            ).geometry.coordinates;
+            const lngLat = {
+              lng: alongPath[0],
+              lat: alongPath[1],
+            };
+            markers[index + 1 * index].setLngLat(lngLat);
+            let paintProperty: string;
+            switch (index) {
+              case 1:
+                paintProperty = "route-cluster-smp";
+                break;
+              case 2:
+                paintProperty = "route-cluster-sma";
+                break;
+              default:
+                paintProperty = "route-cluster-sd";
+                break;
             }
-          );
+            map
+              ?.getMap()
+              .setPaintProperty(paintProperty, "line-gradient", [
+                "step",
+                ["line-progress"],
+                "#fbbf24",
+                animationPhase,
+                "#fffbeb",
+              ]);
+          });
           requestAnimationFrame(frame);
         }
         requestAnimationFrame(frame);
@@ -532,7 +550,9 @@ export const KlasterKesehatan = ({
           },
         }));
         map?.flyTo({
-          center: isMobile ? [110.45032711, -7.6997777] :  [110.4572711, -7.6997777],
+          center: isMobile
+            ? [110.45032711, -7.6997777]
+            : [110.4572711, -7.6997777],
           zoom: isMobile ? 14 : 14.5,
           bearing: isMobile ? 10 : -40,
           pitch: 60,
@@ -729,7 +749,9 @@ export const KlasterEkonomi = ({
           },
         }));
         map?.flyTo({
-          center: isMobile ? [110.45223748, -7.6958745] : [110.4533748, -7.6958745],
+          center: isMobile
+            ? [110.45223748, -7.6958745]
+            : [110.4533748, -7.6958745],
           zoom: isMobile ? 16.5 : 16.9,
           bearing: isMobile ? -80 : -30,
           pitch: 30,
@@ -859,12 +881,15 @@ export const KlasterEkonomi = ({
   );
 };
 
-export const YogyakartaCDIHighlightHighest = ({className, isMobile} : divProps) => {
+export const YogyakartaCDIHighlightHighest = ({
+  className,
+  isMobile,
+}: divProps) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className={cn(className,"flex flex-row items-center")}
+      className={cn(className, "flex flex-row items-center")}
       onSectionEnter={(map) => {
         clearMarkers();
         resetRouteStyles();
@@ -903,7 +928,9 @@ export const YogyakartaCDIHighlightHighest = ({className, isMobile} : divProps) 
               title: "3rd",
               subtitle: (
                 <>
-                  <span className="text-lg sm:text-xl font-black">Highest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">
+                    Highest CDR
+                  </span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -916,7 +943,9 @@ export const YogyakartaCDIHighlightHighest = ({className, isMobile} : divProps) 
               title: "2nd",
               subtitle: (
                 <>
-                  <span className="text-lg sm:text-xl font-black">Highest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">
+                    Highest CDR
+                  </span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -929,7 +958,9 @@ export const YogyakartaCDIHighlightHighest = ({className, isMobile} : divProps) 
               title: "1st",
               subtitle: (
                 <>
-                  <span className="text-lg sm:text-xl font-black">HIghest CDR</span>
+                  <span className="text-lg sm:text-xl font-black">
+                    HIghest CDR
+                  </span>
                 </>
               ) as unknown as JSX.Element,
               value:
@@ -951,12 +982,12 @@ export const YogyakartaCDIHighlightHighest = ({className, isMobile} : divProps) 
   );
 };
 
-export const DusunSureng = ({className, isMobile} : divProps) => {
+export const DusunSureng = ({ className, isMobile }: divProps) => {
   const clearMarkers = markersStore((state) => state.clearMarkers);
   const resetRouteStyles = useLayerStyle((state) => state.resetRouteStyles);
   return (
     <SectionWrapper
-      className={cn(className,"flex flex-row items-center")}
+      className={cn(className, "flex flex-row items-center")}
       onSectionEnter={(map) => {
         clearMarkers();
         resetRouteStyles();
@@ -994,7 +1025,7 @@ export const DusunSureng = ({className, isMobile} : divProps) => {
         map?.moveLayer("cdi");
         map?.getMap().setLayoutProperty("cdi", "visibility", "visible");
         map?.flyTo({
-          center: isMobile ?   [110.660206, -8.15249] : [110.66206, -8.15249],
+          center: isMobile ? [110.660206, -8.15249] : [110.66206, -8.15249],
           zoom: isMobile ? 14 : 16,
           bearing: -1,
           pitch: 0,
@@ -1018,7 +1049,7 @@ export const DusunSekolah = ({
   dusunElementarySchool,
   dusunJuniorHighSchool,
   dusunHighSchool,
-  isMobile
+  isMobile,
 }: {
   dusunElementarySchool: GeoJSON.Feature;
   dusunJuniorHighSchool: GeoJSON.Feature;
@@ -1095,7 +1126,11 @@ export const DusunSekolah = ({
         const animationDuration = 5000;
         const markers: Marker[] = [];
         const pathDistances: number[] = [];
-        for (const dusunSekolah of [dusunElementarySchool, dusunJuniorHighSchool, dusunHighSchool]) {
+        for (const dusunSekolah of [
+          dusunElementarySchool,
+          dusunJuniorHighSchool,
+          dusunHighSchool,
+        ]) {
           // @ts-expect-error ignore dusunElementarySchool types
           const pinRoute = dusunSekolah.geometry.coordinates;
           // @ts-expect-error ignore dusunElementarySchool types
@@ -1160,7 +1195,11 @@ export const DusunSekolah = ({
             return;
           }
 
-          [dusunElementarySchool, dusunJuniorHighSchool, dusunHighSchool].forEach(async (dusun, index) => {
+          [
+            dusunElementarySchool,
+            dusunJuniorHighSchool,
+            dusunHighSchool,
+          ].forEach(async (dusun, index) => {
             const alongPath = turf.along(
               // @ts-expect-error ignore dusun types
               dusun,
@@ -1368,7 +1407,9 @@ export const DusunKesehatan = ({
             map
               ?.getMap()
               .setPaintProperty(
-                index == 0 ? "route-dusun-pharmacy" : "route-dusun-health_center",
+                index == 0
+                  ? "route-dusun-pharmacy"
+                  : "route-dusun-health_center",
                 "line-gradient",
                 [
                   "step",
@@ -1563,8 +1604,8 @@ export const DusunEkonomi = ({
     >
       <SectionCard title="Access to Economic Facilities">
         <p>
-          It takes 81 minutes to the market (Market Tepus and Indomaret Tepus) on
-          foot or 12 minutes by car with a distance of 5.6 km.
+          It takes 81 minutes to the market (Market Tepus and Indomaret Tepus)
+          on foot or 12 minutes by car with a distance of 5.6 km.
         </p>
       </SectionCard>
     </SectionWrapper>
