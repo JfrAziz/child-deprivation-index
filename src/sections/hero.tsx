@@ -102,23 +102,9 @@ export const Hero = ({ className, isMobile }: divProps) => {
                 <div className=" drop-shadow-[0_7px_130px_theme(colors.secondary)]">
                   <h1
                     className={cn(
-                      `font-title !text-center font-bold`,
+                      `font-title !text-center font-black`,
                       isMobile
-                        ? ` mb-2 text-[clamp(1rem,4vw,3rem)] `
-                        : ` leading-[1.3] text-[clamp(1.2rem,4vw,3rem)] `
-                    )}
-                  >
-                    <span className="inline-grid text-center">
-                      <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937]">
-                        From the Sky to the Ground:
-                      </span>
-                    </span>
-                  </h1>
-                  <h1
-                    className={cn(
-                      `font-title !text-center -mt-2 font-black`,
-                      isMobile
-                        ? `text-[clamp(1.1rem,4vw,4rem)]`
+                        ? ` text-[clamp(1.4rem,4vw,4rem)]`
                         : ` text-[clamp(1.3rem,4vw,4rem)]`
                     )}
                   >
@@ -128,10 +114,24 @@ export const Hero = ({ className, isMobile }: divProps) => {
                         aria-hidden="true"
                         data-text="component library"
                       >
-                        Mapping Child
+                        Mapping 
                       </span>
                       <span className="[&::selection]:text-base-content relative col-start-1 row-start-1 bg-[linear-gradient(90deg,theme(colors.error)_0%,theme(colors.secondary)_9%,theme(colors.secondary)_42%,theme(colors.primary)_47%,theme(colors.accent)_100%)] bg-clip-text drop-shadow-[0_0.1em_0.1em_theme(colors.base-300)] [-webkit-text-fill-color:transparent] [&::selection]:bg-blue-700/20 [@supports(color:oklch(0_0_0))]:bg-[linear-gradient(90deg,oklch(var(--s))_4%,color-mix(in_oklch,oklch(var(--s)),oklch(var(--er)))_22%,oklch(var(--p))_45%,color-mix(in_oklch,oklch(var(--p)),oklch(var(--a)))_67%,oklch(var(--a))_100.2%)] leading-[1.1]">
-                        Mapping Child Deprivation via Satellite
+                      Mapping of Child Welfare
+                      </span>
+                    </span>
+                  </h1>
+                  <h1
+                    className={cn(
+                      `font-title !text-center font-bold `,
+                      isMobile
+                        ? ` -mt-3 mb-2 text-[clamp(1.15rem,4vw,3rem)] `
+                        : ` -mt-8 leading-[1.3] text-[clamp(1.2rem,4vw,3rem)] `
+                    )}
+                  >
+                    <span className="inline-grid text-center">
+                      <span className="[&::selection]:text-neutral-content relative col-start-1 row-start-1 text-base-content drop-shadow-[0_3px_4px_#1f2937]">
+                        by Using Satellite Imagery
                       </span>
                     </span>
                   </h1>
@@ -184,7 +184,7 @@ export const Hero = ({ className, isMobile }: divProps) => {
                 src="/images/scroll.png"
                 style={{
                   width: "8%",
-                  marginBottom: "3%" ,
+                  marginBottom: "3%",
                   animation: "animated-mouse 1.2s ease infinite",
                 }}
               />
